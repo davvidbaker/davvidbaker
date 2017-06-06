@@ -16,6 +16,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "recompose": "^0.23.4",
     "styled-jsx": "^1.0.3"
   }
 }
