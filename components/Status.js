@@ -14,6 +14,7 @@ export default ({ status, focused }) => (
         color: white;
         cursor: default;
         font-size: 10px;
+        transition: opacity 0.2s;
       }
 
       .status-key, .status-value {

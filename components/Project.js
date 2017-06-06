@@ -28,7 +28,9 @@ const ExternalLinks = ({ link, linkToSource, linkToTrello, callToAction }) => (
   <ul>
 
     <li className="project-link">
-      {link ? <a href={link}>{callToAction}</a> : <p>Coming Soon</p>}
+      <p>
+        {link ? <a href={link}>{callToAction}</a> : 'Coming Soon'}
+      </p>
     </li>
 
     {linkToSource &&
@@ -66,6 +68,10 @@ const ExternalLinks = ({ link, linkToSource, linkToTrello, callToAction }) => (
           flex-grow: 1;
         }
       
+        p {
+          margin: 0;
+        }
+
       `}
     </style>
   </ul>
@@ -91,7 +97,7 @@ const Project = ({
   <div onMouseEnter={focus} onMouseLeave={unfocus}>
     <h1 data-content={name}>{name} <span>{year && formatYears(year)}</span></h1>
     {status && <Status status={status} focused={focused} />}
-    <p>{tagline}</p>
+    <p className="tagline">{tagline}</p>
 
     {description ? <p>Read More...</p> : null}
     <ExternalLinks {...{ link, linkToSource, linkToTrello, callToAction }} />
@@ -113,6 +119,10 @@ const Project = ({
         h1 span {
           color: #ddd;
           font-size: smaller;
+        }
+
+        .tagline {
+          flex: 1;
         }
     `}</style>
   </div>
