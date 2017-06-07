@@ -36,14 +36,14 @@ const ExternalLinks = ({ link, linkToSource, linkToTrello, callToAction }) => (
     {linkToSource &&
       <li>
         <a href={linkToSource}>
-          <img width="24px" src="static/github.svg" alt="Github" />
+          <img width="24px" src="/static/github.svg" alt="Github" />
         </a>
       </li>}
 
     {linkToTrello &&
       <li>
         <a href={linkToTrello}>
-          <img width="24px" src="static/trello-mark-blue.svg" alt="Trello" />
+          <img width="24px" src="/static/trello-mark-blue.svg" alt="Trello" />
         </a>
       </li>}
 
