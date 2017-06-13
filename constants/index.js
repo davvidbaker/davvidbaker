@@ -48,6 +48,7 @@ export const PROJECTS = [
     name: 'Wedding Card',
     year: [2016],
     status: ['shipped', 'green'],    
+    tagline: 'A card for my brother for he and his now-wife. ',
     link: 'https://davvidbaker.github.io/wedding-card/index.html',
     linkToSource: 'https://github.com/davvidbaker/wedding-card',
     keywords: ['Phaser'],

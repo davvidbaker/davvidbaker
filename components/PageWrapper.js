@@ -2,25 +2,40 @@
  * Contains global styles.
  */
 import Head from 'next/head';
+import { compose, withHandlers, withReducer } from 'recompose';
 
 import Nav from './Nav';
 import colors from '../constants/colors';
 
-export default ({ title = '🙃🐢', children }) => (
-  <div>
-    <Head>
-      <title>{title}</title>
-      <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet" />
-    </Head>
-    <Nav />
-    {children}
-    <style jsx global>{`
+const enhance = withReducer(
+  'borderColor',
+  'dispatch',
+  (state, action) => `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
+);
+
+export default enhance(
+  ({ title = '🙃🐢', borderColor, children, dispatch }) => (
+    <div id="body-div" style={{ borderColor }}>
+      <Head>
+        <title>{title}</title>
+        <link
+          href="https://fonts.googleapis.com/css?family=Signika"
+          rel="stylesheet"
+        />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="theme-color" content={borderColor} />
+        <meta name="theme-color" content={borderColor ? borderColor : 'blue'} />
+        <meta charset="utf-8" />
+      </Head>
+      <Nav />
+      <button onClick={dispatch}>Click me</button>
+      {children}
+      <style jsx global>
+        {`
         html {
           box-sizing: border-box;
-          min-height: 100%;
-          border: mediumseagreen 5px solid;
-          background: #f5f5f5;
           font-family: sans-serif;
+          min-height: 100vh;
         }
 
         *, *::before, *::after {
@@ -29,6 +44,11 @@ export default ({ title = '🙃🐢', children }) => (
 
         *::selection {
           background: lightpink;
+        }
+
+        body {
+          min-height: 100vh;
+          margin: 0;
         }
 
         h1 {
@@ -49,7 +69,22 @@ export default ({ title = '🙃🐢', children }) => (
           color: ${colors.amazonBlue};
           text-decoration: none;
         }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        body > div:first-child {
+          width: 100%;
+          height: 100%;
+        }
+
+        #body-div {
+          border: ${colors.border} 5px solid;
+          background: #f5f5f5;
+        }
     `}
-    </style>
-  </div>
+      </style>
+    </div>
+  )
 );
