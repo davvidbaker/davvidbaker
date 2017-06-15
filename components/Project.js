@@ -15,12 +15,14 @@ const withToggle = compose(
     }
   }),
   withHandlers({
-    focus: ({ dispatch }) => event => {
-      dispatch({ type: 'FOCUS' });
-    },
-    unfocus: ({ dispatch }) => event => {
-      dispatch({ type: 'UNFOCUS' });
-    },
+    focus: ({ dispatch }) =>
+      event => {
+        dispatch({ type: 'FOCUS' });
+      },
+    unfocus: ({ dispatch }) =>
+      event => {
+        dispatch({ type: 'UNFOCUS' });
+      },
   })
 );
 
@@ -48,7 +50,8 @@ const ExternalLinks = ({ link, linkToSource, linkToTrello, callToAction }) => (
       </li>}
 
     <style jsx>
-      {`
+      {
+        `
         ul {
           display: flex;
           justify-content: flex-end;
@@ -72,7 +75,8 @@ const ExternalLinks = ({ link, linkToSource, linkToTrello, callToAction }) => (
           margin: 0;
         }
 
-      `}
+      `
+      }
     </style>
   </ul>
 );
@@ -80,29 +84,34 @@ const ExternalLinks = ({ link, linkToSource, linkToTrello, callToAction }) => (
 /* Replaces the comma with a Unicode no-breaking hypen */
 const formatYears = years => String(years).replace(',', '‑');
 
-const Project = ({
-  name = '[Name Here]',
-  tagline = 'tagline',
-  status,
-  description,
-  year,
-  link,
-  linkToSource,
-  linkToTrello,
-  callToAction = 'Check it out',
-  focused,
-  focus,
-  unfocus,
-}) => (
+const Project = (
+  {
+    name = '[Name Here]',
+    tagline = 'tagline',
+    status,
+    description,
+    year,
+    link,
+    linkToSource,
+    linkToTrello,
+    callToAction = 'Check it out',
+    focused,
+    focus,
+    unfocus,
+    showAdditionalInfo,
+  }
+) => (
   <div onMouseEnter={focus} onMouseLeave={unfocus}>
     <h1 data-content={name}>{name} <span>{year && formatYears(year)}</span></h1>
     {status && <Status status={status} focused={focused} />}
     <p className="tagline">{tagline}</p>
 
-    {description ? <p>Read More...</p> : null}
+    {description ? <a onClick={showAdditionalInfo}>Read More...</a> : null}
     <ExternalLinks {...{ link, linkToSource, linkToTrello, callToAction }} />
 
-    <style jsx>{`
+    <style jsx>
+      {
+        `
         div {
           display: flex;
           flex-direction: column;
@@ -124,7 +133,9 @@ const Project = ({
         .tagline {
           flex: 1;
         }
-    `}</style>
+    `
+      }
+    </style>
   </div>
 );
 

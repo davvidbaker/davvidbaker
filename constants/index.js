@@ -2,6 +2,7 @@ export const PROJECTS = [
   {
     name: 'Whoa',
     status: ['active development', 'darkmagenta'],
+    tagline: 'An exploration of writing with custom markup and components.',
     year: [2017],
   },
     {
@@ -29,7 +30,7 @@ export const PROJECTS = [
     role: 'Lead Developer',
     status: ['shipped', 'green'],
     tagline: "A 360 advertising experience made for La Mer's revitalizing hydrating serum campaign.",
-    description: 'We were tasked by La Mer to create an immersive 360 experience to bring to life the brand’s 2D marketing video for the new Revitalizing Hydrating Serum. Our team designed a 3D world, incorporating animation, interactive hot spots, and creative transitions between the scenes. The experience was developed in HTML5, translated into 11 languages, and is compatible across mobile and desktop devices.',
+    description: 'We (Click 3X) were tasked by La Mer to create an immersive 360 experience to bring to life the brand’s 2D marketing video for the new Revitalizing Hydrating Serum. Our team designed a 3D world, incorporating animation, interactive hot spots, and creative transitions between the scenes. The experience was developed in HTML5, translated into 11 languages, and is compatible across mobile and desktop devices.',
     callToAction: 'Paradise awaits...',
     link: 'http://experience.cremedelamer.com/',
     keywords: ['three.js', 'WebGL'],
@@ -48,7 +49,7 @@ export const PROJECTS = [
     name: 'Wedding Card',
     year: [2016],
     status: ['shipped', 'green'],    
-    tagline: 'A card for my brother for he and his now-wife. ',
+    tagline: 'A card for my brother and his now-wife. ',
     link: 'https://davvidbaker.github.io/wedding-card/index.html',
     linkToSource: 'https://github.com/davvidbaker/wedding-card',
     keywords: ['Phaser'],

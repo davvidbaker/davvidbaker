@@ -10,7 +10,7 @@ import colors from '../constants/colors';
 const enhance = withReducer(
   'borderColor',
   'dispatch',
-  (state, action) => `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
+  (state, action) => `#${Math.floor((Date.now()/100000000000 % 1 )* 0xffffff).toString(16)}`
 );
 
 export default enhance(
@@ -82,6 +82,18 @@ export default enhance(
         #body-div {
           border: ${colors.border} 5px solid;
           background: #f5f5f5;
+          min-height: 100vh;
+          padding: 8px;
+        }
+
+        .hidden {
+          opacity: 0;
+          transition: opacity 0.5s 0.75s;
+        }
+
+        .visible {
+          opacity: 1;
+          transition: opacity 0.5s;
         }
     `}
       </style>
