@@ -38,6 +38,14 @@ const ExternalLinks = ({ link, linkToSource, linkToTrello, callToAction }) => (
           transform: scale(1.05);
         }
 
+        li:first-child {
+          padding-left: 0;
+        }
+        
+        li:last-child {
+          padding-right: 0;
+        }
+
         .project-link {
           flex-grow: 1;
         }

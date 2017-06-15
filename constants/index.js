@@ -12,7 +12,15 @@ module.exports = {
     {
       name: 'Swyzzle',
       year: [2016],
+      tagline: 'The screensaver revolution has begun.',
       status: ["i'll be back", 'midnightblue'],
+      callToAction: 'Get swyzzling!',
+      description: 'Swyzzle is a screensaver that melts your screen. Back when I was working in the Click 3X office in New York, I would put this activate the screen melting when I went out for lunch or to meetings, to make it look like my screen was fucked up. To my surprise, no one ever said anything.',
+      builtWith: ['Electron', 'WebGL'],
+      link: 'https://davvidbaker.github.io/Swyzzle/',
+      linkToSource: 'https://github.com/davvidbaker/Swyzzle',
+      linkToTrello: 'https://trello.com/b/fAycvoLY/swyzzle',
+      images: []
     },
     {
       name: 'Box Man',
