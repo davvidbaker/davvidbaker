@@ -1,16 +1,19 @@
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {
   compose,
   withHandlers,
   withReducer,
-  withProps,
-  mapProps,
+  branch,
+  renderComponent,
 } from 'recompose';
 import shortid from 'shortid';
+
 // import { connect } from 'react-redux';
 
 import PageWrapper from '../components/PageWrapper';
 import { PROJECTS } from '../constants';
 import Project from '../components/Project';
+import AdditionalInfo from '../components/AdditionalInfo';
 
 const compareYears = (a, b) => {
   if (Math.max(...a.year) > Math.max(...b.year)) {
@@ -27,7 +30,7 @@ const withToggle = compose(
   withReducer('showingAdditionalInfo', 'dispatch', (state = false, action) => {
     switch (action.type) {
       case 'SHOW_READ_MORE':
-        return true;
+        return action.value;
       case 'HIDE_READ_MORE':
         return false;
       default:
@@ -35,35 +38,22 @@ const withToggle = compose(
     }
   }),
   withHandlers({
-    showAdditionalInfo: ({ dispatch }) =>
-      event => {
-        dispatch({ type: 'SHOW_READ_MORE', value: event.target });
-      },
-    hideAdditionalInfo: ({ dispatch }) =>
-      event => {
-        dispatch({ type: 'HIDE_READ_MORE' });
-      },
+    showAdditionalInfo: ({ dispatch }) => projectName => {
+      dispatch({ type: 'SHOW_READ_MORE', value: projectName });
+    },
+    hideAdditionalInfo: ({ dispatch }) => event => {
+      dispatch({ type: 'HIDE_READ_MORE' });
+    },
   })
 );
 
-const AdditionalInfo = ({ hideAdditionalInfo, showingAdditionalInfo }) => (
-  <div
-    className={showingAdditionalInfo ? 'visible' : 'hidden'}
-    onClick={hideAdditionalInfo}
-  >
-    <p>
-      Addy Info
-    </p>
-  </div>
-);
-
-const ProjectList = (
-  { projects, showAdditionalInfo, hideAdditionalInfo, showingAdditionalInfo }
-) => (
-  <ul
-    className={showingAdditionalInfo ? 'hidden' : 'visible'}
-    onClick={showAdditionalInfo}
-  >
+const ProjectList = ({
+  projects,
+  showAdditionalInfo,
+  hideAdditionalInfo,
+  showingAdditionalInfo,
+}) => (
+  <ul className={showingAdditionalInfo ? 'hidden' : 'visible'}>
     {projects
       .sort(compareYears)
       .map(project => (
@@ -79,48 +69,66 @@ const ProjectList = (
           linkToSource={project.linkToSource}
           linkToTrello={project.linkToTrello}
           showAdditionalInfo={showAdditionalInfo}
-          hideAdditionalInfo={hideAdditionalInfo}
         />
       ))}
     <style jsx>
-      {
-        `
+      {`
         ul {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           grid-gap: 2.5vw;
-          padding: 2.5vw;
+          -webkit-margin-before: 0;
+          -webkit-margin-after: 0;
         }
-      `
-      }
+      `}
     </style>
   </ul>
 );
 
-const EnhancedPageWrapper = withToggle(({
-  projects,
-  children,
-  showAdditionalInfo,
-  hideAdditionalInfo,
-  showingAdditionalInfo,
-}) => {
-  return (
-    <PageWrapper>
-      {children.map(child =>
-        React.cloneElement(child, {
-          projects,
-          showAdditionalInfo,
-          hideAdditionalInfo,
-          showingAdditionalInfo,
-          key: shortid.generate(),
-        }))}
-    </PageWrapper>
-  );
-});
+const ProjectsPage = withToggle(
+  ({
+    projects,
+    url,
+    showAdditionalInfo,
+    hideAdditionalInfo,
+    showingAdditionalInfo,
+  }) => {
+    console.log('showingAdditionalInfo', showingAdditionalInfo);
+    const project = url.query.name
+      ? projects.filter(
+          project => project.name === url.query.name.replace(/-/g, ' ')
+        )[0]
+      : null;
+    return (
+      <div
+        id="projects-page"
+        style={{ position: 'relative', padding: '2.5vw' }}
+      >
+        <ReactCSSTransitionGroup
+          transitionName="fade"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+        >
+          {url.query.name && project
+            ? <AdditionalInfo
+                key="additional-info"
+                hideAdditionalInfo={hideAdditionalInfo}
+                {...project}
+              />
+            : <ProjectList
+                key="project-list"
+                projects={projects}
+                showAdditionalInfo={showAdditionalInfo}
+              />}
+        </ReactCSSTransitionGroup>
+      </div>
+    );
+  }
+);
 
-export default ({}) => (
-  <EnhancedPageWrapper projects={PROJECTS}>
-    <ProjectList />
-    <AdditionalInfo />
-  </EnhancedPageWrapper>
+// export default ({url}) => <EnhancedPageWrapper projects={PROJECTS} url={url}/>;
+export default ({ url }) => (
+  <PageWrapper>
+    <ProjectsPage projects={PROJECTS} url={url} />
+  </PageWrapper>
 );

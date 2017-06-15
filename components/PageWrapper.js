@@ -7,10 +7,12 @@ import { compose, withHandlers, withReducer } from 'recompose';
 import Nav from './Nav';
 import colors from '../constants/colors';
 
+// now unnecessary, with nonchanging border color
 const enhance = withReducer(
   'borderColor',
   'dispatch',
-  (state, action) => `#${Math.floor((Date.now()/100000000000 % 1 )* 0xffffff).toString(16)}`
+  (state, action) => colors.border
+    // `#${Math.floor(Date.now() / 100000000000 % 1 * 0xffffff).toString(16)}`
 );
 
 export default enhance(
@@ -43,7 +45,7 @@ export default enhance(
         }
 
         *::selection {
-          background: lightpink;
+          background: ${colors.border};
         }
 
         body {
@@ -84,16 +86,33 @@ export default enhance(
           background: #f5f5f5;
           min-height: 100vh;
           padding: 8px;
+          position: relative;
         }
 
-        .hidden {
-          opacity: 0;
-          transition: opacity 0.5s 0.75s;
+        .fade-enter {
+          opacity: 0.01;
         }
 
-        .visible {
+        .fade-enter.fade-enter-active {
           opacity: 1;
-          transition: opacity 0.5s;
+          transition: opacity 200ms ease-in 205ms;
+        }
+
+        .fade-leave {
+          opacity: 1;
+        }
+
+        .fade-leave.fade-leave-active {
+          opacity: 0.01;
+          transition: opacity 200ms ease-in;
+        }
+
+        #additional-info {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
         }
     `}
       </style>
