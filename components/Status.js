@@ -1,3 +1,5 @@
+import {fonts} from '../constants/styles'
+
 export default ({ status, focused }) => (
   <p style={{ opacity: focused ? 1 : 0.3 }}>
     <span className="status-key">status</span>
@@ -10,7 +12,7 @@ export default ({ status, focused }) => (
 
     <style jsx>{`
       p {
-        font-family: monospace;
+        font-family: ${fonts.monospace}, monospace;
         color: white;
         cursor: default;
         font-size: 10px;

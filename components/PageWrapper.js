@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { compose, withHandlers, withReducer } from 'recompose';
 
 import Nav from './Nav';
-import colors from '../constants/colors';
+import {colors, fonts} from '../constants/styles';
 
 // now unnecessary, with nonchanging border color
 const enhance = withReducer(
@@ -21,7 +21,7 @@ export default enhance(
       <Head>
         <title>{title}</title>
         <link
-          href="https://fonts.googleapis.com/css?family=Signika"
+          href="https://fonts.googleapis.com/css?family=Signika|Josefin+Slab:400,400i,700|Cutive+Mono"
           rel="stylesheet"
         />
         <meta name="viewport" content="width=device-width" />
@@ -36,7 +36,7 @@ export default enhance(
         {`
         html {
           box-sizing: border-box;
-          font-family: sans-serif;
+          font-family: 'Josefin Slab',sans-serif;
           min-height: 100vh;
         }
 
@@ -55,11 +55,11 @@ export default enhance(
 
         h1 {
           font-size: 24px;
-          font-family: 'Signika', sans-serif;
         }
 
         p {
           color: #555;
+          line-height: 1.5;
         }
 
         ul {
@@ -82,7 +82,7 @@ export default enhance(
         }
 
         #body-div {
-          border: ${colors.border} 5px solid;
+          border: ${colors.border} 0px solid;
           background: #f5f5f5;
           min-height: 100vh;
           padding: 8px;

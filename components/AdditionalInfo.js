@@ -3,7 +3,7 @@ import marked from 'marked';
 
 import ExternalLinks from './ExternalLinks';
 import Status from './Status';
-import colors from '../constants/colors';
+import {colors, fonts} from '../constants/styles';
 
 /* Replaces the comma with a Unicode no-breaking hypen */
 const formatYears = years => String(years).replace(',', '‑');
@@ -85,7 +85,7 @@ const AdditionalInfo = ({
           margin-top: 2.5vw;
           display: flex;
           flex-direction: column;
-          border: dashed #cecece 2px;
+          border: solid #cecece 1px;
           padding: 1rem;
           background: white;
           max-width: 80vw;
@@ -154,6 +154,12 @@ const AdditionalInfo = ({
           font-size: smaller;
         }
 
+        .description {
+          columns: 20rem;
+          text-align: justify;
+          column-gap: 2rem;
+        }
+
         .flex-list {
           min-height: 2rem;
           display: flex;
@@ -164,7 +170,7 @@ const AdditionalInfo = ({
           padding: 5px;
           margin: 5px;
           transition: background 0.3s;
-          font-family: monospace;
+          font-family: ${fonts.monospace}, monospace;
         }
 
         .flex-list li:hover {
