@@ -5,7 +5,7 @@ export default ({ status, focused }) => (
       className="status-value"
       style={{ background: status[1] ? status[1] : 'black' }}
     >
-      {status[0]}
+      {status[0].replace(/\s/g, '\u00A0')}
     </span>
 
     <style jsx>{`

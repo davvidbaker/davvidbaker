@@ -114,6 +114,10 @@ export default enhance(
           width: 100%;
           height: 100%;
         }
+
+        .markdown p:first-child {
+          margin-top: 0;
+        }
     `}
       </style>
     </div>

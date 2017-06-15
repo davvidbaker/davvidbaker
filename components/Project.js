@@ -52,7 +52,7 @@ const Project = ({
 
       {/*? <Link href={{ pathname: '/projects/' + name.replace(/\s/g, '-'), query: { name: name.replace(/\s/g, '-') } }}><a>Read More...</a></Link>*/}
     {description
-      ? <Link href={{ pathname: '/projects', query: { name: name.replace(/\s/g, '-') } }} as={`/projects/${name.replace(/\s/g, '-')}`}><a>Read More...</a></Link>
+      ? <Link href={{ pathname: '/projects', query: { name: name.replace(/\s/g, '-') } }} as={`/projects/${name.replace(/\s/g, '-')}`}><a>Read more...</a></Link>
       : null}
     <ExternalLinks {...{ link, linkToSource, linkToTrello, callToAction }} />
 

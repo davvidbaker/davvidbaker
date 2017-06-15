@@ -93,7 +93,6 @@ const ProjectsPage = withToggle(
     hideAdditionalInfo,
     showingAdditionalInfo,
   }) => {
-    console.log('showingAdditionalInfo', showingAdditionalInfo);
     const project = url.query.name
       ? projects.filter(
           project => project.name === url.query.name.replace(/-/g, ' ')
