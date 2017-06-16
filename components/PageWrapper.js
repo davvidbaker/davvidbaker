@@ -27,13 +27,17 @@ export default enhance(
         <meta name="viewport" content="width=device-width" />
         <meta name="theme-color" content={borderColor} />
         <meta name="theme-color" content={borderColor ? borderColor : 'blue'} />
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
       </Head>
       <Nav />
       <button onClick={dispatch}>Click me</button>
       {children}
       <style jsx global>
         {`
+        :root {
+          --test-var: palevioletred;
+        }
+        
         html {
           box-sizing: border-box;
           font-family: 'Josefin Slab',sans-serif;

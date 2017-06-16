@@ -7,6 +7,9 @@ import {
   renderComponent,
 } from 'recompose';
 import shortid from 'shortid';
+import withRedux from 'next-redux-wrapper';
+import { initStore } from '../store';
+
 
 // import { connect } from 'react-redux';
 
@@ -85,7 +88,7 @@ const ProjectList = ({
   </ul>
 );
 
-const ProjectsPage = withToggle(
+const Page = withToggle(
   ({
     projects,
     url,
@@ -125,9 +128,24 @@ const ProjectsPage = withToggle(
   }
 );
 
-// export default ({url}) => <EnhancedPageWrapper projects={PROJECTS} url={url}/>;
-export default ({ url }) => (
+const ProjectsPage = ({ url }) => (
   <PageWrapper>
-    <ProjectsPage projects={PROJECTS} url={url} />
+    <Page projects={PROJECTS} url={url} />
   </PageWrapper>
 );
+
+ProjectsPage.getInitialProps = async ({ store, isServer }) => {
+  return { isServer };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addCount: dispatch => ({ type: 'ADD' }),
+  };
+};
+export default withRedux(
+  initStore,
+  state => ({ ...state }),
+  mapDispatchToProps
+)(ProjectsPage);
+

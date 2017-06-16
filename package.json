@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 3002",
+    "dev-old": "next -p 3002",
+    "build-blog": "webpack --config build/webpack.config.js && node ./out_blog/intermediate.bundle.js",
     "build": "next build && next export",
-    "start": "next start -p 3002"
+    "dev": "node server",
+    "start": "node server",
+    "start-old": "next start -p 3002"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +17,7 @@
   "dependencies": {
     "marked": "^0.3.6",
     "next": "^3.0.0-beta9",
+    "next-redux-wrapper": "^1.1.2",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "^15.6.0",
@@ -21,7 +25,12 @@
     "react-redux": "^5.0.5",
     "recompose": "^0.23.4",
     "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
     "shortid": "^2.2.8",
-    "styled-jsx": "^1.0.3"
+    "styled-jsx": "^1.0.3",
+    "webpack": "^2.6.1"
+  },
+  "devDependencies": {
+    "chalk": "^1.1.3"
   }
 }
