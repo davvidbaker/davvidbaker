@@ -89,7 +89,7 @@ blockquote {
 }
 
 img {
-  float: right;
+  // float: right;
 }
 
 

@@ -50,7 +50,7 @@ class PostList extends Component {
   render() {
     return (
       <UL>
-        {posts.map(post =>
+        {posts.reverse().map(post =>
           <li key={`link-${post.attributes.slug}`}>
             <Link
               href={{
