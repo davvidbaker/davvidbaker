@@ -10,7 +10,7 @@ export default props => (
         <Link href="/projects"><a>Projects</a></Link>
       </li>
       <li>
-        <Link href="/blog_static"><a>Blog</a></Link>
+        <Link href="/blog"><a>Blog</a></Link>
       </li>
     </ul>
   </nav>

@@ -25,33 +25,14 @@ arr.forEach(val => {
 
 try {
   fs.writeFile(
-    'out_blog/output.js',
-    `
-    /**
-     * This file was automatically created ${new Date()}
-     */
-
-    module.exports = ${JSON.stringify(obj)}
-    `,
-    err => {
-      if (err) throw err;
-      console.log(chalk.green('File has been saved'));
-    }
-  );
-} catch (e) {
-  console.error(e);
-}
-
-try {
-  fs.writeFile(
-    'out_blog/slugs.js',
+    'out_blog/output_blog_posts.js',
     `
     /**
      * This file was automatically created ${new Date()}
      */
 
     module.exports = {
-      SLUGS: ${JSON.stringify(Object.keys(obj))} 
+      posts: ${JSON.stringify(arr)}
     }
     `,
     err => {
@@ -62,3 +43,24 @@ try {
 } catch (e) {
   console.error(e);
 }
+
+// try {
+//   fs.writeFile(
+//     'out_blog/slugs.js',
+//     `
+//     /**
+//      * This file was automatically created ${new Date()}
+//      */
+
+//     module.exports = {
+//       SLUGS: ${JSON.stringify(Object.keys(obj))}
+//     }
+//     `,
+//     err => {
+//       if (err) throw err;
+//       console.log(chalk.green('File has been saved'));
+//     }
+//   );
+// } catch (e) {
+//   console.error(e);
+// }

@@ -4,12 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-old": "next -p 3002",
+    "dev": "next -p 3002",
     "build-blog": "webpack --config build/webpack.config.js && node ./out_blog/intermediate.bundle.js",
-    "build": "next build && next export",
-    "dev": "node server",
-    "start": "node server",
-    "start-old": "next start -p 3002"
+    "build": "next build && next export"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +24,7 @@
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
     "shortid": "^2.2.8",
+    "styled-components": "^2.1.0",
     "styled-jsx": "^1.0.3",
     "webpack": "^2.6.1"
   },

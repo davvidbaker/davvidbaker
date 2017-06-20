@@ -84,7 +84,8 @@ module.exports = function () {
 
 var map = {
 	"./2017-04-03_whoa.whoa": 12,
-	"./test.whoa": 13
+	"./sample.whoa": 13,
+	"./test.whoa": 14
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -109,11 +110,11 @@ webpackContext.id = 1;
 "use strict";
 
 
-var escapeStringRegexp = __webpack_require__(7);
+var escapeStringRegexp = __webpack_require__(8);
 var ansiStyles = __webpack_require__(6);
-var stripAnsi = __webpack_require__(9);
-var hasAnsi = __webpack_require__(8);
-var supportsColor = __webpack_require__(10);
+var stripAnsi = __webpack_require__(10);
+var hasAnsi = __webpack_require__(9);
+var supportsColor = __webpack_require__(7);
 var defineProps = Object.defineProperties;
 var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(process.env.TERM);
 
@@ -267,28 +268,13 @@ arr.forEach(val => {
 });
 
 try {
-  fs.writeFile('out_blog/output.js', `
-    /**
-     * This file was automatically created ${new Date()}
-     */
-
-    module.exports = ${JSON.stringify(obj)}
-    `, err => {
-    if (err) throw err;
-    console.log(chalk.green('File has been saved'));
-  });
-} catch (e) {
-  console.error(e);
-}
-
-try {
-  fs.writeFile('out_blog/slugs.js', `
+  fs.writeFile('out_blog/output_blog_posts.js', `
     /**
      * This file was automatically created ${new Date()}
      */
 
     module.exports = {
-      SLUGS: ${JSON.stringify(Object.keys(obj))} 
+      posts: ${JSON.stringify(arr)}
     }
     `, err => {
     if (err) throw err;
@@ -297,6 +283,27 @@ try {
 } catch (e) {
   console.error(e);
 }
+
+// try {
+//   fs.writeFile(
+//     'out_blog/slugs.js',
+//     `
+//     /**
+//      * This file was automatically created ${new Date()}
+//      */
+
+//     module.exports = {
+//       SLUGS: ${JSON.stringify(Object.keys(obj))}
+//     }
+//     `,
+//     err => {
+//       if (err) throw err;
+//       console.log(chalk.green('File has been saved'));
+//     }
+//   );
+// } catch (e) {
+//   console.error(e);
+// }
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
@@ -378,47 +385,6 @@ Object.defineProperty(module, 'exports', {
 "use strict";
 
 
-var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
-
-module.exports = function (str) {
-	if (typeof str !== 'string') {
-		throw new TypeError('Expected a string');
-	}
-
-	return str.replace(matchOperatorsRe, '\\$&');
-};
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var ansiRegex = __webpack_require__(0);
-var re = new RegExp(ansiRegex().source); // remove the `g` flag
-module.exports = re.test.bind(re);
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var ansiRegex = __webpack_require__(0)();
-
-module.exports = function (str) {
-	return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
-};
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var argv = process.argv;
 
 var terminator = argv.indexOf('--');
@@ -465,6 +431,47 @@ module.exports = function () {
 }();
 
 /***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+
+module.exports = function (str) {
+	if (typeof str !== 'string') {
+		throw new TypeError('Expected a string');
+	}
+
+	return str.replace(matchOperatorsRe, '\\$&');
+};
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var ansiRegex = __webpack_require__(0);
+var re = new RegExp(ansiRegex().source); // remove the `g` flag
+module.exports = re.test.bind(re);
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var ansiRegex = __webpack_require__(0)();
+
+module.exports = function (str) {
+	return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
+};
+
+/***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
@@ -505,8 +512,17 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports = {
-    attributes: {"title":"You probably should not bother reading this","date":"May 31, 2017","slug":"o-is-me"},
-    content: {"type":"root","children":[{"type":"paragraph","children":[{"type":"text","value":"Nothing to see here.","position":{"start":{"line":2,"column":1,"offset":2},"end":{"line":2,"column":21,"offset":22},"indent":[]}}],"position":{"start":{"line":2,"column":1,"offset":2},"end":{"line":2,"column":21,"offset":22},"indent":[]}},{"type":"heading","depth":1,"children":[{"type":"text","value":"Don't listen to them ☝.🖕.","position":{"start":{"line":4,"column":3,"offset":28},"end":{"line":4,"column":29,"offset":54},"indent":[]}}],"position":{"start":{"line":4,"column":1,"offset":26},"end":{"line":4,"column":29,"offset":54},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"Maybe something. Who knows.","position":{"start":{"line":6,"column":1,"offset":58},"end":{"line":6,"column":28,"offset":85},"indent":[]}}],"position":{"start":{"line":6,"column":1,"offset":58},"end":{"line":6,"column":28,"offset":85},"indent":[]}},{"type":"heading","depth":1,"children":[{"type":"text","value":"I would like to make a component library for whoa. 🎆 📖","position":{"start":{"line":8,"column":3,"offset":91},"end":{"line":8,"column":59,"offset":147},"indent":[]}}],"position":{"start":{"line":8,"column":1,"offset":89},"end":{"line":8,"column":59,"offset":147},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"This is a neat way to write.","position":{"start":{"line":9,"column":1,"offset":149},"end":{"line":9,"column":29,"offset":177},"indent":[]}}],"position":{"start":{"line":9,"column":1,"offset":149},"end":{"line":9,"column":29,"offset":177},"indent":[]}},{"type":"paragraph","children":[{"type":"image","title":null,"url":"https://res.cloudinary.com/brains-and-space/image/upload/v1496213249/neat-way-to-write_omrlre.png","alt":"a-neat-way-to-write.png","position":{"start":{"line":11,"column":1,"offset":181},"end":{"line":11,"column":126,"offset":306},"indent":[]}}],"position":{"start":{"line":11,"column":1,"offset":181},"end":{"line":11,"column":126,"offset":306},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"Damn I am really getting caught up in tangents. Like setting up a cloudinary account. I think it might be a good decision for managing images for a site with user-supplied content such as this.","position":{"start":{"line":13,"column":1,"offset":310},"end":{"line":13,"column":194,"offset":503},"indent":[]}}],"position":{"start":{"line":13,"column":1,"offset":310},"end":{"line":13,"column":194,"offset":503},"indent":[]}},{"type":"heading","depth":1,"children":[{"type":"text","value":"Okay okay let's just jot down some ideas and be done with it.","position":{"start":{"line":15,"column":3,"offset":509},"end":{"line":15,"column":64,"offset":570},"indent":[]}}],"position":{"start":{"line":15,"column":1,"offset":507},"end":{"line":15,"column":64,"offset":570},"indent":[]}},{"type":"paragraph","children":[{"type":"normative","children":[{"type":"text","value":"I should "},{"type":"text","value":"look at the ","position":{"start":{"line":16,"column":1,"offset":572},"end":{"line":16,"column":13,"offset":584},"indent":[]}},{"type":"strong","children":[{"type":"text","value":"etymology","position":{"start":{"line":16,"column":15,"offset":586},"end":{"line":16,"column":24,"offset":595},"indent":[]}}],"position":{"start":{"line":16,"column":13,"offset":584},"end":{"line":16,"column":26,"offset":597},"indent":[]}},{"type":"text","value":" of jot some time.","position":{"start":{"line":16,"column":26,"offset":597},"end":{"line":16,"column":44,"offset":615},"indent":[]}}],"position":{"start":{"line":16,"column":1,"offset":572},"end":{"line":16,"column":53,"offset":624},"indent":[]}},{"type":"text","value":"\n","position":{"start":{"line":16,"column":53,"offset":624},"end":{"line":17,"column":1,"offset":626},"indent":[1]}},{"type":"search","children":[{"type":"text","value":"etymology of jot","position":{"start":{"line":17,"column":21,"offset":646},"end":{"line":17,"column":37,"offset":662},"indent":[]}}],"position":{"start":{"line":17,"column":1,"offset":626},"end":{"line":17,"column":21,"offset":646},"indent":[]}}],"position":{"start":{"line":16,"column":1,"offset":572},"end":{"line":17,"column":21,"offset":646},"indent":[1]}},{"type":"paragraph","children":[{"type":"tangent","children":[{"type":"normative","children":[{"type":"text","value":"I should "},{"type":"text","value":"eventually grab a snapshot that shows the editor experience for whoa.","position":{"start":{"line":19,"column":128,"offset":777},"end":{"line":19,"column":197,"offset":846},"indent":[]}}],"position":{"start":{"line":19,"column":128,"offset":777},"end":{"line":19,"column":206,"offset":855},"indent":[]}},{"type":"text","value":" Having large colorful emoji is just nice 😬.","position":{"start":{"line":19,"column":206,"offset":855},"end":{"line":19,"column":251,"offset":900},"indent":[]}}],"position":{"start":{"line":19,"column":1,"offset":650},"end":{"line":19,"column":128,"offset":777},"indent":[]}}],"position":{"start":{"line":19,"column":1,"offset":650},"end":{"line":19,"column":128,"offset":777},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"It takes a lot of work to get to this point, and at this point I know nothing. ","position":{"start":{"line":21,"column":1,"offset":781},"end":{"line":21,"column":80,"offset":860},"indent":[]}},{"type":"search","children":[{"type":"text","value":"Why know anything at all?","position":{"start":{"line":21,"column":109,"offset":889},"end":{"line":21,"column":134,"offset":914},"indent":[]}}],"position":{"start":{"line":21,"column":80,"offset":860},"end":{"line":21,"column":109,"offset":889},"indent":[]}}],"position":{"start":{"line":21,"column":1,"offset":781},"end":{"line":21,"column":109,"offset":889},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"Oh I wanted to post this, from the end of last week when I was 👍 super stressed out 👎 dealing with computer failures.","position":{"start":{"line":23,"column":1,"offset":893},"end":{"line":23,"column":120,"offset":1012},"indent":[]}}],"position":{"start":{"line":23,"column":1,"offset":893},"end":{"line":23,"column":120,"offset":1012},"indent":[]}},{"type":"paragraph","children":[{"type":"image","title":null,"url":"http://res.cloudinary.com/brains-and-space/image/upload/v1496215888/running-from-block_mrm180.svg","alt":"we're-stressed-out","position":{"start":{"line":25,"column":1,"offset":1016},"end":{"line":25,"column":121,"offset":1136},"indent":[]}}],"position":{"start":{"line":25,"column":1,"offset":1016},"end":{"line":25,"column":121,"offset":1136},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"I am thinking about two things that ","position":{"start":{"line":27,"column":1,"offset":1140},"end":{"line":27,"column":37,"offset":1176},"indent":[]}},{"type":"normative","children":[{"type":"text","value":"I should "},{"type":"text","value":"really mention before calling it.","position":{"start":{"line":27,"column":37,"offset":1176},"end":{"line":27,"column":70,"offset":1209},"indent":[]}}],"position":{"start":{"line":27,"column":37,"offset":1176},"end":{"line":27,"column":79,"offset":1218},"indent":[]}},{"type":"text","value":" ","position":{"start":{"line":27,"column":79,"offset":1218},"end":{"line":27,"column":80,"offset":1219},"indent":[]}},{"type":"tangent","children":[{"type":"text","value":"Okay three things.","position":{"start":{"line":27,"column":102,"offset":1241},"end":{"line":27,"column":120,"offset":1259},"indent":[]}}],"position":{"start":{"line":27,"column":80,"offset":1219},"end":{"line":27,"column":102,"offset":1241},"indent":[]}}],"position":{"start":{"line":27,"column":1,"offset":1140},"end":{"line":27,"column":102,"offset":1241},"indent":[]}},{"type":"list","ordered":true,"start":1,"loose":true,"children":[{"type":"listItem","loose":true,"checked":null,"children":[{"type":"paragraph","children":[{"type":"text","value":"The image above should float the text wrapped tighly to itself. Potentially using some collision shapes or polygons?","position":{"start":{"line":29,"column":4,"offset":1248},"end":{"line":29,"column":120,"offset":1364},"indent":[]}}],"position":{"start":{"line":29,"column":4,"offset":1248},"end":{"line":29,"column":120,"offset":1364},"indent":[]}}],"position":{"start":{"line":29,"column":1,"offset":1245},"end":{"line":30,"column":1,"offset":1366},"indent":[1]}},{"type":"listItem","loose":true,"checked":null,"children":[{"type":"paragraph","children":[{"type":"text","value":"An enhancer layer to the editing process that works in the browser and enhances components, wrapping them with certain properties, like transforms for instance, and other CSS especially.","position":{"start":{"line":31,"column":4,"offset":1371},"end":{"line":31,"column":190,"offset":1557},"indent":[]}}],"position":{"start":{"line":31,"column":4,"offset":1371},"end":{"line":31,"column":190,"offset":1557},"indent":[]}}],"position":{"start":{"line":31,"column":1,"offset":1368},"end":{"line":32,"column":1,"offset":1559},"indent":[1]}},{"type":"listItem","loose":false,"checked":null,"children":[{"type":"paragraph","children":[{"type":"text","value":"Shoot forgot the last thing.","position":{"start":{"line":33,"column":4,"offset":1564},"end":{"line":33,"column":32,"offset":1592},"indent":[]}}],"position":{"start":{"line":33,"column":4,"offset":1564},"end":{"line":33,"column":32,"offset":1592},"indent":[]}}],"position":{"start":{"line":33,"column":1,"offset":1561},"end":{"line":33,"column":32,"offset":1592},"indent":[]}}],"position":{"start":{"line":29,"column":1,"offset":1245},"end":{"line":33,"column":32,"offset":1592},"indent":[1,1,1,1]}}],"position":{"start":{"line":1,"column":1,"offset":0},"end":{"line":35,"column":1,"offset":1596}}}
+    attributes: {"title":"Sample","date":"April 22, 2017","slug":"ahh"},
+    content: {"type":"root","children":[{"type":"paragraph","children":[{"type":"normative","id":"normative-BJcBAXLmW","children":[{"type":"text","value":"I should "},{"type":"text","value":"fix everything.","position":{"start":{"line":1,"column":1,"offset":0},"end":{"line":1,"column":16,"offset":15},"indent":[]}}],"position":{"start":{"line":1,"column":1,"offset":0},"end":{"line":1,"column":25,"offset":24},"indent":[]}}],"position":{"start":{"line":1,"column":1,"offset":0},"end":{"line":1,"column":25,"offset":24},"indent":[]}}],"position":{"start":{"line":1,"column":1,"offset":0},"end":{"line":1,"column":25,"offset":24}}}
+  }
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = {
+    attributes: {"title":"I probably should not bother reading this","date":"May 31, 2017","slug":"o-is-me"},
+    content: {"type":"root","children":[{"type":"paragraph","children":[{"type":"text","value":"Nothing to see here.","position":{"start":{"line":2,"column":1,"offset":2},"end":{"line":2,"column":21,"offset":22},"indent":[]}}],"position":{"start":{"line":2,"column":1,"offset":2},"end":{"line":2,"column":21,"offset":22},"indent":[]}},{"type":"heading","depth":1,"children":[{"type":"text","value":"Don't listen to them ☝.🖕.","position":{"start":{"line":4,"column":3,"offset":28},"end":{"line":4,"column":29,"offset":54},"indent":[]}}],"position":{"start":{"line":4,"column":1,"offset":26},"end":{"line":4,"column":29,"offset":54},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"Maybe something. Who knows.","position":{"start":{"line":6,"column":1,"offset":58},"end":{"line":6,"column":28,"offset":85},"indent":[]}}],"position":{"start":{"line":6,"column":1,"offset":58},"end":{"line":6,"column":28,"offset":85},"indent":[]}},{"type":"heading","depth":1,"children":[{"type":"text","value":"I would like to make a component library for whoa. 🎆 📖","position":{"start":{"line":8,"column":3,"offset":91},"end":{"line":8,"column":59,"offset":147},"indent":[]}}],"position":{"start":{"line":8,"column":1,"offset":89},"end":{"line":8,"column":59,"offset":147},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"This is a neat way to write.","position":{"start":{"line":9,"column":1,"offset":149},"end":{"line":9,"column":29,"offset":177},"indent":[]}}],"position":{"start":{"line":9,"column":1,"offset":149},"end":{"line":9,"column":29,"offset":177},"indent":[]}},{"type":"paragraph","children":[{"type":"image","title":null,"url":"https://res.cloudinary.com/brains-and-space/image/upload/v1496213249/neat-way-to-write_omrlre.png","alt":"a-neat-way-to-write.png","position":{"start":{"line":11,"column":1,"offset":181},"end":{"line":11,"column":126,"offset":306},"indent":[]}}],"position":{"start":{"line":11,"column":1,"offset":181},"end":{"line":11,"column":126,"offset":306},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"Damn I am really getting caught up in tangents. Like setting up a cloudinary account. I think it might be a good decision for managing images for a site with user-supplied content such as this.","position":{"start":{"line":13,"column":1,"offset":310},"end":{"line":13,"column":194,"offset":503},"indent":[]}}],"position":{"start":{"line":13,"column":1,"offset":310},"end":{"line":13,"column":194,"offset":503},"indent":[]}},{"type":"heading","depth":1,"children":[{"type":"text","value":"Okay okay let's just jot down some ideas and be done with it.","position":{"start":{"line":15,"column":3,"offset":509},"end":{"line":15,"column":64,"offset":570},"indent":[]}}],"position":{"start":{"line":15,"column":1,"offset":507},"end":{"line":15,"column":64,"offset":570},"indent":[]}},{"type":"paragraph","children":[{"type":"normative","id":"normative-HkxqHR7UQ-","children":[{"type":"text","value":"I should "},{"type":"text","value":"look at the ","position":{"start":{"line":16,"column":1,"offset":572},"end":{"line":16,"column":13,"offset":584},"indent":[]}},{"type":"strong","children":[{"type":"text","value":"etymology","position":{"start":{"line":16,"column":15,"offset":586},"end":{"line":16,"column":24,"offset":595},"indent":[]}}],"position":{"start":{"line":16,"column":13,"offset":584},"end":{"line":16,"column":26,"offset":597},"indent":[]}},{"type":"text","value":" of jot some time.","position":{"start":{"line":16,"column":26,"offset":597},"end":{"line":16,"column":44,"offset":615},"indent":[]}}],"position":{"start":{"line":16,"column":1,"offset":572},"end":{"line":16,"column":53,"offset":624},"indent":[]}},{"type":"text","value":"\n","position":{"start":{"line":16,"column":53,"offset":624},"end":{"line":17,"column":1,"offset":626},"indent":[1]}},{"type":"search","children":[{"type":"text","value":"etymology of jot","position":{"start":{"line":17,"column":21,"offset":646},"end":{"line":17,"column":37,"offset":662},"indent":[]}}],"position":{"start":{"line":17,"column":1,"offset":626},"end":{"line":17,"column":21,"offset":646},"indent":[]}}],"position":{"start":{"line":16,"column":1,"offset":572},"end":{"line":17,"column":21,"offset":646},"indent":[1]}},{"type":"paragraph","children":[{"type":"tangent","children":[{"type":"text","value":"I f eventually grab a snapshot that shows the editor experience for whoa. Having large colorful emoji is just nice 😬.","position":{"start":{"line":19,"column":123,"offset":772},"end":{"line":19,"column":241,"offset":890},"indent":[]}}],"position":{"start":{"line":19,"column":1,"offset":650},"end":{"line":19,"column":123,"offset":772},"indent":[]}}],"position":{"start":{"line":19,"column":1,"offset":650},"end":{"line":19,"column":123,"offset":772},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"It takes a lot of work to get to this point, and at this point I know nothing. ","position":{"start":{"line":21,"column":1,"offset":776},"end":{"line":21,"column":80,"offset":855},"indent":[]}},{"type":"search","children":[{"type":"text","value":"Why know anything at all?","position":{"start":{"line":21,"column":109,"offset":884},"end":{"line":21,"column":134,"offset":909},"indent":[]}}],"position":{"start":{"line":21,"column":80,"offset":855},"end":{"line":21,"column":109,"offset":884},"indent":[]}}],"position":{"start":{"line":21,"column":1,"offset":776},"end":{"line":21,"column":109,"offset":884},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"Oh I wanted to post this, from the end of last week when I was 👍 super stressed out 👎 dealing with computer failures.","position":{"start":{"line":23,"column":1,"offset":888},"end":{"line":23,"column":120,"offset":1007},"indent":[]}}],"position":{"start":{"line":23,"column":1,"offset":888},"end":{"line":23,"column":120,"offset":1007},"indent":[]}},{"type":"paragraph","children":[{"type":"image","title":null,"url":"http://res.cloudinary.com/brains-and-space/image/upload/v1496215888/running-from-block_mrm180.svg","alt":"we're-stressed-out","position":{"start":{"line":25,"column":1,"offset":1011},"end":{"line":25,"column":121,"offset":1131},"indent":[]}}],"position":{"start":{"line":25,"column":1,"offset":1011},"end":{"line":25,"column":121,"offset":1131},"indent":[]}},{"type":"paragraph","children":[{"type":"text","value":"I am thinking about two things that ","position":{"start":{"line":27,"column":1,"offset":1135},"end":{"line":27,"column":37,"offset":1171},"indent":[]}},{"type":"normative","id":"normative-S1b9rCmLXW","children":[{"type":"text","value":"I should "},{"type":"text","value":"really mention before calling it.","position":{"start":{"line":27,"column":37,"offset":1171},"end":{"line":27,"column":70,"offset":1204},"indent":[]}}],"position":{"start":{"line":27,"column":37,"offset":1171},"end":{"line":27,"column":79,"offset":1213},"indent":[]}},{"type":"text","value":" ","position":{"start":{"line":27,"column":79,"offset":1213},"end":{"line":27,"column":80,"offset":1214},"indent":[]}},{"type":"tangent","children":[{"type":"text","value":"Okay three things.","position":{"start":{"line":27,"column":102,"offset":1236},"end":{"line":27,"column":120,"offset":1254},"indent":[]}}],"position":{"start":{"line":27,"column":80,"offset":1214},"end":{"line":27,"column":102,"offset":1236},"indent":[]}}],"position":{"start":{"line":27,"column":1,"offset":1135},"end":{"line":27,"column":102,"offset":1236},"indent":[]}},{"type":"list","ordered":true,"start":1,"loose":true,"children":[{"type":"listItem","loose":true,"checked":null,"children":[{"type":"paragraph","children":[{"type":"text","value":"The image above should float the text wrapped tighly to itself. Potentially using some collision shapes or polygons?","position":{"start":{"line":29,"column":4,"offset":1243},"end":{"line":29,"column":120,"offset":1359},"indent":[]}}],"position":{"start":{"line":29,"column":4,"offset":1243},"end":{"line":29,"column":120,"offset":1359},"indent":[]}}],"position":{"start":{"line":29,"column":1,"offset":1240},"end":{"line":30,"column":1,"offset":1361},"indent":[1]}},{"type":"listItem","loose":true,"checked":null,"children":[{"type":"paragraph","children":[{"type":"text","value":"An enhancer layer to the editing process that works in the browser and enhances components, wrapping them with certain properties, like transforms for instance, and other CSS especially.","position":{"start":{"line":31,"column":4,"offset":1366},"end":{"line":31,"column":190,"offset":1552},"indent":[]}}],"position":{"start":{"line":31,"column":4,"offset":1366},"end":{"line":31,"column":190,"offset":1552},"indent":[]}}],"position":{"start":{"line":31,"column":1,"offset":1363},"end":{"line":32,"column":1,"offset":1554},"indent":[1]}},{"type":"listItem","loose":false,"checked":null,"children":[{"type":"paragraph","children":[{"type":"text","value":"Shoot forgot the last thing.","position":{"start":{"line":33,"column":4,"offset":1559},"end":{"line":33,"column":32,"offset":1587},"indent":[]}}],"position":{"start":{"line":33,"column":4,"offset":1559},"end":{"line":33,"column":32,"offset":1587},"indent":[]}}],"position":{"start":{"line":33,"column":1,"offset":1556},"end":{"line":33,"column":32,"offset":1587},"indent":[]}}],"position":{"start":{"line":29,"column":1,"offset":1240},"end":{"line":33,"column":32,"offset":1587},"indent":[1,1,1,1]}}],"position":{"start":{"line":1,"column":1,"offset":0},"end":{"line":35,"column":1,"offset":1591}}}
   }
 
 /***/ })

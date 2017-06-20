@@ -1,6 +1,5 @@
 const constants = require('./constants');
-const blogPosts = require('./out_blog/output');
-const slugs = require('./out_blog/slugs');
+const { posts } = require('./out_blog/output_blog_posts');
 
 // next.config.js
 module.exports = {
@@ -17,7 +16,7 @@ module.exports = {
   exportPathMap: function() {
     const pathMap = {
       '/': { page: '/' },
-      '/blog': { page: '/blog_static' },
+      '/blog': { page: '/blog' },
       '/projects': { page: '/projects' },
     };
 
@@ -30,10 +29,10 @@ module.exports = {
     });
 
     /* build a path for each blog post */
-    slugs.SLUGS.forEach(slug => {
-      pathMap[`/blog/${slug}`] = {
-        page: '/blog_static',
-        query: { name: slug },
+    posts.forEach(post => {
+      pathMap[`/blog/${post.attributes.slug}`] = {
+        page: '/blog',
+        query: { slug: post.attributes.slug },
       };
     });
 

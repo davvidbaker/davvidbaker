@@ -1,39 +1,18 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 // import { composeWithDevTools } from 'redux-devtools-extension'
 import { devToolsEnhancer } from 'redux-devtools-extension';
 
-const exampleInitialState = {
-  lastUpdate: 0,
-  light: false,
-  count: 0,
-  posts: {
-    normatives: null,
+import { whoaReducer } from './whoa-components';
+
+const initialState = {
+  whoa: {
+    normatives: [],
   },
 };
 
-export const actionTypes = {
-  ADD: 'ADD',
-  TICK: 'TICK',
-};
-
 // REDUCERS
-export const reducer = (state = exampleInitialState, action) => {
-  switch (action.type) {
-    // case actionTypes.TICK:
-    //   return Object.assign({}, state, {
-    //     lastUpdate: action.ts,
-    //     light: !!action.light,
-    //   });
-    // case actionTypes.ADD:
-    //   return Object.assign({}, state, {
-    //     count: state.count + 1,
-    //   });
-    default:
-      return state;
-  }
-};
-
+export const reducer = combineReducers({ whoa: whoaReducer });
 // ACTIONS
 // export const serverRenderClock = isServer => dispatch => {
 //   return dispatch({ type: actionTypes.TICK, light: !isServer, ts: Date.now() });
@@ -50,6 +29,6 @@ export const reducer = (state = exampleInitialState, action) => {
 //   return dispatch({ type: actionTypes.ADD });
 // };
 
-export const initStore = (initialState = exampleInitialState) => {
+export const initStore = (initialState = initialState) => {
   return createStore(reducer, initialState, devToolsEnhancer());
 };
