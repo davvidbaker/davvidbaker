@@ -170,7 +170,7 @@ const AdditionalInfo = ({
           padding: 5px;
           margin: 5px;
           transition: background 0.3s;
-          font-family: ${fonts.monospace}, monospace;
+          font-family: ${fonts.monospace};
         }
 
         .flex-list li:hover {

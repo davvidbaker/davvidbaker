@@ -1,46 +1,11 @@
 import withRedux from 'next-redux-wrapper';
 import { Component } from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 import { colors, fonts } from '../../global-styles';
 
 import { posts } from '../../internals/out_blog/output_blog_posts';
-
-const UL = styled.ul`
-list-style: none;
-padding: 10px;
-
-li {
-  margin-bottom: 10px;
-
-  a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:visited {
-      color: rebeccapurple;
-    }
-  }
-
-  h1 {
-    display: inline;
-    color: ${colors.accent1};
-    font-size: 1rem;
-  }
-
-  p {
-    display: inline;
-    color: #888;
-    font-family: ${fonts.monospace};
-    font-size: 1rem;
-  }
-}
-`;
 
 class PostList extends Component {
   componentDidMount() {
@@ -49,7 +14,7 @@ class PostList extends Component {
 
   render() {
     return (
-      <UL>
+      <ul>
         {posts.reverse().map(post =>
           <li key={`link-${post.attributes.slug}`}>
             <Link
@@ -67,7 +32,44 @@ class PostList extends Component {
             <p>{post.attributes.date}</p>
           </li>
         )}
-      </UL>
+
+        <style jsx>{`
+          ul {
+            list-style: none;
+            padding: 10px;
+          }
+
+          li {
+            margin-bottom: 10px;
+          }
+
+          a {
+            text-decoration: none;
+          }
+
+          a:hover {
+            text-decoration: underline;
+          }
+
+          a:visited {
+            color: rebeccapurple;
+          }
+
+          h1 {
+            display: inline;
+            color: ${colors.accent1};
+            font-size: 1rem;
+          }
+
+          p {
+            display: inline;
+            color: #888;
+            font-family: ${fonts.monospace};
+            font-size: 1rem;
+          }
+
+          `}</style>
+      </ul>
     );
   }
 }

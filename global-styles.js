@@ -13,8 +13,6 @@ export const fonts = {
   monospace: 'monospace',
 };
 
-// console.log(ahNatural);
-// debugger;
 injectGlobal`
 
   * {
