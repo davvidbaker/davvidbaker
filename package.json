@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next -p 3002",
     "build-blog": "webpack --config internals/build/webpack.config.js && node ./internals/out_blog/intermediate.bundle.js",
-    "build": "npm run build-blog && next build && next export"
+    "build": "npm run build-blog && next build && next export",
+    "generate": "plop --plopfile internals/generators/index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "marked": "^0.3.6",
     "next": "^3.0.0-beta9",
     "next-redux-wrapper": "^1.1.2",
+    "plop": "^1.8.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "^15.6.0",

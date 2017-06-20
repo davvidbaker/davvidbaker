@@ -22,7 +22,7 @@ module.exports = plop => {
       return `components/${comp}`;
     }
   });
-  plop.addHelper('curly', (object, open) => open ? '{' : '}');
+  plop.addHelper('curly', (object, open) => (open ? '{' : '}'));
 
   plop.addHelper('date', () => {
     const date = new Date();
@@ -34,10 +34,26 @@ module.exports = plop => {
     return `${year}-${month}-${day}`;
   });
 
-  // the reason for not just doing new Date() and calling it a day is for human readability in the postInstances file
   plop.addHelper(
     'formattedCreationDate',
     () =>
-      `${new Date().getFullYear()}, ${new Date().getMonth()}, ${new Date().getDate()}, ${new Date().getHours()}, ${new Date().getMinutes()}`
+      `${MONTHS[
+        new Date().getMonth()
+      ]} ${new Date().getDate()}, ${new Date().getFullYear()}`
   );
 };
+
+const MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];

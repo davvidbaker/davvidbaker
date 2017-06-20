@@ -1,7 +1,6 @@
 /**
  * Post Generator
  */
-const postExists = require('../utils/postExists');
 
 module.exports = {
   description: 'Add a new post',
