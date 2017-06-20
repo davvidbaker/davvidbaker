@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next -p 3002",
-    "build-blog": "webpack --config build/webpack.config.js && node ./out_blog/intermediate.bundle.js",
-    "build": "next build && next export"
+    "build-blog": "webpack --config internals/build/webpack.config.js && node ./internals/out_blog/intermediate.bundle.js",
+    "build": "npm run build-blog && next build && next export"
   },
   "keywords": [],
   "author": "",

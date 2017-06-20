@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import { colors, fonts } from '../../global-styles';
 
-import { posts } from '../../out_blog/output_blog_posts';
+import { posts } from '../../internals/out_blog/output_blog_posts';
 
 const UL = styled.ul`
 list-style: none;

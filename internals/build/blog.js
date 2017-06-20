@@ -17,7 +17,7 @@ console.log('whoaFiles', whoaFiles);
 /**
  * require(whoahFile) // {attributes, content}
  */
-const arr = whoaFiles.map(whoaFile => require(`../blog/${whoaFile}`));
+const arr = whoaFiles.map(whoaFile => require(`../../blog/${whoaFile}`));
 const obj = {};
 arr.forEach(val => {
   obj[val.attributes.slug] = val;
@@ -25,7 +25,7 @@ arr.forEach(val => {
 
 try {
   fs.writeFile(
-    'out_blog/output_blog_posts.js',
+    'internals/out_blog/output_blog_posts.js',
     `
     /**
      * This file was automatically created ${new Date()}

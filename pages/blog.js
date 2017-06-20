@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 
 import PageWrapper from '../components/PageWrapper';
-import { posts } from '../out_blog/output_blog_posts.js';
+import { posts } from '../internals/out_blog/output_blog_posts.js';
 import PostList from '../components/Blog/PostList';
 import BlogPost from '../components/Blog/Post';
 import { initStore } from '../store';

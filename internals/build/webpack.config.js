@@ -1,9 +1,8 @@
 const path = require('path');
 
-
 console.log('dirname in webpack.config.js', __dirname)
 module.exports = {
-  entry: './build/blog.js',
+  entry: './internals/build/blog.js',
 
   output: {
     path: path.resolve(__dirname, '../out_blog'),

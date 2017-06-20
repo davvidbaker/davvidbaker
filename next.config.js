@@ -1,5 +1,5 @@
 const constants = require('./constants');
-const { posts } = require('./out_blog/output_blog_posts');
+const { posts } = require('./internals/out_blog/output_blog_posts');
 
 // next.config.js
 module.exports = {
