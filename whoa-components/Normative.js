@@ -8,7 +8,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import shortid from 'shortid';
 
 import Element from './Element';
@@ -23,10 +22,6 @@ function addNormative(statement, id) {
     id,
   };
 }
-
-const Span = styled.span`
-transition: background 0.25s;
-`;
 
 export class Normative extends Component {
   static propTypes = {
@@ -44,7 +39,7 @@ export class Normative extends Component {
 
   render() {
     return (
-      <Span
+      <span
         id={this.props.id}
         ref={ref => {
           this.element = ref;
@@ -57,7 +52,15 @@ export class Normative extends Component {
             </Element>
           );
         })}
-      </Span>
+
+        <style jsx>{`
+          span {
+            transition: background 0.25s;
+          }
+          `}
+
+        </style>
+      </span>
     );
   }
 }

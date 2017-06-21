@@ -7,36 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { plainText } from './utils';
-
-const Wrapper = styled.span`
-
-font-family: arial, sans-serif;
-font-size: 24px;
-width: 100%;
-text-align:center;
-
-form {
-  display:inline-block;
-  width: 100%;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-  margin: 5px 0;
-}
-
-input {
-  height: 100%;
-  width: 100%;
-  text-align:center;
-  outline: none;
-  border: 0;
-}
-
-.inFocus {
-  box-shadow: 0 2px 8px 2px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-}
-
-`;
 
 class Search extends React.Component {
   state = { textValue: '' };
@@ -75,31 +46,55 @@ class Search extends React.Component {
 
   render() {
     return (
-      <Wrapper>
-        <form
-          onSubmit={evt => {
-            this.onSubmit(evt);
+      <form
+        onSubmit={evt => {
+          this.onSubmit(evt);
+        }}
+        action=""
+      >
+        <input
+          type="text"
+          value={this.state.textValue}
+          ref={input => {
+            this.textInput = input;
           }}
-          action=""
-        >
-          <input
-            type="text"
-            value={this.state.textValue}
-            ref={input => {
-              this.textInput = input;
-            }}
-            style={{ maxWidth: '100%' }}
-            // TODO this is hacky
-            onChange={evt => {
-              this.onChange(evt);
-            }}
-            onFocus={this.onFocus}
-            onMouseEnter={this.onFocus}
-            onMouseLeave={this.onBlur}
-            onBlur={this.onBlur}
-          />
-        </form>
-      </Wrapper>
+          style={{ maxWidth: '100%' }}
+          // TODO this is hacky
+          onChange={evt => {
+            this.onChange(evt);
+          }}
+          onFocus={this.onFocus}
+          onMouseEnter={this.onFocus}
+          onMouseLeave={this.onBlur}
+          onBlur={this.onBlur}
+        />
+
+        <style jsx>{`
+          form {
+            font-family: arial, sans-serif;
+            font-size: 24px;
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16),
+              0 0 0 1px rgba(0, 0, 0, 0.08);
+            margin: 5px 0;
+          }
+          input {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            outline: none;
+
+            border: 0;
+          }
+          .inFocus {
+            box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.16),
+              0 0 0 1px rgba(0, 0, 0, 0.08);
+          }
+        `}</style>
+      </form>
     );
   }
 }

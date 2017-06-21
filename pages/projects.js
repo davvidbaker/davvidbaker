@@ -10,13 +10,13 @@ import shortid from 'shortid';
 import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store';
 
-
 // import { connect } from 'react-redux';
 
 import PageWrapper from '../components/PageWrapper';
 import { PROJECTS } from '../constants';
 import Project from '../components/Project';
 import AdditionalInfo from '../components/AdditionalInfo';
+import Nav from '../components/Nav';
 
 const compareYears = (a, b) => {
   if (Math.max(...a.year) > Math.max(...b.year)) {
@@ -55,11 +55,11 @@ const ProjectList = ({
   showAdditionalInfo,
   hideAdditionalInfo,
   showingAdditionalInfo,
-}) => (
+}) =>
   <ul className={showingAdditionalInfo ? 'hidden' : 'visible'}>
     {projects
       .sort(compareYears)
-      .map(project => (
+      .map(project =>
         <Project
           key={project.name}
           year={project.year}
@@ -73,7 +73,7 @@ const ProjectList = ({
           linkToTrello={project.linkToTrello}
           showAdditionalInfo={showAdditionalInfo}
         />
-      ))}
+      )}
     <style jsx>
       {`
         ul {
@@ -85,8 +85,58 @@ const ProjectList = ({
         }
       `}
     </style>
-  </ul>
-);
+    <style global jsx>{`
+      h1 {
+        font-size: 24px;
+      }
+      p {
+        color: #555;
+        line-height: 1.5;
+      }
+      a {
+        color: var(--color-link);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      body > div:first-child {
+        width: 100%;
+        height: 100%;
+      }
+      #body-div {
+        border: var(--color-border) 0px solid;
+        background: #f5f5f5;
+        min-height: 100vh;
+        padding: 8px;
+        position: relative;
+      }
+      .fade-enter {
+        opacity: 0.01;
+      }
+      .fade-enter.fade-enter-active {
+        opacity: 1;
+        transition: opacity 200ms ease-in 205ms;
+      }
+      .fade-leave {
+        opacity: 1;
+      }
+      .fade-leave.fade-leave-active {
+        opacity: 0.01;
+        transition: opacity 200ms ease-in;
+      }
+      #additional-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .markdown p:first-child {
+        margin-top: 0;
+      }
+    `}</style>
+  </ul>;
 
 const Page = withToggle(
   ({
@@ -106,6 +156,7 @@ const Page = withToggle(
         id="projects-page"
         style={{ position: 'relative', padding: '2.5vw' }}
       >
+        <Nav />
         <ReactCSSTransitionGroup
           transitionName="fade"
           transitionEnterTimeout={500}
@@ -128,11 +179,10 @@ const Page = withToggle(
   }
 );
 
-const ProjectsPage = ({ url }) => (
+const ProjectsPage = ({ url }) =>
   <PageWrapper>
     <Page projects={PROJECTS} url={url} />
-  </PageWrapper>
-);
+  </PageWrapper>;
 
 ProjectsPage.getInitialProps = async ({ store, isServer }) => {
   return { isServer };
@@ -148,4 +198,3 @@ export default withRedux(
   state => ({ ...state }),
   mapDispatchToProps
 )(ProjectsPage);
-

@@ -1,21 +1,21 @@
 import React from 'react';
 import shortid from 'shortid';
-import styled from 'styled-components';
 
 import Element from './Element';
 import whoaReducer from './reducers';
 
-const Wrapper = styled.article`
-max-width: 50rem;
-margin: 0 auto;
-padding: 5px;
-`;
-
 export { whoaReducer };
 
 export default ({ content }) =>
-  <Wrapper>
+  <article>
     {content.children.map(child =>
       <Element key={shortid.generate()} {...child} />
     )}
-  </Wrapper>;
+    <style jsx>{`
+      article {
+        max-width: 50rem;
+        margin: 0 auto;
+        padding: 5px;
+      }
+      `}</style>
+  </article>;

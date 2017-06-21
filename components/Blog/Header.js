@@ -23,7 +23,7 @@ const Header = ({ show, hide, sideBarVisible }) =>
         outline: none;
       }
 
-      &:hover {
+      button:hover {
         transform: scale(1.05);
       }
       `}</style>

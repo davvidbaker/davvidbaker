@@ -6,11 +6,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { withHandlers, compose } from 'recompose';
 import { connect } from 'react-redux';
-
-import { colors } from '../global-styles';
 
 const enhance = compose(
   connect(state => ({
@@ -20,7 +17,8 @@ const enhance = compose(
   withHandlers({
     onMouseEnter: dispatch => id => {
       console.log('mouse entered', id);
-      document.querySelector(`#${id}`).style.background = colors.highlight;
+      document.querySelector(`#${id}`).style.background =
+        'var(--color-highlight)';
     },
     onMouseLeave: dispatch => id => {
       document.querySelector(`#${id}`).style.background = 'unset';
@@ -29,30 +27,6 @@ const enhance = compose(
   })
 );
 
-const UL = styled.ul`
-  list-style: none;
-  padding: 0;
-  
-  a {
-    color: unset;
-    text-decoration: none;
-  }
-  
-  li {
-    overflow-x: hidden;
-    padding: 10px 15px;
-    border-bottom: 1px solid #ededed;
-
-    &:nth-last-of-type(1) {
-      border-bottom-color: #ccc;
-    }
-
-    &:hover {
-      background: ${colors.highlight};
-    }
-  }  
-`;
-
 const NormativesList = ({
   currentPost,
   normatives,
@@ -60,7 +34,7 @@ const NormativesList = ({
   onMouseLeave,
 }) => {
   return (
-    <UL className="offscreen">
+    <ul className="offscreen">
       {normatives &&
         normatives.map(normative =>
           <li
@@ -98,7 +72,24 @@ const NormativesList = ({
             <p>{normative.statement}</p>
           </li>
         )}
-    </UL>
+      <style jsx>{`
+        a {
+          color: unset;
+          text-decoration: none;
+        }
+        li {
+          overflow-x: hidden;
+          padding: 10px 15px;
+          border-bottom: 1px solid #ededed;
+        }
+        li:nth-last-of-type(1) {
+          border-bottom-color: #ccc;
+        }
+        li:hover {
+          background: var(--color-highlight);
+        }
+      `}</style>
+    </ul>
   );
 };
 NormativesList.propTypes = {

@@ -2,17 +2,13 @@ import Head from 'next/head';
 import Link from 'next/link';
 import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store';
+import Nav from '../components/Nav';
 
 import PageWrapper from '../components/PageWrapper';
 
 const IndexPage = () =>
   <PageWrapper title="🙃🐢">
-
-    <style jsx>
-      {`
-
-      `}
-    </style>
+    <Nav />
   </PageWrapper>;
 
 IndexPage.getInitialProps = async ({ store, isServer }) => {

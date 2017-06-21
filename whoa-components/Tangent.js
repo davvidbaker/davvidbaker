@@ -6,30 +6,10 @@
 */
 
 import React from 'react';
-import styled from 'styled-components';
 import shortid from 'shortid';
 
 import Element from './Element';
 import plainText from './utils/plainText';
-
-const Wrapper = styled.span`
-  display: inline;
-
-  svg {
-    position: absolute;
-    display: inline-block;
-    pointer-events: none;
-
-    text {
-      transform: translateY(1rem);
-      pointer-events: painted;
-
-      &:hover {
-        fill: red;
-      }
-    }
-  }
-`;
 
 class Tangent extends React.Component {
   constructor(props) {
@@ -66,15 +46,12 @@ class Tangent extends React.Component {
     const textPathRect = this.textPath.getBoundingClientRect();
 
     this.svg.setAttribute('width', textPathRect.width);
-    this.svg.setAttribute(
-      'height',
-      textPathRect.height
-    );
+    this.svg.setAttribute('height', textPathRect.height);
   }
 
   render() {
     return (
-      <Wrapper>
+      <span>
         <svg
           ref={ref => {
             this.svg = ref;
@@ -107,8 +84,24 @@ class Tangent extends React.Component {
           </text>
         </svg>
         <br />
-        {' '}
-      </Wrapper>
+        <style jsx>{`
+          span {
+            display: inline;
+          }
+          svg {
+            position: absolute;
+            display: inline-block;
+            pointer-events: none;
+          }
+          text {
+            transform: translateY(1rem);
+            pointer-events: painted;
+          }
+          text:hover {
+            fill: red;
+          }
+        `}</style>
+      </span>
     );
   }
 }

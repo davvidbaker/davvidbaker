@@ -11,7 +11,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { plainText } from './utils';
-// import styled from 'styled-components';
 import WordChoice from './WordChoice';
 import Ellipsis from './Ellipsis';
 import Tangent from './Tangent';

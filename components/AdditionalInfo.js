@@ -155,9 +155,9 @@ const AdditionalInfo = ({
         }
 
         .description {
-          columns: 20rem;
+          {/*columns: 20rem;
           text-align: justify;
-          column-gap: 2rem;
+          column-gap: 2rem;*/}
         }
 
         .flex-list {
