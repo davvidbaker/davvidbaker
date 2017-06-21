@@ -10,7 +10,7 @@ const Title = ({title, date}) =>
         {date}
       </p>
     </div>
-    <style>{`
+    <style jsx>{`
       .outer-title {
         display: flex;
         justify-content: center;

@@ -86,6 +86,7 @@ class Search extends React.Component {
             width: 100%;
             text-align: center;
             outline: none;
+            font-size:1.35rem;
 
             border: 0;
           }

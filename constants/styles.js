@@ -10,3 +10,12 @@ export const colors = {
 export const fonts = {
   monospace: "'Cutive Mono', monospace",
 };
+
+// for use in ::before and ::after pseudo-elements
+export const popup = `
+position: absolute;
+background: var(--color-contrasting-background);
+border-radius: 3px;
+padding: 5px;
+color: white;
+opacity: 0.9;`;

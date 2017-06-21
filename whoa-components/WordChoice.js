@@ -8,6 +8,7 @@ import React from 'react';
 import shortid from 'shortid';
 
 import Element from './Element';
+import { popup } from '../constants/styles'
 
 /**
  * Right now, word choice will only work for up to three words
@@ -51,9 +52,13 @@ function WordChoice({ children }) {
             content: 'WC';
             z-index: -1;
             opacity: 0.2;
-
             color: lightblue;
             font-size: 2rem;
+          }
+          span:hover::after {
+            ${popup}
+            content: '👈 word choice';
+            line-height: 1;
           }
         `}</style>
       </span>;

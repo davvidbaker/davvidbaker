@@ -9,7 +9,9 @@ import React from 'react';
 import shortid from 'shortid';
 
 import Element from './Element';
+import WithToggle from '../components/Blog/WithToggle';
 import plainText from './utils/plainText';
+import { popup } from '../constants/styles'
 
 class Tangent extends React.Component {
   constructor(props) {
@@ -28,7 +30,7 @@ class Tangent extends React.Component {
 
     const straightLength = postBody.right - svgLeft - 200;
     this.setState(
-      { straightLength: straightLength > 0 ? straightLength : 0 },
+      { straightLength: straightLength > 0 ? straightLength : 100 },
       this.stateWasSet
     );
     // );
@@ -37,12 +39,6 @@ class Tangent extends React.Component {
   stateWasSet() {
     console.log('straight length', this.state.straightLength);
 
-    // this part totally doesn't work. I am trying to not have overflow x
-    console.log(
-      'client bounding box',
-      this.textPath,
-      this.textPath.getBoundingClientRect().height
-    );
     const textPathRect = this.textPath.getBoundingClientRect();
 
     this.svg.setAttribute('width', textPathRect.width);
@@ -50,8 +46,13 @@ class Tangent extends React.Component {
   }
 
   render() {
+    const innerText = plainText(this.props.children);
+
     return (
-      <span>
+      <span data-content={this.props.popupOpen ? innerText : null} onClick={() => this.props.popupOpen ? this.props.hide() : this.props.show()}>
+        {this.props.popupOpen && <span className="popup">
+            {innerText}
+          </span>}
         <svg
           ref={ref => {
             this.svg = ref;
@@ -67,7 +68,7 @@ class Tangent extends React.Component {
               id={this.state.id}
               d={`M 0 0 
                  l ${this.state.straightLength} 0
-                 c 200 0 200 0 200 200
+                 c 200 0 ${this.state.straightLength} 0 ${this.state.straightLength} 200
                  l 0 3000`}
             />
           </defs>
@@ -78,8 +79,7 @@ class Tangent extends React.Component {
                 this.textPath = ref;
               }}
             >
-              {/*{this.props.children[0].props.value}*/}
-              {plainText(this.props.children)}
+              {innerText}
             </textPath>
           </text>
         </svg>
@@ -87,6 +87,7 @@ class Tangent extends React.Component {
         <style jsx>{`
           span {
             display: inline;
+            cursor: pointer;
           }
           svg {
             position: absolute;
@@ -98,7 +99,17 @@ class Tangent extends React.Component {
             pointer-events: painted;
           }
           text:hover {
-            fill: red;
+            fill: steelblue;
+          }
+
+          .popup {
+            ${popup}
+            content: attr(data-content);
+            padding: 10px;
+            transform: translatey(1.5rem);
+            opacity: 0.95;
+            background: steelblue;
+            max-width: 50%;
           }
         `}</style>
       </span>
@@ -108,4 +119,4 @@ class Tangent extends React.Component {
 
 Tangent.propTypes = {};
 
-export default Tangent;
+export default WithToggle('popupOpen')(Tangent);

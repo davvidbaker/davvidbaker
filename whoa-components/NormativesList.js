@@ -51,13 +51,7 @@ const NormativesList = ({
                 document.getElementById(normative.id).getBoundingClientRect()
                   .top -
                 document.querySelector('main').getBoundingClientRect().top;
-              console.log('scrolling to ', scrollTo);
 
-              console.log(
-                'normative top',
-                document.getElementById(normative.id).getBoundingClientRect()
-                  .top
-              );
               if (
                 Math.abs(
                   document.getElementById(normative.id).getBoundingClientRect()

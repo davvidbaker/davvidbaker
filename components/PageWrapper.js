@@ -1,11 +1,9 @@
 /**
- * Contains global styles.
+ * Contains global styles and <head> content.
+ * Wraps every page.
  */
 import Head from 'next/head';
 import { compose, withHandlers, withReducer } from 'recompose';
-import Nav from '../components/Nav';
-
-// import {colors, fonts} from '../constants/styles';
 
 // now unnecessary, with nonchanging border color
 const enhance = withReducer(
@@ -47,6 +45,7 @@ export default enhance(
             --color-link: #0066c0;
             --color-border: mediumseagreen;
             --color-highlight: #fbfaa4;
+            --color-contrasting-background: firebrick;
             
             --font-monospace: monospace;
           }
@@ -54,6 +53,8 @@ export default enhance(
             box-sizing: border-box;
             font-family: 'Josefin Slab', sans-serif;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
           }
           *, *::before, *::after {
             box-sizing: inherit;
@@ -67,6 +68,7 @@ export default enhance(
           }
           ul {
             list-style: none;
+            margin: 0;
             padding: 0;
           }
         `}
