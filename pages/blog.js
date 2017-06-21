@@ -38,6 +38,10 @@ const BlogGlobalStyles = () =>
     p {
       line-height: 1.5;
     }
+
+    span.redaction span::selection {
+      background: black;
+    }
   `}</style>;
 
 const BlogPage = ({ url }) => {

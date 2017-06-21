@@ -16,6 +16,7 @@ class Post extends React.Component {
   }
 
   render() {
+    // debugger;
     return (
       <div style={{ maxWidth: '100vw', height: '100vh' }}>
         <SideBar sideBarVisible={this.props.sideBarVisible} />
@@ -29,6 +30,7 @@ class Post extends React.Component {
             show={this.props.show}
             hide={this.props.hide}
             sideBarVisible={this.props.sideBarVisible}
+            toggleSideBar={this.props.toggleSideBar}
           />
           <Title
             title={this.props.attributes.title}
@@ -50,15 +52,31 @@ class Post extends React.Component {
             height: 100vh;
             width: 100%;
           }
-          `}</style>
+        `}</style>
 
       </div>
     );
   }
 }
 
-const PostWithToggle = WithToggle('sideBarVisible')(Post);
+export const sideBarReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'SHOW_SIDE_BAR':
+      return true;
+    case 'HIDE_SIDE_BAR':
+      return false;
+    default:
+      return state;
+  }
+};
 
-export default connect(null, dispatch => ({
-  setCurrentPost: slug => dispatch({ type: 'SET_CURRENT_POST', slug }),
-}))(PostWithToggle);
+// const PostWithToggle = WithToggle('sideBarVisible')(Post);
+
+export default connect(
+  state => ({ sideBarVisible: state.sideBarVisible }),
+  dispatch => ({
+    setCurrentPost: slug => dispatch({ type: 'SET_CURRENT_POST', slug }),
+    toggleSideBar: showing =>
+      dispatch({ type: showing ? 'HIDE_SIDE_BAR' : 'SHOW_SIDE_BAR' }),
+  })
+)(Post);

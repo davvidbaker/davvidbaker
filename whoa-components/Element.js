@@ -15,6 +15,7 @@ import WordChoice from './WordChoice';
 import Ellipsis from './Ellipsis';
 import Tangent from './Tangent';
 import Normative from './Normative';
+import Redaction from './Redaction';
 import Code from './Code';
 import Search from './Search';
 
@@ -53,6 +54,10 @@ function Element({ type, children, ...props }) {
     case 'normative':
       Tag = Normative;
       elementProps.id = props.id;
+      break;
+
+    case 'redaction':
+      Tag = Redaction;
       break;
     /* 🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝
      * Custom Elements Above 
@@ -143,9 +148,9 @@ function ChildrenElements(chunks, tag) {
     return chunks.value;
   } else if (Array.isArray(chunks)) {
     /* 
-  Normatives and Search are an exception, they expect an array.
+  Normatives and Search and Redaction are an exception, they expect an array.
 */
-    if (tag === 'normative' || tag === 'search') {
+    if (tag === 'normative' || tag === 'search' || tag === 'redaction') {
       return chunks;
     }
 

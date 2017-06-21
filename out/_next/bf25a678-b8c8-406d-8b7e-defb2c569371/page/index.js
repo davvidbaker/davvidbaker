@@ -1,6 +1,0 @@
-
-          window.__NEXT_REGISTER_PAGE('/', function() {
-            var comp = module.exports=webpackJsonp([6],{140:function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var u=r(14),a=n(u),o=r(23),f=n(o),i=r(22),l=n(i),c=r(0),d=n(c),s=r(35),p=(n(s),r(36)),v=(n(p),r(49)),m=n(v),_=r(81),b=r(79),w=n(b),x=r(80),y=n(x),S=function(){return d.default.createElement(y.default,{title:"🙃🐢"},d.default.createElement(w.default,null))};S.getInitialProps=function(){var e=(0,l.default)(f.default.mark(function e(t){var r=(t.store,t.isServer);return f.default.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.abrupt("return",{isServer:r});case 1:case"end":return e.stop()}},e,void 0)}));return function(t){return e.apply(this,arguments)}}();var h=function(e){return{addCount:function(e){return{type:"ADD"}}}};t.default=(0,m.default)(_.initStore,function(e){return(0,a.default)({},e)},h)(S)},311:function(e,t,r){e.exports=r(140)}},[311]);
-            return { page: comp.default }
-          })
-        

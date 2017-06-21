@@ -4,15 +4,20 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 
 import { whoaReducer } from './whoa-components';
+import { sideBarReducer } from './components/Blog/Post';
 
 const initialState = {
   whoa: {
     normatives: [],
   },
+  sideBarVisible: false,
 };
 
 // REDUCERS
-export const reducer = combineReducers({ whoa: whoaReducer });
+export const reducer = combineReducers({
+  whoa: whoaReducer,
+  sideBarVisible: sideBarReducer,
+});
 // ACTIONS
 // export const serverRenderClock = isServer => dispatch => {
 //   return dispatch({ type: actionTypes.TICK, light: !isServer, ts: Date.now() });
