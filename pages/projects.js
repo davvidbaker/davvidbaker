@@ -71,12 +71,14 @@ const ProjectList = ({
           link={project.link}
           linkToSource={project.linkToSource}
           linkToTrello={project.linkToTrello}
+          highlight={project.highlight}
           showAdditionalInfo={showAdditionalInfo}
         />
       )}
     <style jsx>
       {`
         ul {
+          padding: 2.5vw;
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           grid-gap: 2.5vw;
@@ -108,8 +110,6 @@ const ProjectList = ({
         border: var(--color-border) 0px solid;
         background: #f5f5f5;
         min-height: 100vh;
-        padding: 8px;
-        position: relative;
       }
       .fade-enter {
         opacity: 0.01;
@@ -152,11 +152,8 @@ const Page = withToggle(
         )[0]
       : null;
     return (
-      <div
-        id="projects-page"
-        style={{ position: 'relative', padding: '2.5vw' }}
-      >
-        <Nav />
+      <div id="projects-page" style={{ position: 'relative' }}>
+        <Nav url={url} />
         <ReactCSSTransitionGroup
           transitionName="fade"
           transitionEnterTimeout={500}
@@ -180,7 +177,7 @@ const Page = withToggle(
 );
 
 const ProjectsPage = ({ url }) =>
-  <PageWrapper>
+  <PageWrapper title={`🙃🐢 ${url.query.name ? url.query.name : 'Projects'}`}>
     <Page projects={PROJECTS} url={url} />
   </PageWrapper>;
 

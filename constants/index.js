@@ -8,6 +8,7 @@ module.exports = {
       status: ['active development', 'darkmagenta'],
       tagline: 'An exploration of writing with custom markup and components.',
       year: [2017],
+      highlight: true,
     },
     {
       name: 'Swyzzle',

@@ -11,6 +11,7 @@ class Post extends React.Component {
   // ({ attributes, content, sideBarVisible, show, hide, toggle, setCurrentPost }) =>
   componentDidMount() {
     console.log(this.props.content);
+    console.log('attr', this.props.attributes);
     this.props.setCurrentPost(this.props.attributes.slug);
   }
 

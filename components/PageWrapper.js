@@ -29,6 +29,8 @@ export default enhance(
           rel="stylesheet"
         />
 
+        <link rel="icon" type="image/x-icon" href="/static/favicon.png" />
+
         {includeTweenMax &&
           <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" />}
 
@@ -45,13 +47,23 @@ export default enhance(
             --color-link: #0066c0;
             --color-border: mediumseagreen;
             --color-highlight: #fbfaa4;
+
             --color-contrasting-background: firebrick;
-            
             --font-monospace: monospace;
+            --display-marginal: block;
+          }
+          @media (max-width: 500px) {
+            :root {
+              {/*--display-marginal: none;*/}
+            }
+            .marginal {
+              z-index: -100;
+              opacity: 0.05;
+            }
           }
           html {
             box-sizing: border-box;
-            font-family: 'Josefin Slab', sans-serif;
+            font-family: sans-serif;
             min-height: 100vh;
             margin: 0;
             padding: 0;
@@ -70,6 +82,13 @@ export default enhance(
             list-style: none;
             margin: 0;
             padding: 0;
+          }
+          code {
+            font-family: var(--font-monospace, monospace);
+          }
+          .marginal {
+            display: var(--display-marginal, block);
+            max-width: 250px;
           }
         `}
       </style>

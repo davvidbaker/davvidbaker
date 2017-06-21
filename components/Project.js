@@ -36,6 +36,7 @@ const Project = (
   {
     name = '[Name Here]',
     tagline = 'tagline',
+    highlight = false,
     status,
     description,
     year,
@@ -50,9 +51,9 @@ const Project = (
   }
 ) => (
   <div
+    className = {highlight && 'highlight-project'}
     onMouseEnter={focus}
     onMouseLeave={unfocus}
-    style={{ transition: "transform 1s", transform: `rotate(${Math.random() * 2 - 1}deg)` }}
   >
     <h1>{name} <span>{year && formatYears(year)}</span></h1>
     {status && <Status status={status} focused={focused} />}
@@ -95,6 +96,11 @@ const Project = (
 
         .tagline {
           flex: 1;
+        }
+
+        .highlight-project {
+          border-color: mediumseagreen;
+          border-width: 2px;
         }
     `
       }
