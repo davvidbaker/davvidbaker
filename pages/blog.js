@@ -42,6 +42,15 @@ const BlogGlobalStyles = () =>
     span.redaction span::selection {
       background: black;
     }
+
+    a {
+      color: #0066c0;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: rebeccapurple;
+    }
   `}</style>;
 
 const BlogPage = ({ url }) => {
