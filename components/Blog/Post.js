@@ -29,6 +29,12 @@ class Post extends React.Component {
           <Header
             show={this.props.show}
             hide={this.props.hide}
+            tick={this.props.tick}
+            untick={this.props.untick}
+            seek={this.props.seek}
+            seekMain={this.props.seekMain}
+            timelineFrame={this.props.timelineFrame}
+            timelines={this.props.timelines}
             sideBarVisible={this.props.sideBarVisible}
             toggleSideBar={this.props.toggleSideBar}
           />
@@ -73,10 +79,18 @@ export const sideBarReducer = (state = false, action) => {
 // const PostWithToggle = WithToggle('sideBarVisible')(Post);
 
 export default connect(
-  state => ({ sideBarVisible: state.sideBarVisible }),
+  state => ({
+    sideBarVisible: state.sideBarVisible,
+    timelineFrame: state.whoa.timelineFrame,
+    timelines: state.whoa.timelines,
+  }),
   dispatch => ({
     setCurrentPost: slug => dispatch({ type: 'SET_CURRENT_POST', slug }),
     toggleSideBar: showing =>
       dispatch({ type: showing ? 'HIDE_SIDE_BAR' : 'SHOW_SIDE_BAR' }),
+    tick: () => dispatch({ type: 'TICK' }),
+    untick: () => dispatch({ type: 'UNTICK' }),
+    seek: (id, timelineFrame) => dispatch({ type: 'SEEK', id, timelineFrame }),
+    seekMain: timelineFrame => dispatch({ type: 'SEEK_MAIN', timelineFrame }),
   })
 )(Post);

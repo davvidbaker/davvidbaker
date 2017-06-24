@@ -1,15 +1,19 @@
 import React from 'react';
 import shortid from 'shortid';
+import { connect } from 'react-redux';
 
 import Element from './Element';
 import whoaReducer from './reducers';
 
 export { whoaReducer };
 
-export default ({ content }) =>
+const WhoaRoot = ({ content, timelineFrame }) =>
   <article>
-    {content.children.map(child =>
-      <Element key={shortid.generate()} {...child} />
+    {content.children.map(
+      (child, index) =>
+        index < timelineFrame
+          ? <Element key={shortid.generate()} {...child} />
+          : null
     )}
     <style jsx>{`
       article {
@@ -17,5 +21,9 @@ export default ({ content }) =>
         margin: 0 auto;
         padding: 5px;
       }
-      `}</style>
+    `}</style>
   </article>;
+
+export default connect(state => ({ timelineFrame: state.whoa.timelineFrame }))(
+  WhoaRoot
+);
