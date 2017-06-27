@@ -7,6 +7,7 @@ import Header from './Header';
 import Title from './Title';
 import WithToggle from './WithToggle';
 
+
 class Post extends React.Component {
   // ({ attributes, content, sideBarVisible, show, hide, toggle, setCurrentPost }) =>
   componentDidMount() {

@@ -11,9 +11,7 @@ import Nav from '../components/Nav';
 
 const BlogGlobalStyles = () =>
   <style global jsx>{`
-    body {
-      --color-border: firebrick;
-    }
+
     * {
       font-family: sans-serif;
     }

@@ -45,7 +45,7 @@ export default enhance(
           :root {
             --color-main: firebrick;
             --color-link: #0066c0;
-            --color-border: mediumseagreen;
+            --color-border: darkslategrey;
             --color-highlight: #fbfaa4;
 
             --color-contrasting-background: firebrick;
