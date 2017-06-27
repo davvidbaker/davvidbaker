@@ -1,7 +1,7 @@
 /**
  * Borrowed some (not all) conventions from Scott Nonnenberg. 👍
  * https://blog.scottnonnenberg.com/eslint-part-1-exploration/
- * 
+ *
  * - Always use ‘error’ or ‘off’ instead of 0 and 2. Numbers are for real config values.
  * - Rules are in alphabetical order: first core ESLint, then plugins sorted by name.
  */
@@ -39,6 +39,7 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': 'off',
+    'jsx-a11y/href-no-hash': 'off',
     'react/jsx-filename-extension': 'off',
   },
   settings: {
