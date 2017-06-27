@@ -6,50 +6,10 @@ import PageWrapper from '../components/PageWrapper';
 import { posts } from '../internals/out_blog/output_blog_posts.js';
 import PostList from '../components/Blog/PostList';
 import BlogPost from '../components/Blog/Post';
+import BlogGlobalStyles from '../components/Blog/styles';
+
 import { initStore } from '../store';
 import Nav from '../components/Nav';
-
-const BlogGlobalStyles = () =>
-  <style global jsx>{`
-
-    * {
-      font-family: sans-serif;
-    }
-    blockquote {
-      border-left: 5px solid var(--color-main);
-      padding: 0.5rem;
-      padding-left: 1.5rem;
-      margin: 0 1rem;
-    }
-    blockquote p {
-      margin: 0;
-      margin-top: 0.5rem;
-    }
-    blockquote p::before {
-      content: '';
-      width: 20px;
-      height: 5px;
-      background: var(--color-main);
-      position: absolute;
-      transform: translateX(-1.5rem) translateY(-1rem);
-    }
-    p {
-      line-height: 1.5;
-    }
-
-    span.redaction span::selection {
-      background: black;
-    }
-
-    a {
-      color: #0066c0;
-      text-decoration: none;
-    }
-
-    a:visited {
-      color: rebeccapurple;
-    }
-  `}</style>;
 
 const BlogPage = ({ url }) => {
   const post = url.query.slug

@@ -4,6 +4,7 @@
  */
 import Head from 'next/head';
 import { compose, withHandlers, withReducer } from 'recompose';
+import React from 'react';
 
 // now unnecessary, with nonchanging border color
 const enhance = withReducer(

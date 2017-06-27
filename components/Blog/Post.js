@@ -7,12 +7,9 @@ import Header from './Header';
 import Title from './Title';
 import WithToggle from './WithToggle';
 
-
 class Post extends React.Component {
   // ({ attributes, content, sideBarVisible, show, hide, toggle, setCurrentPost }) =>
   componentDidMount() {
-    console.log(this.props.content);
-    console.log('attr', this.props.attributes);
     this.props.setCurrentPost(this.props.attributes.slug);
   }
 
@@ -81,3 +78,5 @@ export default connect(
       dispatch({ type: showing ? 'HIDE_SIDE_BAR' : 'SHOW_SIDE_BAR' }),
   })
 )(Post);
+
+
