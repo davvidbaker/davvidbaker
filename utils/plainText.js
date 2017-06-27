@@ -1,4 +1,7 @@
-const plainText = input => {
+const plainText = (input) => {
+  if (typeof input === 'string') {
+    return input;
+  }
   if (Array.isArray(input)) {
     return input.map(el => plainText(el));
   } else if (input.props && input.props.type === 'text') {
@@ -7,8 +10,7 @@ const plainText = input => {
     return input.value;
   } else if (input.props && input.props.children) {
     return plainText(input.props.children);
-  } else {
-    debugger;
   }
+  debugger;
 };
 export default plainText;

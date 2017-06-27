@@ -41,6 +41,7 @@ module.exports = {
     'import/extensions': 'off',
     'jsx-a11y/href-no-hash': 'off',
     'react/jsx-filename-extension': 'off',
+    'react/forbid-prop-types': 'off',
   },
   settings: {
     'import/resolver': {

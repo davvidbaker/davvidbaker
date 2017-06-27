@@ -5,19 +5,17 @@
 */
 
 import React from 'react';
-import shortid from 'shortid';
 
-import Element from './Element';
-import { popup } from '../constants/styles'
-
+import { popupStyle } from '../components/Blog/Popup';
+console.log(popupStyle)
 /**
  * Right now, word choice will only work for up to three words
  */
 function WordChoice({ children }) {
   return children[1]
     ? <span data-before={children[1]} data-after={children[2]}>
-        {children[0]}
-        <style jsx>{`
+      {children[0]}
+      <style jsx>{`
           span {
             display: inline-block;
           }
@@ -43,10 +41,10 @@ function WordChoice({ children }) {
             transform: translateY(-0.3rem);
           }
         `}</style>
-      </span>
+    </span>
     : <span>
-        {children[0]}
-        <style jsx>{`
+      {children[0]}
+      <style jsx>{`
           span::before {
             position: absolute;
             content: 'WC';
@@ -56,12 +54,12 @@ function WordChoice({ children }) {
             font-size: 2rem;
           }
           span:hover::after {
-            ${popup}
+            ${popupStyle}
             content: '👈 word choice';
             line-height: 1;
           }
         `}</style>
-      </span>;
+    </span>;
 }
 
 WordChoice.propTypes = {};

@@ -8,10 +8,11 @@
 import React from 'react';
 import shortid from 'shortid';
 
-import Element from './Element';
-import WithToggle from '../components/Blog/WithToggle';
-import plainText from './utils/plainText';
-import { popup } from '../constants/styles';
+import WithToggle from '../../components/Blog/WithToggle';
+import Popup from '../../components/Blog/Popup';
+import { popupStyle } from './style';
+
+import plainText from '../../utils/plainText';
 
 class Tangent extends React.Component {
   constructor(props) {
@@ -24,10 +25,8 @@ class Tangent extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     // TODO this is hacky-ish, could instead use a ref that is passed down down down. Actually maybe this is better
 
-    // );
     window.addEventListener('resize', () => {
       this.calculatePath();
     });
@@ -85,16 +84,15 @@ class Tangent extends React.Component {
 
     return (
       <span
-        data-content={this.props.popupOpen ? innerText : null}
         onClick={() =>
-          this.props.popupOpen ? this.props.hide() : this.props.show()}
+          (this.props.popupOpen ? this.props.hide() : this.props.show())}
       >
         {this.props.popupOpen &&
-          <span className="popup">
+          <Popup additionalStyles={popupStyle}>
             {innerText}
-          </span>}
+          </Popup>}
         <svg
-          ref={ref => {
+          ref={(ref) => {
             this.svg = ref;
           }}
         >
@@ -108,15 +106,14 @@ class Tangent extends React.Component {
               id={this.state.id}
               d={`M 0 0 
                  l ${this.state.straightLength} 0
-                 c ${this.state.curveParameter} 0 ${this.state
-                .curveParameter} 0 ${this.state.curveParameter} 200
+                 c ${this.state.curveParameter} 0 ${this.state.curveParameter} 0 ${this.state.curveParameter} 200
                  l 0 3000`}
             />
           </defs>
           <text>
             <textPath
               href={`#${this.state.id}`}
-              ref={ref => {
+              ref={(ref) => {
                 this.textPath = ref;
               }}
             >
@@ -141,16 +138,6 @@ class Tangent extends React.Component {
           }
           text:hover {
             fill: steelblue;
-          }
-
-          .popup {
-            ${popup}
-            content: attr(data-content);
-            padding: 10px;
-            transform: translatey(1.5rem);
-            opacity: 0.95;
-            background: steelblue;
-            max-width: 50%;
           }
         `}</style>
       </span>
