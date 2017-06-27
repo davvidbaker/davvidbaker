@@ -11,13 +11,14 @@ import shortid from 'shortid';
 import Element from './Element';
 import WithToggle from '../components/Blog/WithToggle';
 import plainText from './utils/plainText';
-import { popup } from '../constants/styles'
+import { popup } from '../constants/styles';
 
 class Tangent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       straightLength: 300,
+      curveParameter: 200,
       id: shortid.generate(),
     };
   }
@@ -25,32 +26,71 @@ class Tangent extends React.Component {
   componentDidMount() {
     // debugger
     // TODO this is hacky-ish, could instead use a ref that is passed down down down. Actually maybe this is better
+
+    // );
+    window.addEventListener('resize', () => {
+      this.calculatePath();
+    });
+
+    this.calculatePath();
+  }
+
+  calculatePath() {
     const svgLeft = this.svg.getBoundingClientRect().left;
     const postBody = document.querySelector('article').getBoundingClientRect();
-
-    const straightLength = postBody.right - svgLeft - 200;
+    let straightLength = postBody.right - svgLeft - 60;
+    if (straightLength < 0) {
+      straightLength = 0;
+    }
+    console.log(
+      'calculated straight length',
+      straightLength,
+      this.svg.getBoundingClientRect()
+    );
     this.setState(
-      { straightLength: straightLength > 0 ? straightLength : 100 },
+      {
+        straightLength: straightLength > 0 ? straightLength : 0,
+        curveParameter: straightLength > 200
+          ? 200
+          : straightLength < 0 ? 0 : straightLength,
+      },
       this.stateWasSet
     );
-    // );
   }
 
   stateWasSet() {
     console.log('straight length', this.state.straightLength);
 
+    if (
+      this.svg.getBoundingClientRect().right >
+      document.documentElement.clientWidth
+    ) {
+      this.setState(
+        {
+          straightLength: this.state.straightLength - 10,
+          curveParameter: this.state.curveParameter - 1,
+        },
+        this.stateWasSet
+      );
+    }
+
     const textPathRect = this.textPath.getBoundingClientRect();
 
     this.svg.setAttribute('width', textPathRect.width);
-    this.svg.setAttribute('height', textPathRect.height);
+    this.svg.setAttribute('height', textPathRect.height + 20);
   }
 
   render() {
     const innerText = plainText(this.props.children);
 
     return (
-      <span data-content={this.props.popupOpen ? innerText : null} onClick={() => this.props.popupOpen ? this.props.hide() : this.props.show()}>
-        {this.props.popupOpen && <span className="popup">
+      <span
+        data-content={this.props.popupOpen ? innerText : null}
+        onClick={() =>
+          this.props.popupOpen ? this.props.hide() : this.props.show()}
+      >
+        {this.props.popupOpen &&
+          <span className="popup">
             {innerText}
           </span>}
         <svg
@@ -68,7 +108,8 @@ class Tangent extends React.Component {
               id={this.state.id}
               d={`M 0 0 
                  l ${this.state.straightLength} 0
-                 c 200 0 ${this.state.straightLength} 0 ${this.state.straightLength} 200
+                 c ${this.state.curveParameter} 0 ${this.state
+                .curveParameter} 0 ${this.state.curveParameter} 200
                  l 0 3000`}
             />
           </defs>
