@@ -8,7 +8,6 @@
     "build-blog": "webpack --config internals/build/webpack.config.js && node ./internals/out_blog/intermediate.bundle.js",
     "build": "npm run build-blog && next build && next export",
     "generate": "plop --plopfile internals/generators/index.js",
-
     "edit-post": "webpack-dev-server --config ./internals/blog_editor/webpack.config.js"
   },
   "keywords": [],
@@ -33,10 +32,17 @@
     "webpack": "^2.6.1"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "chalk": "^1.1.3",
     "chokidar": "^1.7.0",
+    "eslint": "3.X",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-import-resolver-webpack": "^0.8.3",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
+    "eslint-plugin-react": "^7.1.0",
     "webpack-dev-server": "^2.5.0"
   }
 }
