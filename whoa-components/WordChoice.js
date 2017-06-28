@@ -57,6 +57,7 @@ function WordChoice({ children }) {
             ${popupStyle}
             content: '👈 word choice';
             line-height: 1;
+            background: firebrick;
           }
         `}</style>
     </span>;

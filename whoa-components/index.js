@@ -16,6 +16,7 @@ export default ({ content }) =>
         max-width: 50rem;
         margin: 0 auto;
         padding: 5px;
+        position: relative;
       }
       `}</style>
   </article>;

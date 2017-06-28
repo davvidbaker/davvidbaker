@@ -1,26 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import popupStyle from './style';
+const x = 10;
+
+export { popupStyle };
+
 /* Popup can either be used as a component or just by importing the style, which is useful for before/after pseudo-elements */
-export const popupStyle = `
-position: absolute;
-background: var(--color-contrasting-background);
-border-radius: 3px;
-padding: 5px;
-color: white;
-opacity: 0.9;
-`;
 
 const Popup = ({ children, additionalStyles = {} }) => (
   <span style={additionalStyles}>
     {children}
     <style jsx>{`span {
-position: absolute;
-background: var(--color-contrasting-background);
-border-radius: 3px;
-padding: 5px;
-color: white;
-opacity: 0.9;
+${popupStyle}
 `}</style>
   </span>
 );

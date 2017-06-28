@@ -10,7 +10,7 @@ import shortid from 'shortid';
 
 import WithToggle from '../../components/Blog/WithToggle';
 import Popup from '../../components/Blog/Popup';
-import { popupStyle } from './style';
+import { popupStyle } from './styles';
 
 import plainText from '../../utils/plainText';
 
@@ -20,126 +20,131 @@ class Tangent extends React.Component {
     this.state = {
       straightLength: 300,
       curveParameter: 200,
+      pinToRight: false, // set to true if the popup becomes too narrow
       id: shortid.generate(),
+      innerText: plainText(props.children),
     };
   }
 
   componentDidMount() {
-    // TODO this is hacky-ish, could instead use a ref that is passed down down down. Actually maybe this is better
-
-    window.addEventListener('resize', () => {
-      this.calculatePath();
-    });
+    this._isMounted = true;
+    this.onResize = this.calculatePath.bind(this);
+    window.addEventListener('resize', this.onResize);
 
     this.calculatePath();
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize)
+  }
+
   calculatePath() {
-    const svgLeft = this.svg.getBoundingClientRect().left;
-    const postBody = document.querySelector('article').getBoundingClientRect();
+    const svgLeft = this.svg && this.svg.getBoundingClientRect().left;
+    // TODO this is hacky-ish, could instead use a ref that is passed down down down. Actually maybe this is better
+    const postBody =
+      document.querySelector('article') &&
+      document.querySelector('article').getBoundingClientRect();
     let straightLength = postBody.right - svgLeft - 60;
     if (straightLength < 0) {
       straightLength = 0;
     }
-    console.log(
-      'calculated straight length',
-      straightLength,
-      this.svg.getBoundingClientRect()
-    );
+
     this.setState(
       {
         straightLength: straightLength > 0 ? straightLength : 0,
-        curveParameter: straightLength > 200
-          ? 200
-          : straightLength < 0 ? 0 : straightLength,
+        curveParameter:
+          straightLength > 200 ? 200 : straightLength < 0 ? 0 : straightLength,
+        pinToRight: !(straightLength >= 200),
       },
       this.stateWasSet
     );
   }
 
   stateWasSet() {
-    console.log('straight length', this.state.straightLength);
+    const textPathRect = this.textPath.getBoundingClientRect();
+    this.svg.setAttribute('width', textPathRect.width);
+    this.svg.setAttribute('height', textPathRect.height + 20);
 
-    if (
-      this.svg.getBoundingClientRect().right >
-      document.documentElement.clientWidth
-    ) {
+    const beyondPage =
+      this.svg.getBoundingClientRect().right -
+      document.documentElement.clientWidth;
+    if (beyondPage > 0) {
+      // console.log('beyond page', beyondPage)
       this.setState(
         {
-          straightLength: this.state.straightLength - 10,
+          straightLength: this.state.straightLength - beyondPage - 15,
           curveParameter: this.state.curveParameter - 1,
         },
         this.stateWasSet
       );
+    } else {
+      // console.log('not beyond page')
+      // console.log(this.svg.getBoundingClientRect().right, document.documentElement.clientWidth)
     }
-
-    const textPathRect = this.textPath.getBoundingClientRect();
-
-    this.svg.setAttribute('width', textPathRect.width);
-    this.svg.setAttribute('height', textPathRect.height + 20);
   }
 
   render() {
-    const innerText = plainText(this.props.children);
-
     return (
       <span
         onClick={() =>
-          (this.props.popupOpen ? this.props.hide() : this.props.show())}
+          this.props.popupOpen ? this.props.hide() : this.props.show()}
       >
         {this.props.popupOpen &&
-          <Popup additionalStyles={popupStyle}>
-            {innerText}
+          <Popup
+            additionalStyles={{
+              right: this.state.pinToRight ? 0 : 'unset',
+              ...popupStyle,
+            }}
+          >
+            {this.state.innerText}
           </Popup>}
         <svg
-          ref={(ref) => {
+          ref={ref => {
             this.svg = ref;
           }}
         >
           <defs>
-            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2 2" result="shadow" />
-              <feOffset dx="0" dy="0" />
-            </filter>
-
             <path
               id={this.state.id}
               d={`M 0 0 
                  l ${this.state.straightLength} 0
-                 c ${this.state.curveParameter} 0 ${this.state.curveParameter} 0 ${this.state.curveParameter} 200
+                 c ${this.state.curveParameter} 0 ${this.state
+                .curveParameter} 0 ${this.state.curveParameter} 200
                  l 0 3000`}
             />
           </defs>
           <text>
             <textPath
               href={`#${this.state.id}`}
-              ref={(ref) => {
+              ref={ref => {
                 this.textPath = ref;
               }}
             >
-              {innerText}
+              {this.state.innerText}
             </textPath>
           </text>
         </svg>
         <br />
-        <style jsx>{`
-          span {
-            display: inline;
-            cursor: pointer;
-          }
-          svg {
-            position: absolute;
-            display: inline-block;
-            pointer-events: none;
-          }
-          text {
-            transform: translateY(1rem);
-            pointer-events: painted;
-          }
-          text:hover {
-            fill: steelblue;
-          }
-        `}</style>
+        <style jsx>
+          {`
+            span {
+              display: inline;
+              cursor: pointer;
+            }
+            svg {
+              position: absolute;
+              display: inline-block;
+              pointer-events: none;
+            }
+            text {
+              transform: translateY(1rem);
+              pointer-events: painted;
+            }
+            text:hover {
+              fill: steelblue;
+            }
+          `}
+        </style>
       </span>
     );
   }

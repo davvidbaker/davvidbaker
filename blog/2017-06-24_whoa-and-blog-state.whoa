@@ -4,8 +4,6 @@ slug: whoa-and-blog-state
 date: June 23, 2017
 ---
 
-Just a test(?)
-
 So I've been working on this `Whoa` thing for a while now, and I've never really tried to explain—*even to myself*—what exactly it is. I'm not sure I could do that now either. But **I can say what it looks like right now**, and I can lay out some plans I have for the near future.
 
 A lot of early inspiration came from [Jake Albaugh's self coding pen](https://codepen.io/jakealbaugh/pen/PwLXXP). 
@@ -16,7 +14,7 @@ In its current state, `Whoa` looks nothing like that. Currently `whoa` is **kind
 
 So here is what drafting a post looks like, next to the rendered version.
 
-Here is what whoa does for me. I draft a post with the extension `.whoa`. This post looks like this. |- I'll through a tangent in here right now for fun.-|
+ Here is what whoa does for me. I draft a post with the extension `.whoa`. This post looks like this. |- I'll throw a tangent in here just for fun.-|
 
 ![cur-state.png](/static/blog/cur-state.png)
 
@@ -36,8 +34,7 @@ Let's go through them 1 by 1.
 
 These are two Visual Studio Code Extensions. One thing you can do in [VS Code](https://twitter.com/code?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)—and some other text editors is create your own language grammars. `whoa-language-support` is what does that. 
 
-Language grammars are how you are able to get things like syntax highlighting and bracket matching, among many others. Out of the box, VS Code comes installed with a JavaScript grammar and some others, but of course, every programming language needs a grammar! People are using new and obscure languages all the time, and you don't want to have to rely on the text-editor folks to support your language.  It's fairly easy to create your own language extension by looking through [VS Code docs](https://code.visualstudio.com/docs/languages/overview) and  language extensions that others have open-sourced, like [the elm one](https://marketplace.visualstudio.com/items?itemName=sbrink.elm).
-
+|- Language grammars are how you are able to get things like syntax highlighting and bracket matching, among many others. Out of the box, VS Code comes installed with a JavaScript grammar and some others, but of course, every programming language needs a grammar! People are using new and obscure languages all the time, and you don't want to have to rely on the text-editor folks to support your language.  It's fairly easy to create your own language extension by looking through [VS Code docs](https://code.visualstudio.com/docs/languages/overview) and  language extensions that others have open-sourced, like [the elm one](https://marketplace.visualstudio.com/items?itemName=sbrink.elm).-|
 `whoa-theme` is just a simple [VS Code theme extension](https://code.visualstudio.com/docs/extensions/themes-snippets-colorizers). This colorizes the scopes that have been set up by the language grammar. 
 
 ## 2 UNFINISHED. Got hungry
