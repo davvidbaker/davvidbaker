@@ -16,6 +16,7 @@ import Ellipsis from './Ellipsis';
 import Tangent from './Tangent';
 import Normative from './Normative';
 import Redaction from './Redaction';
+import Revision from './Revision';
 import Code from './Code';
 import Search from './Search';
 
@@ -58,6 +59,10 @@ function Element({ type, children, ...props }) {
 
     case 'redaction':
       Tag = Redaction;
+      break;
+    
+    case 'revision':
+      Tag = Revision;
       break;
     /* 🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝
      * Custom Elements Above 
@@ -126,6 +131,7 @@ function Element({ type, children, ...props }) {
 
     default:
       Tag = 'span';
+      debugger
       break;
 
     // return null;
@@ -150,7 +156,7 @@ function ChildrenElements(chunks, tag) {
     /* 
   Normatives and Search and Redaction are an exception, they expect an array.
 */
-    if (tag === 'normative' || tag === 'search' || tag === 'redaction') {
+    if (tag === 'normative' || tag === 'search' || tag === 'redaction' || tag === 'revision') {
       return chunks;
     }
 

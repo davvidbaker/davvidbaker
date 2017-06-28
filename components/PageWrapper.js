@@ -88,6 +88,7 @@ export default enhance(
           }
           code {
             font-family: var(--font-monospace, monospace);
+            font-size: large;
           }
           .marginal {
             display: var(--display-marginal, block);
