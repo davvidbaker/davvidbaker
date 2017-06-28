@@ -36,6 +36,10 @@ const BlogGlobalStyles = () =>
     a:visited {
       color: rebeccapurple;
     }
+
+    h1 {
+      font-size: 2rem;
+    }
   `}</style>;
 
 export default BlogGlobalStyles;

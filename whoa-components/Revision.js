@@ -42,7 +42,7 @@ const Revision = ({ children, popupOpen, show, hide }) => {
         </Popup>}
       <style jsx>{`
         .revision {
-          text-decoration: underline wavy rgba(255, 0, 0, 0.3);
+          text-decoration: underline wavy rgba(255, 0, 0, 0.7);
         }
       `}</style>
     </span>

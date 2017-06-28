@@ -1,7 +1,7 @@
 /**
 *
 * Element
-* 
+*
 * Element must receive an object with prop type.
 * It will also usually have children, unless teh type is an image, or text?
 * There may be other props
@@ -26,12 +26,14 @@ function Element({ type, children, ...props }) {
     debugger;
   }
 
-
   /*  console.table({ type });
   console.log('children', children);
   console.log('props', props);*/
 
-  let Tag, href, src, alt;
+  let Tag,
+    href,
+    src,
+    alt;
 
   const elementProps = {};
 
@@ -60,14 +62,15 @@ function Element({ type, children, ...props }) {
     case 'redaction':
       Tag = Redaction;
       break;
-    
+
     case 'revision':
       Tag = Revision;
       break;
     /* 🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝
-     * Custom Elements Above 
+     * Custom Elements Above
      * 🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝🔝
      **/
+
 
     case 'heading':
       Tag = `h${props.depth}`;
@@ -86,9 +89,10 @@ function Element({ type, children, ...props }) {
 
     case 'code':
       return <Code value={props.value} />;
-
     //  TODO what is delete
+
     case 'delete':
+
     case 'strong':
       Tag = 'strong';
       break;
@@ -102,13 +106,15 @@ function Element({ type, children, ...props }) {
       break;
 
     case 'link':
+
     case 'linkReference':
       Tag = 'a';
       elementProps.href = props.url;
       break;
-
     // TODO when you do images, make sure I am doing images right here.
+
     case 'imageReference':
+
     case 'image':
       Tag = 'img';
       elementProps.style = { maxWidth: '100%' };
@@ -125,13 +131,16 @@ function Element({ type, children, ...props }) {
       Tag = 'li';
       break;
 
+    case 'thematicBreak':
+      return <hr />;
+
     case 'root':
       Tag = 'div';
       break;
 
     default:
       Tag = 'span';
-      debugger
+      debugger;
       break;
 
     // return null;
@@ -153,26 +162,30 @@ function ChildrenElements(chunks, tag) {
   if (chunks.value) {
     return chunks.value;
   } else if (Array.isArray(chunks)) {
-    /* 
+    /*
   Normatives and Search and Redaction are an exception, they expect an array.
 */
-    if (tag === 'normative' || tag === 'search' || tag === 'redaction' || tag === 'revision') {
+    if (
+      tag === 'normative' ||
+      tag === 'search' ||
+      tag === 'redaction' ||
+      tag === 'revision'
+    ) {
       return chunks;
     }
 
     return chunks.map(
       val =>
-        val.type === 'text'
+        (val.type === 'text'
           ? val.value
           : <Element key={shortid.generate()} type={val.type} {...val}>
-              {val.children}
-            </Element>
+            {val.children}
+          </Element>)
     );
   } else if (chunks.type) {
     return <Element type={chunks.type} {...chunks}>{chunks.children}</Element>;
-  } else {
-    return ChildrenElements(chunks);
   }
+  return ChildrenElements(chunks);
 }
 
 Element.propTypes = {

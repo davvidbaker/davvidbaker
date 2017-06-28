@@ -34,7 +34,35 @@ Let's go through them 1 by 1.
 
 These are two Visual Studio Code Extensions. One thing you can do in [VS Code](https://twitter.com/code?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)—and some other text editors is create your own language grammars. `whoa-language-support` is what does that. 
 
-|- Language grammars are how you are able to get things like syntax highlighting and bracket matching, among many others. Out of the box, VS Code comes installed with a JavaScript grammar and some others, but of course, every programming language needs a grammar! People are using new and obscure languages all the time, and you don't want to have to rely on the text-editor folks to support your language.  It's fairly easy to create your own language extension by looking through [VS Code docs](https://code.visualstudio.com/docs/languages/overview) and  language extensions that others have open-sourced, like [the elm one](https://marketplace.visualstudio.com/items?itemName=sbrink.elm).-|
+Language grammars are how you are able to get things like syntax highlighting and bracket matching, among many others. Out of the box, VS Code comes installed with a JavaScript grammar and some others, but of course, every programming language needs a grammar! People are using new and obscure languages all the time, and you don't want to have to rely on the text-editor folks to support your language.  It's fairly easy to create your own language extension by looking through [VS Code docs](https://code.visualstudio.com/docs/languages/overview) and  language extensions that others have open-sourced, like [the elm one](https://marketplace.visualstudio.com/items?itemName=sbrink.elm).
+
 `whoa-theme` is just a simple [VS Code theme extension](https://code.visualstudio.com/docs/extensions/themes-snippets-colorizers). This colorizes the scopes that have been set up by the language grammar. 
 
 ## 2 UNFINISHED. Got hungry
+
+
+# Components
+
+### Tangents
+Probably the component I've put the most time into. |-It's best displayed as a shorter tangent on that is just long enough to go off page.-| But if it does go off page and then maybe gets covered, you can just click on it and read the contents in a popup.
+
+### Search Bars
+🔎What's up with Russia today?🔍
+
+### Revisions
+✍{Some bad text that you should hover over.}(You gotta do better kid.) ✍{And some that hovering over doesn't do nothin}.
+
+### Normatives
+I should find a new job. Now look over in the notes to the left 👈.
+
+### Redactions
+Here is some text that maybe I don't want you to 🕵{see}, at least not without 🕵{some effort}.
+
+### Word Choice
+I often can't decide what word to {use, write, say}(?). And sometimes I have doubts about whether the word I use is a real word and the befitting(?) word.
+
+___
+
+# Damn I really need more components.
+
+Maybe. Or I might just want to write more. For one. Then I'll see what I really need.

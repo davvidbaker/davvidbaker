@@ -11,6 +11,7 @@ const enhance = withReducer(
   'borderColor',
   'dispatch',
   (state, action) => 'mediumseagreen'
+
   // `#${Math.floor(Date.now() / 100000000000 % 1 * 0xffffff).toString(16)}`
 );
 
@@ -24,7 +25,9 @@ export default enhance(
   }) =>
     <div id="body-div" style={{ borderColor }}>
       <Head>
-        <title>{title}</title>
+        <title>
+          {title}
+        </title>
         <link
           href="https://fonts.googleapis.com/css?family=Signika|Josefin+Slab:400,400i,700|Cutive+Mono"
           rel="stylesheet"
@@ -37,7 +40,7 @@ export default enhance(
 
         <meta name="viewport" content="width=device-width" />
         <meta name="theme-color" content={borderColor} />
-        <meta name="theme-color" content={borderColor ? borderColor : 'blue'} />
+        <meta name="theme-color" content={borderColor || 'blue'} />
         <meta charSet="utf-8" />
       </Head>
       {children}
@@ -45,6 +48,7 @@ export default enhance(
         {`
           :root {
             --color-main: firebrick;
+            --color-accent: midnightblue;
             --color-link: #0066c0;
             --color-border: darkslategrey;
             --color-highlight: #fbfaa4;
@@ -56,7 +60,9 @@ export default enhance(
           }
           @media (max-width: 500px) {
             :root {
-              {/*--display-marginal: none;*/}
+               {
+                /*--display-marginal: none;*/
+              }
             }
             .marginal {
               transition: 0.4s;
@@ -71,7 +77,9 @@ export default enhance(
             margin: 0;
             padding: 0;
           }
-          *, *::before, *::after {
+          *,
+          *::before,
+          *::after {
             box-sizing: inherit;
           }
           *::selection {
@@ -86,10 +94,19 @@ export default enhance(
             margin: 0;
             padding: 0;
           }
+
           code {
             font-family: var(--font-monospace, monospace);
             font-size: large;
           }
+
+          hr {
+            margin: 2em auto;
+            border-left: 10vw solid transparent;
+            border-right: 10vw solid transparent;
+            width: 30%;
+          }
+
           .marginal {
             display: var(--display-marginal, block);
             max-width: 250px;

@@ -19,6 +19,13 @@ const Header = ({ show, hide, sideBarVisible, toggleSideBar }) =>
         padding: 0;
         list-style: none;
       }
+      @media(min-width:60rem) {
+        header {
+          position: sticky;
+          top: 0;
+        }
+      }
+
       button {
         border-style: none;
         background: unset;

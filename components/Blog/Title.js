@@ -26,7 +26,8 @@ const Title = ({title, date}) =>
 
       h1 {
         color: var(--color-main);
-        margin-bottom: 0 
+        margin-bottom: 0;
+        font-size: 2rem;
       }
 
       p {
