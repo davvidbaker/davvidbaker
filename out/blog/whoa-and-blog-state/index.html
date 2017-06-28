@@ -1,0 +1,132 @@
+<!DOCTYPE html><html><head><link rel="preload" href="/_next/cef0831f-1a46-47a7-8df3-858b8a95169e/page/blog/index.js" as="script"/><link rel="preload" href="/_next/cef0831f-1a46-47a7-8df3-858b8a95169e/page/_error/index.js" as="script"/><link rel="preload" href="/_next/04e3a8a2640233b37a06e306cf37aa69/app.js" as="script"/><title data-jsx="2791336156" class="next-head">The Current State of Whoa (and this blog)</title><link href="https://fonts.googleapis.com/css?family=Signika|Josefin+Slab:400,400i,700|Cutive+Mono" rel="stylesheet" data-jsx="2791336156" class="next-head"/><link rel="icon" type="image/x-icon" href="/static/favicon.png" data-jsx="2791336156" class="next-head"/><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" data-jsx="2791336156" class="next-head"></script><meta name="viewport" content="width=device-width" data-jsx="2791336156" class="next-head"/><meta name="theme-color" content="mediumseagreen" data-jsx="2791336156" class="next-head"/><meta charset="utf-8" data-jsx="2791336156" class="next-head"/><style id="__jsx-style-115574407">span[data-jsx="115574407"] {background: black;}</style><style id="__jsx-style-477435013">div[data-jsx="477435013"]:first-child {position: absolute;top: 0;height: 100%;width: 300px;max-width: 300px;background: #fafafa;left: 0;-webkit-transition: left 0.5s;-moz-transition: left 0.5s;-ms-transition: left 0.5s;transition: left 0.5s;border-right: 1px solid #ededed;margin-right: 5px;display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;overflow-y: scroll;justify-content: flex-start;}.arrow-container[data-jsx="477435013"] {position: sticky;bottom: 0;text-align: center;background: #fafafa;border-top: 1px solid #ccc;{}}.arrow[data-jsx="477435013"] {border: 0;margin: 50px auto;padding: 0;height: 50px;width: 60%;position: relative;-webkit-transform-origin: center center;-moz-transform-origin: center center;-ms-transform-origin: center center;transform-origin: center center;-webkit-transform: scale(0.5);-moz-transform: scale(0.5);-ms-transform: scale(0.5);transform: scale(0.5);}.arrow[data-jsx="477435013"]::before {content: '';width: 0;height: 0;position: absolute;top: -25px;left: -20%;border-right: 50px solid buttonface;border-top: 50px solid transparent;border-bottom: 50px solid transparent;}.arrow[data-jsx="477435013"]:focus {outline: 0;}.arrow[data-jsx="477435013"]:hover {background: darkgray;}.arrow[data-jsx="477435013"]:hover::before {border-right-color: darkgray;}</style><style id="__jsx-style-514407408">.outer-title[data-jsx="514407408"] {display:-webkit-flex; display:flex;justify-content: center;margin: 0 5px;}.inner-title[data-jsx="514407408"] {display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;align-items: center;margin: 0 auto;}h1[data-jsx="514407408"] {color: var(--color-main);margin-bottom: 0;font-size: 2rem;}p[data-jsx="514407408"] {align-self: flex-end;font-family: var(--font-monospace);color: #888;}</style><style id="__jsx-style-645731154">.revision[data-jsx="645731154"] {text-decoration: underline wavy rgba(255, 0, 0, 0.7);}</style><style id="__jsx-style-1096523628">
+    * {
+      font-family: sans-serif;
+    }
+    blockquote {
+      border-left: 5px solid var(--color-main);
+      padding: 0.5rem;
+      padding-left: 1.5rem;
+      margin: 0 1rem;
+    }
+    blockquote p {
+      margin: 0;
+      margin-top: 0.5rem;
+    }
+    blockquote p::before {
+      content: '';
+      width: 20px;
+      height: 5px;
+      background: var(--color-main);
+      position: absolute;
+      transform: translateX(-1.5rem) translateY(-1rem);
+    }
+    p {
+      line-height: 1.5;
+    }
+    span.redaction span::selection {
+      background: black;
+    }
+    a {
+      color: #0066c0;
+      text-decoration: none;
+    }
+    a:visited {
+      color: rebeccapurple;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+  </style><style id="__jsx-style-1212558084">ul[data-jsx="1212558084"] {padding: 0;list-style: none;}@media(min-width:60rem) {header[data-jsx="1212558084"] {position: sticky;top: 0;}}button[data-jsx="1212558084"] {border-style: none;background: unset;font-size: 3rem;}button[data-jsx="1212558084"]:focus {outline: none;}button[data-jsx="1212558084"]:hover {-webkit-transform: scale(1.05);-moz-transform: scale(1.05);-ms-transform: scale(1.05);transform: scale(1.05);}</style><style id="__jsx-style-1288519825">form[data-jsx="1288519825"] {font-family: arial, sans-serif;font-size: 24px;width: 100%;text-align: center;display: inline-block;width: 100%;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16),              0 0 0 1px rgba(0, 0, 0, 0.08);margin: 5px 0;}input[data-jsx="1288519825"] {height: 100%;width: 100%;text-align: center;outline: none;font-size:1.35rem;border: 0;}.inFocus[data-jsx="1288519825"] {box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.16),              0 0 0 1px rgba(0, 0, 0, 0.08);}</style><style id="__jsx-style-1361400517">span[data-jsx="1361400517"] {-webkit-transition: background 0.25s;-moz-transition: background 0.25s;-ms-transition: background 0.25s;transition: background 0.25s;}</style><style id="__jsx-style-1430459029">main[data-jsx="1430459029"] {position: absolute;left: 300px;-webkit-transition: width 0.5s, left 0.5s;-moz-transition: width 0.5s, left 0.5s;-ms-transition: width 0.5s, left 0.5s;transition: width 0.5s, left 0.5s;overflow-y: scroll;height: 100vh;width: 100%;}</style><style id="__jsx-style-1977009741">article[data-jsx="1977009741"] {max-width: 50rem;margin: 0 auto;padding: 5px;position: relative;}</style><style id="__jsx-style-2262474053">a[data-jsx="2262474053"] {color: unset;text-decoration: none;}li[data-jsx="2262474053"] {overflow-x: hidden;padding: 10px 15px;border-bottom: 1px solid #ededed;}li[data-jsx="2262474053"]:nth-last-of-type(1) {border-bottom-color: #ccc;}li[data-jsx="2262474053"]:hover {background: var(--color-highlight);}</style><style id="__jsx-style-2306718442">span[data-jsx="2306718442"] {display: inline;cursor: pointer;}svg[data-jsx="2306718442"] {position: absolute;display: inline-block;pointer-events: none;}text[data-jsx="2306718442"] {-webkit-transform: translateY(1rem);-moz-transform: translateY(1rem);-ms-transform: translateY(1rem);transform: translateY(1rem);pointer-events: painted;{}}text[data-jsx="2306718442"]:hover {fill: steelblue;}</style><style id="__jsx-style-2559573479">span[data-jsx="2559573479"] {text-decoration: underline wavy rgba(255, 0, 0, 0.3);}</style><style id="__jsx-style-2791336156">
+          :root {
+            --color-main: firebrick;
+            --color-accent: midnightblue;
+            --color-link: #0066c0;
+            --color-border: darkslategrey;
+            --color-highlight: #fbfaa4;
+            --color-select: powderblue;
+
+            --color-contrasting-background: firebrick;
+            --font-monospace: monospace;
+            --display-marginal: block;
+          }
+          @media (max-width: 500px) {
+            :root {
+               {
+                /*--display-marginal: none;*/
+              }
+            }
+            .marginal {
+              transition: 0.4s;
+              z-index: -100;
+              opacity: 0.05;
+            }
+          }
+          html {
+            box-sizing: border-box;
+            font-family: sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+          }
+          *,
+          *::before,
+          *::after {
+            box-sizing: inherit;
+          }
+          *::selection {
+            background: var(--color-select);
+          }
+          body {
+            min-height: 100vh;
+            margin: 0;
+          }
+          ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          code {
+            font-family: var(--font-monospace, monospace);
+            font-size: large;
+          }
+
+          hr {
+            margin: 2em auto;
+            border-left: 10vw solid transparent;
+            border-right: 10vw solid transparent;
+            width: 30%;
+          }
+
+          .marginal {
+            display: var(--display-marginal, block);
+            max-width: 250px;
+          }
+        </style><style id="__jsx-style-3066242086">span[data-jsx="3066242086"] {display: inline-block;}span[data-jsx="3066242086"]::before,span[data-jsx="3066242086"]::after {opacity: 0.05;display: block;position: absolute;font-size: 0.8rem;line-height: 0.8rem;z-index: -1;}span[data-jsx="3066242086"]:hover::before,span[data-jsx="3066242086"]:hover::after {opacity: 1;background: rgba(255, 255, 255, 0.5);z-index: 1;}span[data-jsx="3066242086"]::before {content: attr(data-before);-webkit-transform: translateY(-0.6rem);-moz-transform: translateY(-0.6rem);-ms-transform: translateY(-0.6rem);transform: translateY(-0.6rem);}span[data-jsx="3066242086"]::after {content: attr(data-after);-webkit-transform: translateY(-0.3rem);-moz-transform: translateY(-0.3rem);-ms-transform: translateY(-0.3rem);transform: translateY(-0.3rem);}</style><style id="__jsx-style-3431429011">span[data-jsx="3431429011"]::before {position: absolute;content: 'WC';z-index: -1;opacity: 0.2;color: lightblue;font-size: 2rem;}span[data-jsx="3431429011"]:hover::after {
+position: absolute;
+background: var(--color-contrasting-background);
+border-radius: 3px;
+padding: 5px;
+color: white;
+opacity: 0.9;
+z-index: 1;            content: '👈 word choice';line-height: 1;background: firebrick;}</style><style id="__jsx-style-3562996756">span[data-jsx="3562996756"] {background: #f6f8fa;padding: 2px 5px;border-radius: 4px;font-size: 0.9rem;}</style></head><body><div><div id="__next"><div data-reactroot="" data-reactid="1" data-react-checksum="2105173478"><div id="body-div" style="border-color:mediumseagreen;" data-jsx="2791336156" data-reactid="2"><!-- react-empty: 3 --><div style="max-width:100vw;height:100vh;" data-jsx="1430459029" data-reactid="4"><div style="left:-300px;" data-jsx="477435013" data-reactid="5"><ul class="offscreen" data-jsx="2262474053" data-reactid="6"><!-- react-empty: 7 --></ul><div class="arrow-container" data-jsx="477435013" data-reactid="8"><button class="arrow" data-jsx="477435013" data-reactid="9"></button></div><!-- react-empty: 10 --></div><main style="left:0;width:100%;" data-jsx="1430459029" data-reactid="11"><header data-jsx="1212558084" data-reactid="12"><ul data-jsx="1212558084" data-reactid="13"><li data-jsx="1212558084" data-reactid="14"><button data-jsx="1212558084" data-reactid="15">🗒</button></li></ul><!-- react-empty: 16 --></header><div class="outer-title" data-jsx="514407408" data-reactid="17"><div class="inner-title" data-jsx="514407408" data-reactid="18"><h1 data-jsx="514407408" data-reactid="19">The Current State of Whoa (and this blog)</h1><p data-jsx="514407408" data-reactid="20">June 23, 2017</p></div><!-- react-empty: 21 --></div><div class="post-body" data-jsx="1430459029" data-reactid="22"><article data-jsx="1977009741" data-reactid="23"><p data-reactid="24"><!-- react-text: 25 -->So I&#x27;ve been working on this <!-- /react-text --><span data-jsx="3562996756" data-reactid="26"><code data-jsx="3562996756" data-reactid="27">Whoa</code><!-- react-empty: 28 --></span><!-- react-text: 29 --> thing for a while now, and I&#x27;ve never really tried to explain—<!-- /react-text --><em data-reactid="30"><!-- react-text: 31 -->even to myself<!-- /react-text --></em><!-- react-text: 32 -->—what exactly it is. I&#x27;m not sure I could do that now either. But <!-- /react-text --><strong data-reactid="33"><!-- react-text: 34 -->I can say what it looks like right now<!-- /react-text --></strong><!-- react-text: 35 -->, and I can lay out some plans I have for the near future.<!-- /react-text --></p><p data-reactid="36"><!-- react-text: 37 -->A lot of early inspiration came from <!-- /react-text --><a href="https://codepen.io/jakealbaugh/pen/PwLXXP" data-reactid="38"><!-- react-text: 39 -->Jake Albaugh&#x27;s self coding pen<!-- /react-text --></a><!-- react-text: 40 -->. <!-- /react-text --></p><div data-reactid="41"><form action="" data-jsx="1288519825" data-reactid="42"><input type="text" value="Jake Albaugh&#x27;s Self Coding Pen" style="max-width:100%;" data-jsx="1288519825" data-reactid="43"/><!-- react-empty: 44 --></form></div><p data-reactid="45"><!-- react-text: 46 -->In its current state, <!-- /react-text --><span data-jsx="3562996756" data-reactid="47"><code data-jsx="3562996756" data-reactid="48">Whoa</code><!-- react-empty: 49 --></span><!-- react-text: 50 --> looks nothing like that. Currently <!-- /react-text --><span data-jsx="3562996756" data-reactid="51"><code data-jsx="3562996756" data-reactid="52">whoa</code><!-- react-empty: 53 --></span><!-- react-text: 54 --> is <!-- /react-text --><strong data-reactid="55"><!-- react-text: 56 -->kinda just an expansion of Markdown<!-- /react-text --></strong><!-- react-text: 57 -->. By that I mean that I can write <!-- /react-text --><span data-jsx="3562996756" data-reactid="58"><code data-jsx="3562996756" data-reactid="59">whoa</code><!-- react-empty: 60 --></span><!-- react-text: 61 --> posts using all the features of <!-- /react-text --><a href="https://daringfireball.net/projects/markdown/syntax" data-reactid="62"><!-- react-text: 63 -->Markdown<!-- /react-text --></a><!-- react-text: 64 -->, <!-- /react-text --><em data-reactid="65"><!-- react-text: 66 -->and then some<!-- /react-text --></em><!-- react-text: 67 -->. <!-- /react-text --></p><p data-reactid="68"><!-- react-text: 69 -->So here is what drafting a post looks like, next to the rendered version.<!-- /react-text --></p><p data-reactid="70"><!-- react-text: 71 --> Here is what whoa does for me. I draft a post with the extension <!-- /react-text --><span data-jsx="3562996756" data-reactid="72"><code data-jsx="3562996756" data-reactid="73">.whoa</code><!-- react-empty: 74 --></span><!-- react-text: 75 -->. This post looks like this. <!-- /react-text --><span data-jsx="2306718442" data-reactid="76"><svg data-jsx="2306718442" data-reactid="77"><defs data-jsx="2306718442" data-reactid="78"><path id="ryT7W5zsReVb" d="M 0 0 
+                 l 300 0
+                 c 200 0 200 0 200 200
+                 l 0 3000" data-jsx="2306718442" data-reactid="79"></path><linearGradient id="fade-gradient" x1="0%" y1="0%" x2="100%" y2="100%" data-jsx="2306718442" data-reactid="80"><stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1;" data-jsx="2306718442" data-reactid="81"></stop><stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0.3;" data-jsx="2306718442" data-reactid="82"></stop></linearGradient></defs><text data-jsx="2306718442" data-reactid="83"><textPath href="#ryT7W5zsReVb" data-jsx="2306718442" data-reactid="84"> I&#x27;ll throw a tangent in here just for fun.</textPath></text></svg><br data-jsx="2306718442" data-reactid="85"/><!-- react-empty: 86 --></span></p><p data-reactid="87"><img style="max-width:100%;" src="/static/blog/cur-state.png" alt="cur-state.png" data-reactid="88"/></p><blockquote data-reactid="89"><p data-reactid="90"><em data-reactid="91"><!-- react-text: 92 -->It can be kinda hard to differentiate between what <!-- /react-text --><span data-jsx="3562996756" data-reactid="93"><code data-jsx="3562996756" data-reactid="94">whoa</code><!-- react-empty: 95 --></span><!-- react-text: 96 --> does and what the blog structure I set up does. Ideally I would have them less closely coupled, but that isn&#x27;t pressing.<!-- /react-text --></em></p></blockquote><p data-reactid="97"><!-- react-text: 98 -->So there are kinda 3 layers that make it all happen.<!-- /react-text --></p><ol data-reactid="99"><li data-reactid="100"><p data-reactid="101"><a href="https://github.com/davvidbaker/whoa/tree/master/whoa-theme" data-reactid="102"><!-- react-text: 103 -->whoa-theme<!-- /react-text --></a><!-- react-text: 104 --> and <!-- /react-text --><a href="https://github.com/davvidbaker/whoa/tree/master/whoa-language-support" data-reactid="105"><!-- react-text: 106 -->whoa-language-support<!-- /react-text --></a></p></li><li data-reactid="107"><p data-reactid="108"><a href="https://github.com/davvidbaker/whoa/tree/master/whoa-loader" data-reactid="109"><!-- react-text: 110 -->whoa-loader<!-- /react-text --></a></p></li><li data-reactid="111"><p data-reactid="112"><a href="https://github.com/davvidbaker/davvidbaker/tree/master/whoa-components" data-reactid="113"><!-- react-text: 114 -->whoa-components<!-- /react-text --></a></p></li></ol><p data-reactid="115"><!-- react-text: 116 -->Let&#x27;s go through them 1 by 1.<!-- /react-text --></p><h2 data-reactid="117"><!-- react-text: 118 -->1. whoa-theme and whoa-language-support<!-- /react-text --></h2><p data-reactid="119"><!-- react-text: 120 -->These are two Visual Studio Code Extensions. One thing you can do in <!-- /react-text --><a href="https://twitter.com/code?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" data-reactid="121"><!-- react-text: 122 -->VS Code<!-- /react-text --></a><!-- react-text: 123 -->—and some other text editors is create your own language grammars. <!-- /react-text --><span data-jsx="3562996756" data-reactid="124"><code data-jsx="3562996756" data-reactid="125">whoa-language-support</code><!-- react-empty: 126 --></span><!-- react-text: 127 --> is what does that. <!-- /react-text --></p><p data-reactid="128"><!-- react-text: 129 -->Language grammars are how you are able to get things like syntax highlighting and bracket matching, among many others. Out of the box, VS Code comes installed with a JavaScript grammar and some others, but of course, every programming language needs a grammar! People are using new and obscure languages all the time, and you don&#x27;t want to have to rely on the text-editor folks to support your language.  It&#x27;s fairly easy to create your own language extension by looking through <!-- /react-text --><a href="https://code.visualstudio.com/docs/languages/overview" data-reactid="130"><!-- react-text: 131 -->VS Code docs<!-- /react-text --></a><!-- react-text: 132 --> and  language extensions that others have open-sourced, like <!-- /react-text --><a href="https://marketplace.visualstudio.com/items?itemName=sbrink.elm" data-reactid="133"><!-- react-text: 134 -->the elm one<!-- /react-text --></a><!-- react-text: 135 -->.<!-- /react-text --></p><p data-reactid="136"><span data-jsx="3562996756" data-reactid="137"><code data-jsx="3562996756" data-reactid="138">whoa-theme</code><!-- react-empty: 139 --></span><!-- react-text: 140 --> is just a simple <!-- /react-text --><a href="https://code.visualstudio.com/docs/extensions/themes-snippets-colorizers" data-reactid="141"><!-- react-text: 142 -->VS Code theme extension<!-- /react-text --></a><!-- react-text: 143 -->. This colorizes the scopes that have been set up by the language grammar. <!-- /react-text --></p><h2 data-reactid="144"><!-- react-text: 145 -->2 UNFINISHED. Got hungry<!-- /react-text --></h2><h1 data-reactid="146"><!-- react-text: 147 -->Components<!-- /react-text --></h1><h3 data-reactid="148"><!-- react-text: 149 -->Tangents<!-- /react-text --></h3><p data-reactid="150"><!-- react-text: 151 -->Probably the component I&#x27;ve put the most time into. <!-- /react-text --><span data-jsx="2306718442" data-reactid="152"><svg data-jsx="2306718442" data-reactid="153"><defs data-jsx="2306718442" data-reactid="154"><path id="Hy7rWcfjAlEW" d="M 0 0 
+                 l 300 0
+                 c 200 0 200 0 200 200
+                 l 0 3000" data-jsx="2306718442" data-reactid="155"></path><linearGradient id="fade-gradient" x1="0%" y1="0%" x2="100%" y2="100%" data-jsx="2306718442" data-reactid="156"><stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1;" data-jsx="2306718442" data-reactid="157"></stop><stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0.3;" data-jsx="2306718442" data-reactid="158"></stop></linearGradient></defs><text data-jsx="2306718442" data-reactid="159"><textPath href="#Hy7rWcfjAlEW" data-jsx="2306718442" data-reactid="160">It&#x27;s best displayed as a shorter tangent on that is just long enough to go off page.</textPath></text></svg><br data-jsx="2306718442" data-reactid="161"/><!-- react-empty: 162 --></span><!-- react-text: 163 --> But if it does go off page and then maybe gets covered, you can just click on it and read the contents in a popup.<!-- /react-text --></p><h3 data-reactid="164"><!-- react-text: 165 -->Search Bars<!-- /react-text --></h3><div data-reactid="166"><form action="" data-jsx="1288519825" data-reactid="167"><input type="text" value="What&#x27;s up with Russia today?" style="max-width:100%;" data-jsx="1288519825" data-reactid="168"/><!-- react-empty: 169 --></form></div><h3 data-reactid="170"><!-- react-text: 171 -->Revisions<!-- /react-text --></h3><p data-reactid="172"><span class="revision" data-jsx="645731154" data-reactid="173"><span data-reactid="174">Some bad text that you should hover over.</span><!-- react-empty: 175 --></span><!-- react-text: 176 --> <!-- /react-text --><span class="revision" data-jsx="2559573479" data-reactid="177"><span data-reactid="178">And some that hovering over doesn&#x27;t do nothin</span><!-- react-empty: 179 --></span><!-- react-text: 180 -->.<!-- /react-text --></p><h3 data-reactid="181"><!-- react-text: 182 -->Normatives<!-- /react-text --></h3><p data-reactid="183"><span id="normative-HyI-_-o0xE-" data-jsx="1361400517" data-reactid="184"><span data-reactid="185">I should </span><span data-reactid="186">find a new job.</span><!-- react-empty: 187 --></span><!-- react-text: 188 --> Now look over in the notes to the left 👈.<!-- /react-text --></p><h3 data-reactid="189"><!-- react-text: 190 -->Redactions<!-- /react-text --></h3><p data-reactid="191"><!-- react-text: 192 -->Here is some text that maybe I don&#x27;t want you to <!-- /react-text --><span class="redaction" data-jsx="115574407" data-reactid="193"><span data-reactid="194">see</span><!-- react-empty: 195 --></span><!-- react-text: 196 -->, at least not without <!-- /react-text --><span class="redaction" data-jsx="115574407" data-reactid="197"><span data-reactid="198">some effort</span><!-- react-empty: 199 --></span><!-- react-text: 200 -->.<!-- /react-text --></p><h3 data-reactid="201"><!-- react-text: 202 -->Word Choice<!-- /react-text --></h3><p data-reactid="203"><!-- react-text: 204 -->I often can&#x27;t decide what word to <!-- /react-text --><span data-before="write" data-after="say" data-jsx="3066242086" data-reactid="205"><!-- react-text: 206 -->use<!-- /react-text --><!-- react-empty: 207 --></span><!-- react-text: 208 -->. And sometimes I have doubts about whether the word I use is a real word and the <!-- /react-text --><span data-jsx="3431429011" data-reactid="209"><!-- react-text: 210 -->befitting<!-- /react-text --><!-- react-empty: 211 --></span><!-- react-text: 212 --> word.<!-- /react-text --></p><hr data-reactid="213"/><h1 data-reactid="214"><!-- react-text: 215 -->Damn I really need more components.<!-- /react-text --></h1><p data-reactid="216"><!-- react-text: 217 -->Maybe. Or I might just want to write more. For one. Then I&#x27;ll see what I really need.<!-- /react-text --></p><!-- react-empty: 218 --></article></div></main><!-- react-empty: 219 --></div><!-- react-empty: 220 --><!-- react-empty: 221 --></div></div></div><div id="__next-error"></div></div><div><script>
+          __NEXT_DATA__ = {"props":{"isServer":true,"store":{},"initialState":{"whoa":{"normatives":[],"currentPost":null},"sideBarVisible":false},"initialProps":{"isServer":true}},"pathname":"/blog","query":{"slug":"whoa-and-blog-state"},"buildId":"cef0831f-1a46-47a7-8df3-858b8a95169e","buildStats":{"app.js":{"hash":"04e3a8a2640233b37a06e306cf37aa69"}},"assetPrefix":"","nextExport":true,"err":null,"chunks":[]}
+          module={}
+          __NEXT_LOADED_PAGES__ = []
+          __NEXT_LOADED_CHUNKS__ = []
+
+          __NEXT_REGISTER_PAGE = function (route, fn) {
+            __NEXT_LOADED_PAGES__.push({ route: route, fn: fn })
+          }
+
+          __NEXT_REGISTER_CHUNK = function (chunkName, fn) {
+            __NEXT_LOADED_CHUNKS__.push({ chunkName: chunkName, fn: fn })
+          }
+        </script><script async="" id="__NEXT_PAGE__/blog" type="text/javascript" src="/_next/cef0831f-1a46-47a7-8df3-858b8a95169e/page/blog/index.js"></script><script async="" id="__NEXT_PAGE__/_error" type="text/javascript" src="/_next/cef0831f-1a46-47a7-8df3-858b8a95169e/page/_error/index.js"></script><div></div><script type="text/javascript" src="/_next/04e3a8a2640233b37a06e306cf37aa69/app.js" async=""></script></div></body></html>
