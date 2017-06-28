@@ -48,6 +48,7 @@ export default enhance(
             --color-link: #0066c0;
             --color-border: darkslategrey;
             --color-highlight: #fbfaa4;
+            --color-select: powderblue;
 
             --color-contrasting-background: firebrick;
             --font-monospace: monospace;
@@ -58,6 +59,7 @@ export default enhance(
               {/*--display-marginal: none;*/}
             }
             .marginal {
+              transition: 0.4s;
               z-index: -100;
               opacity: 0.05;
             }
@@ -73,7 +75,7 @@ export default enhance(
             box-sizing: inherit;
           }
           *::selection {
-            background: var(--color-border);
+            background: var(--color-select);
           }
           body {
             min-height: 100vh;
