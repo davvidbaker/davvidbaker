@@ -13,8 +13,6 @@ import shortid from 'shortid';
 import Element from './Element';
 import plainText from './utils/plainText';
 
-const ADD_NORMATIVE = 'ADD_NORMATIVE';
-
 function addNormative(statement, id) {
   return {
     type: 'ADD_NORMATIVE',
@@ -30,6 +28,7 @@ export class Normative extends Component {
     id: PropTypes.string.isRequired,
     normatives: PropTypes.array.isRequired,
   };
+  
   componentWillMount() {
     if (
       !this.props.normatives.find(normative => normative.id === this.props.id)

@@ -16,7 +16,10 @@ class Post extends React.Component {
   render() {
     return (
       <div style={{ maxWidth: '100vw', height: '100vh' }}>
-        <SideBar sideBarVisible={this.props.sideBarVisible} />
+        <SideBar
+          sideBarVisible={this.props.sideBarVisible}
+          toggleSideBar={this.props.toggleSideBar}
+        />
         <main
           style={{
             left: this.props.sideBarVisible ? '300px' : 0,
@@ -24,8 +27,6 @@ class Post extends React.Component {
           }}
         >
           <Header
-            show={this.props.show}
-            hide={this.props.hide}
             sideBarVisible={this.props.sideBarVisible}
             toggleSideBar={this.props.toggleSideBar}
           />
@@ -60,8 +61,10 @@ export const sideBarReducer = (state = false, action) => {
   switch (action.type) {
     case 'SHOW_SIDE_BAR':
       return true;
+
     case 'HIDE_SIDE_BAR':
       return false;
+
     default:
       return state;
   }
@@ -77,5 +80,3 @@ export default connect(
       dispatch({ type: showing ? 'HIDE_SIDE_BAR' : 'SHOW_SIDE_BAR' }),
   })
 )(Post);
-
-

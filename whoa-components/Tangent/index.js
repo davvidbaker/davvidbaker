@@ -2,7 +2,9 @@
 *
 * Tangent
 *
-* A tangent (for now at least), can only contain plain text.
+* A tangent (for now at least), can only contain plain text. This means no normatives, for now at least...
+* 
+* Gradients across such large svgs can be bad for performance, it appears. That is why I do not fade out
 */
 
 import React from 'react';
@@ -34,7 +36,9 @@ class Tangent extends React.Component {
     this.onResize = this.calculatePath.bind(this);
     window.addEventListener('resize', this.onResize);
 
-    this.calculatePath();
+    setTimeout(() => {
+      this.calculatePath();
+    }, 300);
   }
 
   componentWillUnmount() {
@@ -85,7 +89,7 @@ class Tangent extends React.Component {
       // console.log('beyond page', beyondPage)
       this.setState(
         {
-          straightLength: this.state.straightLength - beyondPage - 15,
+          straightLength: this.state.straightLength - beyondPage - 15 ,
           curveParameter: this.state.curveParameter - 1,
         },
         this.stateWasSet
@@ -124,6 +128,26 @@ class Tangent extends React.Component {
                  c ${this.state.curveParameter} 0 ${this.state.curveParameter} 0 ${this.state.curveParameter} 200
                  l 0 3000`}
             />
+
+            <linearGradient
+              id="fade-gradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style={{ stopColor: 'rgb(0,0,0)', stopOpacity: 1 }}
+              />
+              <stop
+                offset="100%"
+                style={{
+                  stopColor: 'rgb(0,0,0)',
+                  stopOpacity: 0.3,
+                }}
+              />
+            </linearGradient>
           </defs>
           <text>
             <textPath
@@ -151,6 +175,7 @@ class Tangent extends React.Component {
             text {
               transform: translateY(1rem);
               pointer-events: painted;
+              {/*fill: url(#fade-gradient);              */}
             }
             text:hover {
               fill: steelblue;
