@@ -14,7 +14,6 @@ class Post extends React.Component {
   }
 
   render() {
-    // debugger;
     return (
       <div style={{ maxWidth: '100vw', height: '100vh' }}>
         <SideBar sideBarVisible={this.props.sideBarVisible} />

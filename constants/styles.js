@@ -11,6 +11,8 @@ export const fonts = {
   monospace: "'Cutive Mono', monospace",
 };
 
+export const sideBarTransitionTime = '0.5'; // in seconds
+
 // // for use in ::before and ::after pseudo-elements
 // export const popup = `
 // position: absolute;

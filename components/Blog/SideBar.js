@@ -2,7 +2,9 @@ import React from 'react';
 
 import NormativesList from '../../whoa-components/NormativesList';
 
-const SideBar = ({ sideBarVisible }) =>
+import { sideBarTransitionTime } from '../../constants/styles';
+
+const SideBar = ({ sideBarVisible }) => (
   <div style={{ left: sideBarVisible ? '0px' : '-300px' }}>
     <NormativesList />
 
@@ -15,11 +17,12 @@ const SideBar = ({ sideBarVisible }) =>
         max-width: 300px;
         background: #fafafa;
         left: 0;
-        transition: left 0.5s;
+        transition: left ${sideBarTransitionTime}s;
         border-right: 1px solid #ededed;
         margin-right: 5px;
       }
     `}</style>
-  </div>;
+  </div>
+);
 
 export default SideBar;

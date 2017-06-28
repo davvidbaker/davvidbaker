@@ -37,6 +37,7 @@ module.exports = {
         SwitchCase: 1,
       },
     ],
+    "linebreak-style": 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': 'off',
     'jsx-a11y/href-no-hash': 'off',

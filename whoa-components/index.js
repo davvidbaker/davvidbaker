@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 import Element from './Element';
@@ -6,12 +7,24 @@ import whoaReducer from './reducers';
 
 export { whoaReducer };
 
-export default ({ content }) =>
-  <article>
-    {content.children.map(child =>
-      <Element key={shortid.generate()} {...child} />
-    )}
-    <style jsx>{`
+class WhoaRoot extends Component {
+  static propTypes = {
+    content: PropTypes.object.isRequired,
+  };
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.content.children.length === this.props.content.children.length) {
+      return false;
+    }
+  }
+
+  render() {
+    return (
+      <article>
+        {this.props.content.children.map(child => (
+          <Element key={shortid.generate()} {...child} />
+        ))}
+        <style jsx>{`
       article {
         max-width: 50rem;
         margin: 0 auto;
@@ -19,4 +32,9 @@ export default ({ content }) =>
         position: relative;
       }
       `}</style>
-  </article>;
+      </article>
+    );
+  }
+}
+
+export default WhoaRoot;
