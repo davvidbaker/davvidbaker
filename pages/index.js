@@ -3,6 +3,7 @@ import Link from 'next/link';
 import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store';
 import Nav from '../components/Nav';
+import Phone from '../components/Phone'
 
 import PageWrapper from '../components/PageWrapper';
 
@@ -10,6 +11,7 @@ const IndexPage = ({ url }) =>
   <PageWrapper title="🙃🐢">
     <Nav url={url} />
     <main style={{ padding: '10px' }}>
+      <Phone></Phone>
       <h2>
         Hello!
       </h2>
