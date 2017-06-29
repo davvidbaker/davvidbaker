@@ -14,13 +14,14 @@ const NavLink = ({ url, pathname, str }) => {
   return (
     <Link href={`/${pathname}`}>
       <a>
-        <li className={isActive ? 'active' : null}>
+        <li className={isActive ? 'active' : 'inactive'}>
           {str}
         </li>
         <style jsx>{`
           li {
-            padding: 10px;
+            padding: 5px 10px;
             transition: background 0.2s;
+            border-top: 5px solid transparent;
           }
           li:hover {
             background: black;
@@ -36,9 +37,11 @@ const NavLink = ({ url, pathname, str }) => {
             color: unset;
           }
 
-
           .active {
             border-bottom: 5px solid black;
+          }
+          .inactive {
+            border-bottom: 5px solid transparent;
           }
         `}</style>
       </a>
