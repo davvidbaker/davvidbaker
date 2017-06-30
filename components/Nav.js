@@ -5,18 +5,16 @@ const NavLink = ({ url, pathname, str }) => {
   console.log(url.pathname);
   if (pathname.length > 0) {
     isActive = url.pathname.includes(pathname);
-  } else {
-    if (url.pathname.length <= 1) {
-      isActive = true;
-    }
+  } else if (url.pathname.length <= 1) {
+    isActive = true;
   }
 
   return (
     <Link prefetch href={`/${pathname}`}>
-      <a>
-        <li className={isActive ? 'active' : 'inactive'}>
+      <li className={isActive ? 'active' : 'inactive'}>
+        <a>
           {str}
-        </li>
+        </a>
         <style jsx>{`
           li {
             padding: 5px 10px;
@@ -27,6 +25,7 @@ const NavLink = ({ url, pathname, str }) => {
             background: black;
           }
           a {
+            cursor: default;
             color: white;
             text-decoration: none;
           }
@@ -44,21 +43,20 @@ const NavLink = ({ url, pathname, str }) => {
             border-bottom: 5px solid transparent;
           }
         `}</style>
-      </a>
+      </li>
     </Link>
   );
 };
 
-export default ({ url }) => {
-  return (
-    <nav>
-      <ul>
-        <NavLink url={url} str="Home" pathname="" />
-        <NavLink url={url} str="Projects" pathname="projects" />
-        <NavLink url={url} str="Blog" pathname="blog" />
-      </ul>
+export default ({ url }) => (
+  <nav>
+    <ul>
+      <NavLink url={url} str="Home" pathname="" />
+      <NavLink url={url} str="Projects" pathname="projects" />
+      <NavLink url={url} str="Blog" pathname="blog" />
+    </ul>
 
-      <style jsx>{`
+    <style jsx>{`
         nav {
           background: var(--color-border, black);
           color: white;
@@ -69,6 +67,5 @@ export default ({ url }) => {
         }
       `}</style>
 
-    </nav>
+  </nav>
   );
-};
