@@ -27,8 +27,10 @@
     "recompose": "^0.23.4",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
+    "remark-parse": "^3.0.1",
     "shortid": "^2.2.8",
     "styled-jsx": "^1.0.3",
+    "unified": "^6.1.5",
     "webpack": "^2.6.1"
   },
   "devDependencies": {
@@ -43,6 +45,7 @@
     "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-jsx-a11y": "^6.0.0",
     "eslint-plugin-react": "^7.1.0",
+    "marky": "^1.2.0",
     "webpack-dev-server": "^2.5.0"
   }
 }
