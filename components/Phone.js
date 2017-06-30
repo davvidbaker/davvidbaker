@@ -9,25 +9,39 @@ const Phone = () => (
 
       <Messenger className="messenger" name="You">
         <Message me>
-          <p>Hello</p>
-        </Message>
-
-        <Message>
-          <p>It's me</p>
-        </Message>
-
-        <Message>
-          <h1>What does this liook like</h1>
-        </Message>
-
-        <Message>
-          <p>
-            A bunch ot text as;fljasd;fljkas;df j;ksafj;kja sh sjd hjsasjhd slafhj a;sdjf;alsf jl;asjdf; hkj;hlj
-          </p>
+          <h1>You there, reader.</h1>
         </Message>
 
         <Message me>
-          <h1>What does this liook like</h1>
+          <h3>It's me.</h3>
+        </Message>
+
+        <Message>
+          <p>Me?</p><br /><br />
+          <strong>You</strong> can't be <em>me</em>.
+        </Message>
+
+        <Message style={{ background: 'gold', color: 'black' }}>
+          <h1>Who am I in this situation?</h1>
+        </Message>
+
+        <Message me>
+          <p>
+            You tell me.
+          </p>
+        </Message>
+
+        <Message>
+          <p>Does anyone else find this a bit annoying?</p>
+        </Message>
+
+        <Message>
+          <p>I bet <strong>you</strong> do.</p>
+        </Message>
+
+        <Message me>
+          <h2>How about an h2?</h2>
+          <h1>These look the same no.</h1>
         </Message>
 
         <Message>
@@ -42,7 +56,7 @@ const Phone = () => (
         </Message>
 
         <Message>
-          <h1>What does this liook like</h1>
+          <h1>What does this look like</h1>
         </Message>
 
         <Message>
@@ -52,7 +66,7 @@ const Phone = () => (
         </Message>
 
         <Message me>
-          <h1>What does this liook like</h1>
+          <h1>What does this look like</h1>
         </Message>
 
         <Message>
@@ -67,7 +81,7 @@ const Phone = () => (
         </Message>
 
         <Message>
-          <h1>What does this liook like</h1>
+          <h1>What does this look like</h1>
         </Message>
 
         <Message>
@@ -77,7 +91,7 @@ const Phone = () => (
         </Message>
 
         <Message me>
-          <h1>What does this liook like</h1>
+          <h1>What does this look like</h1>
         </Message>
 
         <Message>

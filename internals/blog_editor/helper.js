@@ -11,7 +11,7 @@ import BlogGlobalStyles from 'components/Blog/styles';
 import { initStore } from '../../store';
 import Nav from 'components/Nav';
 
-import post from 'blog/2017-06-24_whoa-and-blog-state.whoa';
+import post from 'blog/2017-06-30_phone-messenger-component.whoa';
 
 console.log(post);
 

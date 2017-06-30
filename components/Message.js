@@ -1,10 +1,20 @@
-const Message = ({ children, me = false }) => (
-  <div className={`${me ? 'me' : 'you'}-column`}>
-    <div className={`message ${me ? 'me' : 'you'}`}>
-      {children}
-    </div>
-    <style jsx>
-      {`
+import shortid from 'shortid';
+
+const Message = ({ children, me = false, style }) => {
+  const id = shortid.generate();
+
+  return (
+    <div className={`${me ? 'me' : 'you'}-column`}>
+      <div className={`message ${me ? 'me' : 'you'}`} id={id} style={style && style}>
+        {children}
+        <style>
+          {`#${id} {
+          ${style && `--you-color: ${style.background};`}
+        }`}
+        </style>
+      </div>
+      <style jsx>
+        {`
         .message {
           --me-color: #ddd;
           --you-color: dodgerblue;
@@ -53,8 +63,9 @@ const Message = ({ children, me = false }) => (
           border-right: 0px solid transparent;
         }
       `}
-    </style>
-  </div>
-);
+      </style>
+    </div>
+  );
+};
 
 export default Message;
