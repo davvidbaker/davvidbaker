@@ -15,33 +15,35 @@ const enhance = withReducer(
   // `#${Math.floor(Date.now() / 100000000000 % 1 * 0xffffff).toString(16)}`
 );
 
-export default enhance(
-  ({
-    title = '🙃🐢',
-    borderColor,
-    children,
-    dispatch,
-  }) =>
-    <div id="body-div" style={{ borderColor }}>
-      <Head>
-        <title>
-          {title}
-        </title>
-        <link
-          href="https://fonts.googleapis.com/css?family=Signika|Josefin+Slab:400,400i,700|Cutive+Mono"
-          rel="stylesheet"
-        />
+export default enhance(({
+  title = '🙃🐢',
+  borderColor,
+  background,
+  children,
+  dispatch,
+}) => (
+  <div id="body-div" style={{ borderColor }}>
+    <Head>
+      <title>
+        {title}
+      </title>
+      <link
+        href="https://fonts.googleapis.com/css?family=Signika|Josefin+Slab:400,400i,700|Cutive+Mono"
+        rel="stylesheet"
+      />
 
-        <link rel="icon" type="image/x-icon" href="/static/favicon.png" />
+      <link rel="icon" type="image/x-icon" href="/static/favicon.png" />
 
-        <meta name="viewport" content="width=device-width" />
-        <meta name="theme-color" content={borderColor} />
-        <meta name="theme-color" content={borderColor || 'blue'} />
-        <meta charSet="utf-8" />
-      </Head>
-      {children}
-      <style jsx global>
-        {`
+      <meta name="viewport" content="width=device-width" />
+      <meta name="theme-color" content={borderColor} />
+      <meta name="theme-color" content={borderColor || 'blue'} />
+      <meta charSet="utf-8" />
+
+      {background && <style>{`body {--body-background: ${background}}`}</style>}
+    </Head>
+    {children}
+    <style jsx global>
+      {`
           :root {
             --color-main: firebrick;
             --color-accent: midnightblue;
@@ -49,6 +51,7 @@ export default enhance(
             --color-border: darkslategrey;
             --color-highlight: #fbfaa4;
             --color-select: powderblue;
+            --body-background: white;
 
             --color-contrasting-background: firebrick;
             --font-monospace: monospace;
@@ -84,7 +87,13 @@ export default enhance(
           body {
             min-height: 100vh;
             margin: 0;
+            background: var(--body-background);
           }
+
+          #body-div {
+            min-height: 100vh;
+          }
+
           ul {
             list-style: none;
             margin: 0;
@@ -108,6 +117,6 @@ export default enhance(
             max-width: 250px;
           }
         `}
-      </style>
-    </div>
-);
+    </style>
+  </div>
+));

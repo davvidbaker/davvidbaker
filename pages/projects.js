@@ -34,17 +34,19 @@ const withToggle = compose(
     switch (action.type) {
       case 'SHOW_READ_MORE':
         return action.value;
+
       case 'HIDE_READ_MORE':
         return false;
+
       default:
         return state;
     }
   }),
   withHandlers({
-    showAdditionalInfo: ({ dispatch }) => projectName => {
+    showAdditionalInfo: ({ dispatch }) => (projectName) => {
       dispatch({ type: 'SHOW_READ_MORE', value: projectName });
     },
-    hideAdditionalInfo: ({ dispatch }) => event => {
+    hideAdditionalInfo: ({ dispatch }) => (event) => {
       dispatch({ type: 'HIDE_READ_MORE' });
     },
   })
@@ -55,11 +57,11 @@ const ProjectList = ({
   showAdditionalInfo,
   hideAdditionalInfo,
   showingAdditionalInfo,
-}) =>
+}) => (
   <ul className={showingAdditionalInfo ? 'hidden' : 'visible'}>
     {projects
       .sort(compareYears)
-      .map(project =>
+      .map(project => (
         <Project
           key={project.name}
           year={project.year}
@@ -74,7 +76,7 @@ const ProjectList = ({
           highlight={project.highlight}
           showAdditionalInfo={showAdditionalInfo}
         />
-      )}
+      ))}
     <style jsx>
       {`
         ul {
@@ -136,24 +138,25 @@ const ProjectList = ({
         margin-top: 0;
       }
     `}</style>
-  </ul>;
+  </ul>
+);
 
-const Page = withToggle(
-  ({
-    projects,
-    url,
-    showAdditionalInfo,
-    hideAdditionalInfo,
-    showingAdditionalInfo,
-  }) => {
-    const project = url.query.name
-      ? projects.filter(
-          project => project.name === url.query.name.replace(/-/g, ' ')
-        )[0]
-      : null;
-    return (
-      <div id="projects-page" style={{ position: 'relative' }}>
-        <Nav url={url} />
+const Page = withToggle(({
+  projects,
+  url,
+  showAdditionalInfo,
+  hideAdditionalInfo,
+  showingAdditionalInfo,
+}) => {
+  const project = url.query.name
+    ? projects.filter(
+        project => project.name === url.query.name.replace(/-/g, ' ')
+      )[0]
+    : null;
+  return (
+    <div id="projects-page" style={{ position: 'relative', minHeight: '100%' }}>
+      <Nav url={url} />
+      <main>
         <ReactCSSTransitionGroup
           transitionName="fade"
           transitionEnterTimeout={500}
@@ -161,35 +164,35 @@ const Page = withToggle(
         >
           {url.query.name && project
             ? <AdditionalInfo
-                key="additional-info"
-                hideAdditionalInfo={hideAdditionalInfo}
-                {...project}
-              />
+              key="additional-info"
+              hideAdditionalInfo={hideAdditionalInfo}
+              {...project}
+            />
             : <ProjectList
-                key="project-list"
-                projects={projects}
-                showAdditionalInfo={showAdditionalInfo}
-              />}
+              key="project-list"
+              projects={projects}
+              showAdditionalInfo={showAdditionalInfo}
+            />}
         </ReactCSSTransitionGroup>
-      </div>
-    );
-  }
+      </main>
+    </div>
+  );
+});
+
+const ProjectsPage = ({ url }) => (
+  <PageWrapper
+    title={`🙃🐢 ${url.query.name ? url.query.name : 'Projects'}`}
+    background="#f5f5f5"
+  >
+    <Page projects={PROJECTS} url={url} />
+  </PageWrapper>
 );
 
-const ProjectsPage = ({ url }) =>
-  <PageWrapper title={`🙃🐢 ${url.query.name ? url.query.name : 'Projects'}`}>
-    <Page projects={PROJECTS} url={url} />
-  </PageWrapper>;
+ProjectsPage.getInitialProps = async ({ store, isServer }) => ({ isServer });
 
-ProjectsPage.getInitialProps = async ({ store, isServer }) => {
-  return { isServer };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addCount: dispatch => ({ type: 'ADD' }),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  addCount: dispatch => ({ type: 'ADD' }),
+});
 export default withRedux(
   initStore,
   state => ({ ...state }),

@@ -12,7 +12,7 @@ const NavLink = ({ url, pathname, str }) => {
   }
 
   return (
-    <Link href={`/${pathname}`}>
+    <Link prefetch href={`/${pathname}`}>
       <a>
         <li className={isActive ? 'active' : 'inactive'}>
           {str}

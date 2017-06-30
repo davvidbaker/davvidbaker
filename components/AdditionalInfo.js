@@ -78,20 +78,29 @@ const AdditionalInfo = ({
           {teammates.map(teammate => <a href={teammate.link}><li key={teammate.name}><span>{teammate.name}</span></li></a>)}
         </ul>}
 
+    </div>
       <style jsx>
         {`
+        #additional-info {
+          opacity: 0;
+          animation: 0.3s 1s fadeIn;
+          animation-fill-mode: forwards;
+        }
+        @keyframes fadeIn {
+          to {opacity: 1;}
+        }
+
         .inner {
           margin: auto;
-          margin-top: 2.5vw;
           display: flex;
           flex-direction: column;
-          border: solid #cecece 1px;
+          {/*border: solid #cecece 1px;*/}
           padding: 1rem;
-          background: white;
+          {/*background: white;*/}
           max-width: 80vw;
-          max-height: 80vh;
+          {/*max-height: 80vh;*/}
           width:100%;
-          overflow-y: scroll;
+          {/*overflow-y: scroll;*/}
         }
 
         .heading {
@@ -154,6 +163,11 @@ const AdditionalInfo = ({
           font-size: smaller;
         }
 
+        #additional-info {
+          background: #f5f5f5;
+          height: 100%;
+        }
+
         .description {
           {/*columns: 20rem;
           text-align: justify;
@@ -186,7 +200,6 @@ const AdditionalInfo = ({
         
     `}
       </style>
-    </div>
   </div>
 );
 
