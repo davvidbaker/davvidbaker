@@ -115,13 +115,14 @@ const Phone = () => (
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
-      margin: 0 auto;
+      margin: 30px auto;
       background: #000;
       border: 3px solid #999;
       height: var(--phone-height, 90vh);
       width: calc(var(--phone-height, 90vh) / var(--aspect-ratio, 2));
       border-radius: 5vmin;
       padding: 0 2vmin;
+      box-shadow: 0 0 30px;
 
       transition: width 0.5s 0.1s, height 0.5s 0.3s;
     }

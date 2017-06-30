@@ -4,6 +4,8 @@ import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store';
 import Nav from '../components/Nav';
 import Phone from '../components/Phone';
+import Definition from '../components/Definition';
+
 
 import PageWrapper from '../components/PageWrapper';
 
@@ -11,6 +13,7 @@ const IndexPage = ({ url }) =>
   <PageWrapper title="🙃🐢">
     <Nav url={url} />
     <main style={{ padding: '10px' }}>
+      <Definition word="chthonic" ipa={`\/ˈθɒnɪk\/`} PoS="adjective">concerning, belonging to, or inhabiting the underworld: a chthonic deity.</Definition>
       <Phone />
       <h2>Hello!</h2>
       <p>

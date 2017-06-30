@@ -9,16 +9,6 @@
 // import Message from './Message';
 import PropTypes from 'prop-types';
 
-// const messengerize = (strings, ...details) => {
-//   console.log(details);
-
-//   return <Messenger>
-//     <Message>{strings}</Message>
-//   </Messenger>
-// }
-
-// export { messengerize };
-
 const Messenger = ({ children, name }) => (
   <section>
     {name && <header><h1>{name}</h1></header>}
@@ -42,6 +32,7 @@ const Messenger = ({ children, name }) => (
 
       header h1 {
         font-weight: bold;
+        margin: 0.5rem auto;
       }
 
       .messenger-body {
