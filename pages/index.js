@@ -3,7 +3,7 @@ import Link from 'next/link';
 import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store';
 import Nav from '../components/Nav';
-import Phone from '../components/Phone'
+import Phone from '../components/Phone';
 
 import PageWrapper from '../components/PageWrapper';
 
@@ -11,10 +11,8 @@ const IndexPage = ({ url }) =>
   <PageWrapper title="🙃🐢">
     <Nav url={url} />
     <main style={{ padding: '10px' }}>
-      <Phone></Phone>
-      <h2>
-        Hello!
-      </h2>
+      <Phone />
+      <h2>Hello!</h2>
       <p>
         If you've gotten here, it's probably because I am applying for a job!
       </p>
@@ -31,16 +29,22 @@ const IndexPage = ({ url }) =>
       </p>
 
       <p>
-        These days,{' '}
-        <strong>I am a frontend developer.</strong> I love making stuff, and I love the pace that comes with with writing software.
+        These days, <strong>I am a frontend developer.</strong> I love making
+        stuff, and I love the pace that comes with with writing software.
       </p>
 
       <p>
-        I used to (back in college) focus more on the hardware side of things but have found software to be much more accessible now that I don't have 24/7 access to lab full of all the discrete electronic components I might ever need 😢.
+        I used to (back in college) focus more on the hardware side of things
+        but have found software to be much more accessible now that I don't have
+        24/7 access to lab full of all the discrete electronic components I
+        might ever need 😢.
       </p>
 
       <p>
-        Do I know everything? <strong>Certainly not!</strong> There is sooooo much to learn about in our industry and the world, at times it can be overwhelming. I do however, learn quickly and I am eager to fill gaps in my knowledge.
+        Do I know everything? <strong>Certainly not!</strong> There is sooooo
+        much to learn about in our industry and the world, at times it can be
+        overwhelming. I do however, learn quickly and I am eager to fill gaps in
+        my knowledge.
       </p>
 
       <p>I am drawn to good ol' clean design that serves a purpose.</p>
@@ -56,15 +60,11 @@ const IndexPage = ({ url }) =>
     </style>
   </PageWrapper>;
 
-IndexPage.getInitialProps = async ({ store, isServer }) => {
-  return { isServer };
-};
+IndexPage.getInitialProps = async ({ store, isServer }) => ({ isServer });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addCount: dispatch => ({ type: 'ADD' }),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  addCount: dispatch => ({ type: 'ADD' }),
+});
 
 export default withRedux(
   initStore,

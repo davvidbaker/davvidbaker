@@ -1,18 +1,21 @@
-const Message = ({ children, me = false }) =>
-  (<div className={`${me ? 'me' : 'you'}-column`}>
+const Message = ({ children, me = false }) => (
+  <div className={`${me ? 'me' : 'you'}-column`}>
     <div className={`message ${me ? 'me' : 'you'}`}>
       {children}
     </div>
     <style jsx>
       {`
         .message {
-          --me-color: olivedrab;
+          --me-color: #ddd;
           --you-color: dodgerblue;
+          --border-radius: 10px;
+          
           display: inline-block;
           color: white;
           padding: 5px;
-          margin: 5px;
+          margin: var(--border-radius, 10px);
           position: relative;
+          max-width: 75%;
         }
         .message::before {
           content: '';
@@ -21,37 +24,37 @@ const Message = ({ children, me = false }) =>
           height: 0;
           left: -5px;
           bottom: 0;
-          border-top: 5px solid transparent;
+          border-top: var(--border-radius, 10px) solid transparent;
           border-bottom: 0px solid transparent;
         }
-        .me-column {
-          grid-column: 1 / span 1;
-        }
+
         .you-column {
-          grid-column: 2 / span 1;
           text-align: right;
         }
 
         .me {
-          border-radius: 5px 5px 5px 0;
+          color: black;
+          border-radius: var(--border-radius, 10px) var(--border-radius, 10px) var(--border-radius, 10px) 0;
           background: var(--me-color);
         }
         .me::before {
-          border-right: 5px solid var(--me-color);
+          border-right: var(--border-radius, 10px) solid var(--me-color);
           border-left: 0px solid transparent;
         }
         .you {
-          border-radius: 5px 5px 0 5px;
+          border-radius: var(--border-radius, 10px) var(--border-radius, 10px) 0 var(--border-radius, 10px);
           background: var(--you-color);
+          text-align: left;
         }
         .you::before {
           right: -5px;
           left: unset;
-          border-left: 5px solid var(--you-color);
+          border-left: var(--border-radius, 10px) solid var(--you-color);
           border-right: 0px solid transparent;
         }
       `}
     </style>
-  </div>);
+  </div>
+);
 
 export default Message;

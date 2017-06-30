@@ -1,12 +1,13 @@
 import Message from './Message';
 import Messenger from './Messenger';
+import smoothScrollTo from '../utils/smoothScrollTo';
 
 const Phone = () => (
   <div className="phone-container">
     <div className="phone-speaker" />
     <div className="phone-screen">
 
-      <Messenger className="messenger">
+      <Messenger className="messenger" name="You">
         <Message me>
           <p>Hello</p>
         </Message>
@@ -20,7 +21,59 @@ const Phone = () => (
         </Message>
 
         <Message>
+          <p>
+            A bunch ot text as;fljasd;fljkas;df j;ksafj;kja sh sjd hjsasjhd slafhj a;sdjf;alsf jl;asjdf; hkj;hlj
+          </p>
+        </Message>
+
+        <Message me>
           <h1>What does this liook like</h1>
+        </Message>
+
+        <Message>
+          <h1>What does this look like</h1>
+        </Message>
+        <Message me>
+          <p>Hello</p>
+        </Message>
+
+        <Message>
+          <p>It's me</p>
+        </Message>
+
+        <Message>
+          <h1>What does this liook like</h1>
+        </Message>
+
+        <Message>
+          <p>
+            A bunch ot text as;fljasd;fljkas;df j;ksafj;kja sh sjd hjsasjhd slafhj a;sdjf;alsf jl;asjdf; hkj;hlj
+          </p>
+        </Message>
+
+        <Message me>
+          <h1>What does this liook like</h1>
+        </Message>
+
+        <Message>
+          <h1>What does this look like</h1>
+        </Message>
+        <Message me>
+          <p>Hello</p>
+        </Message>
+
+        <Message>
+          <p>It's me</p>
+        </Message>
+
+        <Message>
+          <h1>What does this liook like</h1>
+        </Message>
+
+        <Message>
+          <p>
+            A bunch ot text as;fljasd;fljkas;df j;ksafj;kja sh sjd hjsasjhd slafhj a;sdjf;alsf jl;asjdf; hkj;hlj
+          </p>
         </Message>
 
         <Message me>
@@ -32,7 +85,11 @@ const Phone = () => (
         </Message>
       </Messenger>
     </div>
-    <button className="phone-button" />
+    <button
+      className="phone-button"
+      onClick={() =>
+        smoothScrollTo(document.querySelector('.messenger-body'), 0)}
+    />
     <style jsx>
       {`
     .phone-container {
@@ -60,7 +117,6 @@ const Phone = () => (
       flex-grow: 1;
       width: 100%;
       height: 0;
-      overflow-y: scroll;
     }
 
     .phone-speaker {
@@ -110,8 +166,8 @@ const Phone = () => (
     }
 
 
-    .messenger p {
-      margin: 0;
+     p, h1, h2, h3, h4 {
+      margin: 0.25rem;
       display: inline-block;
     }
 
