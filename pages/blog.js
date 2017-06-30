@@ -16,7 +16,7 @@ const BlogPage = ({ url }) => {
     ? posts.filter(post => url.query.slug === post.attributes.slug)[0]
     : null;
   return post
-    ? <PageWrapper title={post.attributes.title} includeTweenMax>
+    ? <PageWrapper title={post.attributes.title}>
         <BlogPost attributes={post.attributes} content={post.content} />
         <BlogGlobalStyles />
       </PageWrapper>

@@ -18,7 +18,6 @@ const enhance = withReducer(
 export default enhance(
   ({
     title = '🙃🐢',
-    includeTweenMax = false,
     borderColor,
     children,
     dispatch,
@@ -34,9 +33,6 @@ export default enhance(
         />
 
         <link rel="icon" type="image/x-icon" href="/static/favicon.png" />
-
-        {includeTweenMax &&
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" />}
 
         <meta name="viewport" content="width=device-width" />
         <meta name="theme-color" content={borderColor} />
