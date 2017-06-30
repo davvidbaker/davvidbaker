@@ -1,11 +1,12 @@
 import Message from './Message';
+import Messenger from './Messenger';
 
 const Phone = () => (
   <div className="phone-container">
     <div className="phone-speaker" />
     <div className="phone-screen">
 
-      <div className="messenger">
+      <Messenger className="messenger">
         <Message me>
           <p>Hello</p>
         </Message>
@@ -27,9 +28,9 @@ const Phone = () => (
         </Message>
 
         <Message>
-          <h1>What does this liook like</h1>
+          <h1>What does this look like</h1>
         </Message>
-      </div>
+      </Messenger>
     </div>
     <button className="phone-button" />
     <style jsx>
@@ -107,10 +108,7 @@ const Phone = () => (
         margin: auto 3vmin;
       }
     }
-    
-    .messenger {
-      display: grid;
-    }
+
 
     .messenger p {
       margin: 0;
