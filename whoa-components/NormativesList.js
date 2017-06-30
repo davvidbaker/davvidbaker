@@ -9,18 +9,20 @@ import PropTypes from 'prop-types';
 import { withHandlers, compose } from 'recompose';
 import { connect } from 'react-redux';
 
+import smoothScrollTo from '../utils/smoothScrollTo';
+
 const enhance = compose(
   connect(state => ({
     normatives: state.whoa.normatives,
     currentPost: state.whoa.currentPost,
   })),
   withHandlers({
-    onMouseEnter: dispatch => id => {
+    onMouseEnter: dispatch => (id) => {
       console.log('mouse entered', id);
       document.querySelector(`#${id}`).style.background =
         'var(--color-highlight)';
     },
-    onMouseLeave: dispatch => id => {
+    onMouseLeave: dispatch => (id) => {
       document.querySelector(`#${id}`).style.background = 'unset';
       console.log('mouse left', id);
     },
@@ -32,41 +34,36 @@ const NormativesList = ({
   normatives,
   onMouseEnter,
   onMouseLeave,
-}) => {
-  return (
-    <ul className="offscreen">
-      {normatives &&
-        normatives.map(normative =>
-          <li
-            key={normative.id}
-            onMouseEnter={() => {
-              onMouseEnter(normative.id);
-            }}
-            onMouseLeave={() => {
-              onMouseLeave(normative.id);
-            }}
-            onClick={() => {
-              // TODO could be better
-              const scrollTo =
-                document.getElementById(normative.id).getBoundingClientRect()
-                  .top -
-                document.querySelector('main').getBoundingClientRect().top;
+}) => (
+  <ul className="offscreen">
+    {normatives &&
+      normatives.map(normative => (
+        <li
+          key={normative.id}
+          onMouseEnter={() => {
+            onMouseEnter(normative.id);
+          }}
+          onMouseLeave={() => {
+            onMouseLeave(normative.id);
+          }}
+          onClick={() => {
+            const toNode = document.getElementById(normative.id);
+            const scrollTo = toNode.getBoundingClientRect().top;
+            const mainNode = document.querySelector('main');
 
-              if (
-                Math.abs(
-                  document.getElementById(normative.id).getBoundingClientRect()
-                    .top
-                ) > 1
-              )
-                TweenMax.to('main', 0.4, {
-                  scrollTop: scrollTo,
-                });
-            }}
-          >
-            <p>{normative.statement}</p>
-          </li>
-        )}
-      <style jsx>{`
+            if (scrollTo < 0 || scrollTo > window.innerHeight) {
+              smoothScrollTo(
+                document.querySelector('main'),
+                scrollTo +
+                  (mainNode.scrollTop + mainNode.getBoundingClientRect().top)
+              );
+            }
+          }}
+        >
+          <p>{normative.statement}</p>
+        </li>
+      ))}
+    <style jsx>{`
         a {
           color: unset;
           text-decoration: none;
@@ -83,9 +80,8 @@ const NormativesList = ({
           background: var(--color-highlight);
         }
       `}</style>
-    </ul>
-  );
-};
+  </ul>
+);
 NormativesList.propTypes = {
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
