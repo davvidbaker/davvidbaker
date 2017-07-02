@@ -87,7 +87,7 @@ function writeSlugs() {
      */
     
     module.exports = {
-      default: [${slugs}]
+      slugs: [${slugs}]
     };
     `,
       (err) => {
