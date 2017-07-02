@@ -3,7 +3,7 @@ import marked from 'marked';
 
 import ExternalLinks from './ExternalLinks';
 import Status from './Status';
-import {colors, fonts} from '../constants/styles';
+import { colors, fonts } from '../constants/styles';
 
 /* Replaces the comma with a Unicode no-breaking hypen */
 const formatYears = years => String(years).replace(',', '‑');
@@ -25,82 +25,83 @@ const AdditionalInfo = ({
   hideAdditionalInfo,
 }) => (
   <div id="additional-info" onClick={hideAdditionalInfo}>
-    <div className="inner">
 
-      <div className="heading">
-        <div>
-          <h1 style={{ marginRight: '5px', transform: 'translateY(3px)' }}>
-            {name} <span>{year && formatYears(year)}</span>
-          </h1>
-          {status && <Status status={status} focused />}
-        </div>
+    <div className="heading">
+      <div>
+        <h1 style={{ marginRight: '5px', transform: 'translateY(3px)' }}>
+          {name} <span>{year && formatYears(year)}</span>
+        </h1>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-end',
+        }}
+      >
+        {status && <Status status={status} focused />}
+
         <ExternalLinks
           {...{ link, linkToSource, linkToTrello, callToAction }}
         />
       </div>
+    </div>
 
-      {description
-        ? <p className="description">
+    <section className="about-project">
+      <div className="description-and-gallery">
+        {description
+          ? <p className="description">
             {logo && <img className="logo" src={logo} alt={`${name} logo`} />}
             <span
               className="markdown"
               dangerouslySetInnerHTML={{ __html: marked(description) }}
             />
           </p>
-        : null}
+          : null}
 
-      <div
-        className="gallery"
-
-      >
-        {images &&
-          images.map(image => <img key={image} src={image} alt={image} />)}
-        {videos &&
-          videos.map(video => (
-            <video
-              loop
-              controls
-              muted
-              autoPlay
-              src={video}
-              alt={`${name} video`}
-              key={video}
-            />
-          ))}
+        <div className="gallery">
+          {images &&
+            images.map(image => <img key={image} src={image} alt={image} />)}
+          {videos &&
+            videos.map(video => (
+              <video
+                loop
+                controls
+                muted
+                autoPlay
+                src={video}
+                alt={`${name} video`}
+                key={video}
+              />
+            ))}
+        </div>
       </div>
-
       {keywords &&
-        <ul className="keywords flex-list">
-          {keywords.map(word => <li key={word}><span>{word}</span></li>)}
-        </ul>}
+        <div className="keywords-container">
+          <h3>Buzz Words 🐝</h3>
+          <ul className="keywords flex-list">
+            {keywords.map(word => <li key={word}><span>{word}</span></li>)}
+          </ul>
+        </div>}
       {teammates &&
         <ul className="teammates flex-list">
-          {teammates.map(teammate => <a href={teammate.link}><li key={teammate.name}><span>{teammate.name}</span></li></a>)}
+          {teammates.map(teammate => (
+            <a href={teammate.link}>
+              <li key={teammate.name}><span>{teammate.name}</span></li>
+            </a>
+          ))}
         </ul>}
+    </section>
 
-    </div>
-      <style jsx>
-        {`
+    <style jsx>
+      {`
+
         #additional-info {
-          opacity: 0;
-          animation: 0.3s 1s fadeIn;
-          animation-fill-mode: forwards;
-        }
-        @keyframes fadeIn {
-          to {opacity: 1;}
-        }
-
-        .inner {
-          margin: auto;
           display: flex;
           flex-direction: column;
-          {/*border: solid #cecece 1px;*/}
           padding: 1rem;
-          {/*background: white;*/}
           max-width: 80vw;
-          {/*max-height: 80vh;*/}
           width:100%;
-          {/*overflow-y: scroll;*/}
         }
 
         .heading {
@@ -117,7 +118,8 @@ const AdditionalInfo = ({
         .logo {
           float: left;
           height: 50px;
-          margin: 0 5px 5px 0;
+          margin: 15px 5px 5px 0;
+          transform: translateY(10px);
         }
         
         .gallery {
@@ -167,10 +169,25 @@ const AdditionalInfo = ({
           height: 100%;
         }
 
+        .description-and-gallery {
+          max-width: 50rem;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .about-project {
+          display: flex;
+          flex-direction: column;
+        }
+
+        @media(min-width: 60rem) {
+          .about-project {
+            flex-direction: row;
+          }
+        }
+
         .description {
-          {/*columns: 20rem;
-          text-align: justify;
-          column-gap: 2rem;*/}
+          line-height: 1.5;
         }
 
         .flex-list {
@@ -179,26 +196,34 @@ const AdditionalInfo = ({
         }
 
         .flex-list li {
-          color: white;
           padding: 5px;
-          margin: 5px;
+          margin: 5px 0;
           transition: background 0.3s;
-          font-family: ${fonts.monospace};
         }
 
-        .flex-list li:hover {
-          background: black;
+        .flex-list li:hover::before {
+          opacity: 1;
+        }
+
+        .keywords-container h3 {
+          margin-bottom: 5px;
         }
 
         .keywords li {
-          background: ${colors.border};
         }
+        .keywords li::before {
+          content: '🐝';
+          font-size: small;
+          opacity: 0
+        }
+
+        
         .teammates li {
           background: rebeccapurple;
         }
         
     `}
-      </style>
+    </style>
   </div>
 );
 

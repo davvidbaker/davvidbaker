@@ -89,6 +89,53 @@ const ProjectList = ({
         }
       `}
     </style>
+    
+  </ul>
+);
+
+const Page = withToggle(({
+  projects,
+  url,
+  showAdditionalInfo,
+  hideAdditionalInfo,
+  showingAdditionalInfo,
+}) => {
+  const project = url.query.name
+    ? projects.filter(
+        project => project.name === url.query.name.replace(/-/g, ' ')
+      )[0]
+    : null;
+  return (
+    <div id="projects-page" style={{ position: 'relative', minHeight: '100%' }}>
+      <main>
+        <ReactCSSTransitionGroup
+          transitionName="fade"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+        >
+          {url.query.name && project
+            ? <AdditionalInfo
+              key="additional-info"
+              hideAdditionalInfo={hideAdditionalInfo}
+              {...project}
+            />
+            : <ProjectList
+              key="project-list"
+              projects={projects}
+              showAdditionalInfo={showAdditionalInfo}
+            />}
+        </ReactCSSTransitionGroup>
+      </main>
+    </div>
+  );
+});
+
+const ProjectsPage = ({ url }) => (
+  <PageWrapper
+    title={`🙃🐢 ${url.query.name ? url.query.name : 'Projects'}`}
+  >
+    <Nav url={url} />  
+    <Page projects={PROJECTS} url={url} />
     <style global jsx>{`
       h1 {
         font-size: 24px;
@@ -127,62 +174,12 @@ const ProjectList = ({
         transition: opacity 200ms ease-in;
       }
       #additional-info {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        margin: 0 auto;
       }
       .markdown p:first-child {
         margin-top: 0;
       }
     `}</style>
-  </ul>
-);
-
-const Page = withToggle(({
-  projects,
-  url,
-  showAdditionalInfo,
-  hideAdditionalInfo,
-  showingAdditionalInfo,
-}) => {
-  const project = url.query.name
-    ? projects.filter(
-        project => project.name === url.query.name.replace(/-/g, ' ')
-      )[0]
-    : null;
-  return (
-    <div id="projects-page" style={{ position: 'relative', minHeight: '100%' }}>
-      <Nav url={url} />
-      <main>
-        <ReactCSSTransitionGroup
-          transitionName="fade"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
-        >
-          {url.query.name && project
-            ? <AdditionalInfo
-              key="additional-info"
-              hideAdditionalInfo={hideAdditionalInfo}
-              {...project}
-            />
-            : <ProjectList
-              key="project-list"
-              projects={projects}
-              showAdditionalInfo={showAdditionalInfo}
-            />}
-        </ReactCSSTransitionGroup>
-      </main>
-    </div>
-  );
-});
-
-const ProjectsPage = ({ url }) => (
-  <PageWrapper
-    title={`🙃🐢 ${url.query.name ? url.query.name : 'Projects'}`}
-  >
-    <Page projects={PROJECTS} url={url} />
   </PageWrapper>
 );
 

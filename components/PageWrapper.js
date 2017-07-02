@@ -100,6 +100,15 @@ export default enhance(({
             padding: 0;
           }
 
+          a {
+            color: var(--color-link);
+            text-decoration: none;
+          }
+
+          a:hover {
+            text-decoration: underline;
+          }
+
           code {
             font-family: var(--font-monospace, monospace);
             font-size: large;
