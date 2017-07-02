@@ -1,0 +1,24 @@
+import unified from 'unified';
+import remarkParse from 'remark-parse';
+import remarkWhoa from 'remark-whoa';
+
+import Whoa from '../whoa-components';
+
+const whoaParse = unified().use(remarkParse).use(remarkWhoa).parse;
+
+const attributes = {
+  title: '{{ title }}',
+  slug: '{{ slug }}',
+  date: '{{ formattedCreationDate }}',
+  js: true
+};
+
+const Content = () => {
+  const content = whoaParse(`this is a test`);
+
+  return <div><Whoa content={content} /></div>;
+};
+
+export default Content;
+
+export { attributes, Content }

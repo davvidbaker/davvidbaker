@@ -36,7 +36,9 @@ class Post extends React.Component {
           />
 
           <div className="post-body">
-            <Whoa content={this.props.content} />
+            {this.props.attributes.js
+              ? this.props.content
+              : <Whoa content={this.props.content} />}
           </div>
 
         </main>
