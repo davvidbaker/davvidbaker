@@ -7,6 +7,8 @@
     "dev": "next -p 3002",
     "build-blog": "webpack --config internals/build/webpack.config.js && node ./internals/out_blog/intermediate.bundle.js",
     "build": "npm run build-blog && next build && next export",
+    "build-only": "next build",
+    "export-only": "next export",
     "generate": "plop --plopfile internals/generators/index.js",
     "edit-post": "webpack-dev-server --config ./internals/blog_editor/webpack.config.js"
   },
@@ -31,6 +33,7 @@
     "remark-whoa": "^0.0.0",
     "shortid": "^2.2.8",
     "styled-jsx": "^1.0.3",
+    "uglify-es": "^3.0.22",
     "unified": "^6.1.5",
     "webpack": "^2.6.1"
   },

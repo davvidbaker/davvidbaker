@@ -5,25 +5,20 @@ import { initStore } from '../store';
 import Nav from '../components/Nav';
 import Sample from '../components/Sample';
 
-
-
 import PageWrapper from '../components/PageWrapper';
 
-const IndexPage = ({ url }) =>
+const IndexPage = ({ url }) => (
   <PageWrapper title="🙃🐢">
     <Nav url={url} />
-    <Sample></Sample>
-  </PageWrapper>;
+    <Sample />
+  </PageWrapper>
+);
 
-IndexPage.getInitialProps = async ({ store, isServer }) => {
-  return { isServer };
-};
+IndexPage.getInitialProps = async ({ store, isServer }) => ({ isServer });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addCount: dispatch => ({ type: 'ADD' }),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  addCount: dispatch => ({ type: 'ADD' }),
+});
 
 export default withRedux(
   initStore,
