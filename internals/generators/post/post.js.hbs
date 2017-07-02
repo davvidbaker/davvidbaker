@@ -1,8 +1,10 @@
 import unified from 'unified';
 import remarkParse from 'remark-parse';
 import remarkWhoa from 'remark-whoa';
+import React from 'react';
 
-import Whoa from '../whoa-components';
+import Whoa from '../../whoa-components';
+import BlogPost from '../../components/Blog/Post.js';
 
 const whoaParse = unified().use(remarkParse).use(remarkWhoa).parse;
 
@@ -13,12 +15,6 @@ const attributes = {
   js: true
 };
 
-const Content = () => {
-  const content = whoaParse(`this is a test`);
-
-  return <div><Whoa content={content} /></div>;
-};
-
-export default Content;
-
-export { attributes, Content }
+export default () => <BlogPost attributes={attributes}>
+  
+  </BlogPost>

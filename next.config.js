@@ -1,16 +1,9 @@
 const constants = require('./constants');
-const { posts } = require('./internals/out_blog/output_blog_posts');
+const slugs = require('./out_blog/slugs.js');
+// const { posts } = require('./internals/out_blog/output_blog_posts');
 
 // next.config.js
 module.exports = {
-  webpack: (config, { dev }) => {
-    config.module.rules.push({
-      test: /\.whoah?$/,
-      loader: 'whoa-loader',
-    });
-
-    return config;
-  },
 
   /* path mapping for static html exports */
   exportPathMap: function() {
@@ -29,10 +22,10 @@ module.exports = {
     });
 
     /* build a path for each blog post */
-    posts.forEach(post => {
-      pathMap[`/blog/${post.attributes.slug}`] = {
+    slugs.forEach(slug => {
+      pathMap[`/blog/${slug}`] = {
         page: '/blog',
-        query: { slug: post.attributes.slug },
+        query: { slug },
       };
     });
 

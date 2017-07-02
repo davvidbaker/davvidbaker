@@ -57,7 +57,7 @@ module.exports = {
       internals: path.resolve(__dirname, '../../internals'),
       blog: path.resolve(__dirname, '../../blog'),
     },
-    extensions: ['.js'],
+    extensions: ['.js', '.json'],
   },
 
   devServer: {

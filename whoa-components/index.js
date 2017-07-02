@@ -9,16 +9,30 @@ export { whoaReducer };
 
 class WhoaRoot extends Component {
   static propTypes = {
-    content: PropTypes.object.isRequired,
+    content: PropTypes.object,
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.content.children.length === this.props.content.children.length) {
+    const nextContent = nextProps.content || nextProps.children;
+    const currentContent = this.props.content || this.props.children;
+    if (nextContent.children.length === currentContent.children.length
+    ) {
       return false;
     }
   }
 
   render() {
+    if (!this.props.content) {
+      return (
+        <div>
+          {this.props.children.children.map(child => (
+            <Element key={shortid.generate()} {...child} />
+          ))}
+        </div>
+      );
+    }
+
+    // only pure whoa files are just in content
     return (
       <article>
         {this.props.content.children.map(child => (

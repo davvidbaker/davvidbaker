@@ -3,7 +3,6 @@ import { Component } from 'react';
 import Link from 'next/link';
 import { connect } from 'react-redux';
 
-import { posts } from '../../internals/out_blog/output_blog_posts';
 
 class PostList extends Component {
   componentDidMount() {
@@ -13,27 +12,27 @@ class PostList extends Component {
   render() {
     return (
       <ul>
-        {posts
+        {this.props.posts
           .sort(
             (a, b) =>
-              new Date(b.attributes.date).valueOf() -
-              new Date(a.attributes.date).valueOf()
+              new Date(b.date).valueOf() -
+              new Date(a.date).valueOf()
           )
           .map(post =>
-            <li key={`link-${post.attributes.slug}`}>
+            <li key={`link-${post.slug}`}>
               <Link
                 href={{
                   pathname: '/blog',
-                  query: { slug: post.attributes.slug },
+                  query: { slug: post.slug },
                 }}
-                as={`/blog/${post.attributes.slug}`}
+                as={`/blog/${post.slug}`}
               >
                 <a>
-                  <h1>{post.attributes.title}</h1>
+                  <h1>{post.title}</h1>
                 </a>
               </Link>
               {' '}
-              <p>{post.attributes.date}</p>
+              <p>{post.date}</p>
             </li>
           )}
 

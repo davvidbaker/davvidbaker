@@ -1,70 +1,74 @@
 import withRedux from 'next-redux-wrapper';
-import Link from 'next/link';
-import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
+import test from '../out_blog/posts/2017-03-23_things-are-lookin-up.js';
 import PageWrapper from '../components/PageWrapper';
-import { posts } from '../internals/out_blog/output_blog_posts.js';
+// import { posts } from '../internals/out_blog/output_blog_posts.js';
+import posts from '../out_blog/lookupTable';
 import PostList from '../components/Blog/PostList';
-import BlogPost from '../components/Blog/Post';
+// import BlogPost from '../components/Blog/Post';
 import BlogGlobalStyles from '../components/Blog/styles';
 
 import { initStore } from '../store';
 import Nav from '../components/Nav';
 
+const str = 'components/Phone';
+console.log('posts', posts);
+// const DynamicBlogPost = (filename) => {
+//   const { attributes, content } = test; // dynamic(import(`../out_blog/posts/${filename}`));
+
+//   debugger;
+//   return <BlogPost attributes={attributes} content={content} />;
+// };
+
 const BlogPage = ({ url }) => {
-  const post = url.query.slug
-    ? posts.filter(post => url.query.slug === post.attributes.slug)[0]
-    : null;
+  const post = url.query.slug && posts.find(post => url.query.slug === post.slug);
+  let Component;
+  if (post) {
+    Component = post.component;
+  }
   return post
-    ? <PageWrapper title={post.attributes.title}>
-        <BlogPost attributes={post.attributes} content={post.content} />
+    ? <PageWrapper title={post.title}>
+      <Component />
         <BlogGlobalStyles />
-      </PageWrapper>
+    </PageWrapper>
     : <PageWrapper title="🙃🐢 Blog">
-        <Nav url={url} />
-        <main style={{ marginLeft: '10px' }}>
-          <div className="left-container">
-            <p>
+      <Nav url={url} />
+      <main style={{ marginLeft: '10px' }}>
+        <div className="left-container">
+          <p>
               This mostly contains unedited stream-of-consciousness writing.
             </p>
-            <p>
-              <em>
-                {' '}The more interesting project is the paratext of the blog
+          <p>
+            <em>
+              {' '}The more interesting project is the paratext of the blog
                 itself.
               </em>
-            </p>
-            <PostList />
-          </div>
-        </main>
+          </p>
+          <PostList posts={posts} />
+        </div>
+      </main>
 
-        {/* NEED TO PUT MORE EFFORT INTO MARGINALS */}
-        <img
-          className="marginal marginal-right"
-          src="/static/astronaut-pushing.svg"
-          alt="Astronaut"
-          style={{
-            position: 'fixed',
-            transform: 'scalex(-1)',
-            bottom: 0,
-            right: 0,
-          }}
-        />
-        <BlogGlobalStyles />
-      </PageWrapper>;
+      {/* NEED TO PUT MORE EFFORT INTO MARGINALS */}
+      <img
+        className="marginal marginal-right"
+        src="/static/astronaut-pushing.svg"
+        alt="Astronaut"
+        style={{
+          position: 'fixed',
+          transform: 'scalex(-1)',
+          bottom: 0,
+          right: 0
+        }}
+      />
+      <BlogGlobalStyles />
+    </PageWrapper>;
 };
 
-BlogPage.getInitialProps = async ({ store, isServer }) => {
-  return { isServer };
-};
+BlogPage.getInitialProps = async ({ store, isServer }) => ({ isServer });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addCount: dispatch => ({ type: 'ADD' }),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  addCount: dispatch => ({ type: 'ADD' })
+});
 
-export default withRedux(
-  initStore,
-  state => ({ ...state }),
-  mapDispatchToProps
-)(BlogPage);
+export default withRedux(initStore, state => ({ ...state }), mapDispatchToProps)(BlogPage);

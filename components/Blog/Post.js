@@ -9,6 +9,7 @@ import WithToggle from './WithToggle';
 
 class Post extends React.Component {
   // ({ attributes, content, sideBarVisible, show, hide, toggle, setCurrentPost }) =>
+
   componentDidMount() {
     this.props.setCurrentPost(this.props.attributes.slug);
   }
@@ -23,21 +24,20 @@ class Post extends React.Component {
         <main
           style={{
             left: this.props.sideBarVisible ? '300px' : 0,
-            width: this.props.sideBarVisible ? 'calc(100% - 300px)' : '100%',
+            width: this.props.sideBarVisible ? 'calc(100% - 300px)' : '100%'
           }}
         >
           <Header
             sideBarVisible={this.props.sideBarVisible}
             toggleSideBar={this.props.toggleSideBar}
           />
-          <Title
-            title={this.props.attributes.title}
-            date={this.props.attributes.date}
-          />
+          <Title title={this.props.attributes.title} date={this.props.attributes.date} />
 
           <div className="post-body">
             {this.props.attributes.js
-              ? this.props.content
+              ? <article>
+                {this.props.children}
+              </article>
               : <Whoa content={this.props.content} />}
           </div>
 
@@ -51,6 +51,12 @@ class Post extends React.Component {
             overflow-y: scroll;
             height: 100vh;
             width: 100%;
+          }
+          article {
+            max-width: 50rem;
+            margin: 0 auto;
+            padding: 5px;
+            position: relative;
           }
         `}</style>
 
@@ -78,7 +84,6 @@ export default connect(
   state => ({ sideBarVisible: state.sideBarVisible }),
   dispatch => ({
     setCurrentPost: slug => dispatch({ type: 'SET_CURRENT_POST', slug }),
-    toggleSideBar: showing =>
-      dispatch({ type: showing ? 'HIDE_SIDE_BAR' : 'SHOW_SIDE_BAR' }),
+    toggleSideBar: showing => dispatch({ type: showing ? 'HIDE_SIDE_BAR' : 'SHOW_SIDE_BAR' })
   })
 )(Post);
