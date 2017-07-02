@@ -110,7 +110,6 @@ const ProjectList = ({
       }
       #body-div {
         border: var(--color-border) 0px solid;
-        background: #f5f5f5;
         min-height: 100vh;
       }
       .fade-enter {
@@ -182,7 +181,6 @@ const Page = withToggle(({
 const ProjectsPage = ({ url }) => (
   <PageWrapper
     title={`🙃🐢 ${url.query.name ? url.query.name : 'Projects'}`}
-    background="#f5f5f5"
   >
     <Page projects={PROJECTS} url={url} />
   </PageWrapper>

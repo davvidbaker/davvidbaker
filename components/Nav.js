@@ -12,21 +12,22 @@ const NavLink = ({ url, pathname, str }) => {
   return (
     <Link prefetch href={`/${pathname}`}>
       <li className={isActive ? 'active' : 'inactive'}>
-        <a>
+        <a className={isActive ? 'active' : 'inactive'}>
           {str}
         </a>
         <style jsx>{`
           li {
             padding: 5px 10px;
             transition: background 0.2s;
-            border-top: 5px solid transparent;
+            color: #ccc;
           }
           li:hover {
-            background: black;
+            color: #222;
           }
           a {
-            cursor: default;
-            color: white;
+            cursor: pointer;
+            color: inherit;
+            font-weight: bold;
             text-decoration: none;
           }
           a:hover {
@@ -36,8 +37,9 @@ const NavLink = ({ url, pathname, str }) => {
             color: unset;
           }
 
-          .active {
-            border-bottom: 5px solid black;
+          a.active {
+            cursor: default;
+            color: #222;
           }
           .inactive {
             border-bottom: 5px solid transparent;
@@ -58,12 +60,13 @@ export default ({ url }) => (
 
     <style jsx>{`
         nav {
-          background: var(--color-border, black);
-          color: white;
           width: 100%;
+          overflow: hidden;
         }
         ul {
           display: flex;
+          justify-content: center;
+          width: 100vw;
         }
       `}</style>
 

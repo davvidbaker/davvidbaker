@@ -35,11 +35,11 @@ const BlogPage = ({ url }) => {
     : <PageWrapper title="🙃🐢 Blog">
       <Nav url={url} />
       <main style={{ marginLeft: '10px' }}>
-        <div className="left-container">
-          <p>
+        <div className="left-container" style={{maxWidth: '50rem', margin: '0 auto'}}>
+          <p style={{textAlign: 'right'}}>
               This mostly contains unedited stream-of-consciousness writing.
             </p>
-          <p>
+          <p style={{textAlign: 'right'}}>
             <em>
               {' '}The more interesting project is the paratext of the blog
                 itself.
