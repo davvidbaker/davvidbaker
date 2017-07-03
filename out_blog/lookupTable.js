@@ -1,6 +1,6 @@
 
     /**
-     * This file was automatically created Sun Jul 02 2017 02:31:55 GMT-0400 (EDT)
+     * This file was automatically created Mon Jul 03 2017 04:48:15 GMT-0400 (Eastern Daylight Time)
      */
     import dynamic from 'next/dynamic';
 
@@ -130,6 +130,12 @@
     date: `June 30, 2017`,
     slug: `phone-messenger-component`,
     component: dynamic(import('../out_blog/posts/2017-06-30_phone-messenger-component.js')),
+  },{
+    filename: `2017-07-03_every-day-im-shuffling.js`,
+    title: `Settling on Designs`,
+    date: `July 3, 2017`,
+    slug: `every-day-im-shuffling`,
+    component: dynamic(import('../out_blog/posts/2017-07-03_every-day-im-shuffling.js')),
   },{
   title: 'TESTTEST',
   slug: 'a-test-test',

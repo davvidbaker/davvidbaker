@@ -17,7 +17,7 @@ const NavLink = ({ url, pathname, str }) => {
         </a>
         <style jsx>{`
           li {
-            padding: 5px 10px;
+            padding: 15px 10px;
             transition: background 0.2s;
             color: #ccc;
           }

@@ -1,4 +1,3 @@
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {
   compose,
   withHandlers,
@@ -25,6 +24,14 @@ const compareYears = (a, b) => {
     return 1;
   } else if (Math.min(...a.year) < Math.min(...b.year)) {
     return 1;
+  } else if (
+    Math.min(...a.year) === Math.min(...b.year) &&
+    Math.max(...a.year) === Math.max(...b.year)
+  ) {
+    if (a.name.length > b.name.length) {
+      // arbitrary but deterministic (I doubt descriptions will often be same length)
+      return 1;
+    }
   }
   return 0;
 };
@@ -74,6 +81,7 @@ const ProjectList = ({
           linkToSource={project.linkToSource}
           linkToTrello={project.linkToTrello}
           highlight={project.highlight}
+          agency={project.agency}
           showAdditionalInfo={showAdditionalInfo}
         />
       ))}
@@ -83,13 +91,14 @@ const ProjectList = ({
           padding: 2.5vw;
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-auto-flow: dense;
           grid-gap: 2.5vw;
           -webkit-margin-before: 0;
           -webkit-margin-after: 0;
         }
       `}
     </style>
-    
+
   </ul>
 );
 
@@ -108,33 +117,25 @@ const Page = withToggle(({
   return (
     <div id="projects-page" style={{ position: 'relative', minHeight: '100%' }}>
       <main>
-        <ReactCSSTransitionGroup
-          transitionName="fade"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
-        >
-          {url.query.name && project
-            ? <AdditionalInfo
-              key="additional-info"
-              hideAdditionalInfo={hideAdditionalInfo}
-              {...project}
-            />
-            : <ProjectList
-              key="project-list"
-              projects={projects}
-              showAdditionalInfo={showAdditionalInfo}
-            />}
-        </ReactCSSTransitionGroup>
+        {url.query.name && project
+          ? <AdditionalInfo
+            key="additional-info"
+            hideAdditionalInfo={hideAdditionalInfo}
+            {...project}
+          />
+          : <ProjectList
+            key="project-list"
+            projects={projects}
+            showAdditionalInfo={showAdditionalInfo}
+          />}
       </main>
     </div>
   );
 });
 
 const ProjectsPage = ({ url }) => (
-  <PageWrapper
-    title={`🙃🐢 ${url.query.name ? url.query.name : 'Projects'}`}
-  >
-    <Nav url={url} />  
+  <PageWrapper title={`🙃🐢 ${url.query.name ? url.query.name : 'Projects'}`}>
+    <Nav url={url} />
     <Page projects={PROJECTS} url={url} />
     <style global jsx>{`
       h1 {

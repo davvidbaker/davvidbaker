@@ -2,8 +2,8 @@ const ExternalLinks = ({ link, linkToSource, linkToTrello, callToAction }) => (
   <ul>
 
     <li className="project-link">
-      <p>
-        {link ? <a href={link}>{callToAction}</a> : 'Coming Soon'}
+      <p >
+        {link && <a href={link}>{callToAction}</a>}
       </p>
     </li>
 
@@ -48,6 +48,7 @@ const ExternalLinks = ({ link, linkToSource, linkToTrello, callToAction }) => (
 
         .project-link {
           flex-grow: 1;
+          font-weight: bold;
         }
       
         p {

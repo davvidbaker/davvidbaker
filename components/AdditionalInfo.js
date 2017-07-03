@@ -23,6 +23,7 @@ const AdditionalInfo = ({
   teammates,
   logo,
   hideAdditionalInfo,
+  agency,
 }) => (
   <div id="additional-info" onClick={hideAdditionalInfo}>
 
@@ -61,7 +62,14 @@ const AdditionalInfo = ({
 
         <div className="gallery">
           {images &&
-            images.map(image => <img key={image} src={image} alt={image} />)}
+            images.map(image => (
+              <img
+                key={image}
+                src={image.replace('-noShadow', '')}
+                alt={image}
+                style={image.match(/-noShadow$/) ? { boxShadow: '0 0 white' } : null}
+              />
+            ))}
           {videos &&
             videos.map(video => (
               <video
@@ -76,31 +84,50 @@ const AdditionalInfo = ({
             ))}
         </div>
       </div>
-      {keywords &&
-        <div className="keywords-container">
-          <h3>Buzz Words 🐝</h3>
-          <ul className="keywords flex-list">
-            {keywords.map(word => <li key={word}><span>{word}</span></li>)}
-          </ul>
-        </div>}
-      {teammates &&
-        <ul className="teammates flex-list">
-          {teammates.map(teammate => (
-            <a href={teammate.link}>
-              <li key={teammate.name}><span>{teammate.name}</span></li>
-            </a>
-          ))}
-        </ul>}
+      <div className="bonus-blocks">
+        {keywords &&
+          <div className="bonus-block keywords-container">
+            <h3>Buzz Words 🐝</h3>
+            <ul className="keywords flex-list">
+              {keywords.map(word => (
+                <li key={word}><span>{word.replace(/\s/, ' ')}</span></li>
+              ))}
+            </ul>
+          </div>}
+        {teammates &&
+          <div className="bonus-block teammates-container">
+            <h3>Teammates 🍻</h3>
+            <ul className="teammates flex-list">
+              {teammates.map(teammate => (
+                <li key={teammate.name}>
+                  <a href={teammate.link}>
+                    <span>{teammate.name.replace(/\s/, ' ')}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>}
+        {agency &&
+          <div className="bonus-block agency-container">
+            <h3>Agency 🏢</h3>
+            <ul className="agency flex-list">
+              <li>
+                <a href={agency.link}>
+                  <span>{agency.name.replace(/\s/, ' ')}</span>
+                </a>
+              </li>
+            </ul>
+          </div>}
+      </div>
     </section>
 
-    <style jsx>
-      {`
+    <style jsx>{`
 
         #additional-info {
           display: flex;
           flex-direction: column;
           padding: 1rem;
-          max-width: 80vw;
+          max-width: 50rem;
           width:100%;
         }
 
@@ -118,35 +145,32 @@ const AdditionalInfo = ({
         .logo {
           float: left;
           height: 50px;
-          margin: 15px 5px 5px 0;
-          transform: translateY(10px);
+          margin: 5px 5px 5px 0;
         }
         
         .gallery {
-          display: grid;
-          grid-gap: 1vw;
-          grid-auto-flow: dense;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          justify-items: center;
-          align-items: center;
-          margin: 2.5vw 0;
+          margin: 1em 0;
+          text-align: center;
+          grid-column-end: 1;
         }
 
         .gallery video {
-          box-shadow: 0 0 20px 2px #888;
-          grid-column-end: span 3;
         }
 
         .gallery img, .gallery video {
-          max-width: 50vw;
-          max-height: 50vh;
+          grid-column-end: span 1;
+          box-shadow: 0 0 20px 2px #888;
+          width: 100%;
         }
 
         .gallery img:hover, .gallery video:hover {
           z-index: 2;
         }
        
-
+       .gallery img:nth-of-type(2) {
+         margin-top: 1em;
+       }
+        
         .gallery div {
           height: 200px;
           width: 200px;
@@ -169,30 +193,22 @@ const AdditionalInfo = ({
           height: 100%;
         }
 
-        .description-and-gallery {
-          max-width: 50rem;
-          display: flex;
-          flex-direction: column;
-        }
-
         .about-project {
-          display: flex;
+          display: grid;
+          grid-template-columns: auto;
           flex-direction: column;
-        }
-
-        @media(min-width: 60rem) {
-          .about-project {
-            flex-direction: row;
-          }
         }
 
         .description {
           line-height: 1.5;
+          max-width: 50rem;
         }
 
         .flex-list {
           min-height: 2rem;
           display: flex;
+          margin-left: 2rem;
+          border-left: 1px solid #222;          
         }
 
         .flex-list li {
@@ -203,27 +219,103 @@ const AdditionalInfo = ({
 
         .flex-list li:hover::before {
           opacity: 1;
+          text-decoration: none;
         }
 
-        .keywords-container h3 {
-          margin-bottom: 5px;
+        .flex-list:last-of-type::after {
+          content: '🍺';
+          opacity: 0;
+        }
+        
+        .bonus-blocks {
+          display: flex;
+          justify-content: space-between;
+          padding: 0.5rem 0;
+          flex-wrap: wrap;          
         }
 
-        .keywords li {
+        .bonus-block {
+          color: #222;
+          margin-top: 1em;
+          margin-right: 1em;
+          flex-wrap: wrap;
         }
+
+        .bonus-block:last-of-type {
+          margin-right: 0;
+        }        
+
+        .bonus-block h3 {
+          margin: 5px auto;
+          padding: 0 10px;
+          padding-top: 0.25em;
+          text-align: left;
+        }
+
+
         .keywords li::before {
-          content: '🐝';
+          content: '🐝 ';
           font-size: small;
           opacity: 0
         }
 
-        
-        .teammates li {
-          background: rebeccapurple;
+        .teammates li::before {
+          content: '🍻 ';
+          font-size: small;
+          opacity: 0
         }
-        
-    `}
-    </style>
+
+        .agency li::before {
+          content: '🏢 ';
+          font-size: small;
+          opacity: 0
+        }
+
+
+        @media(min-width: 75rem) {
+          #additional-info {
+            max-width: 75rem;
+          }
+
+          .about-project {
+            grid-template-columns: 55rem 1fr 15rem;
+          }
+
+          .description {
+            max-width: 55rem;
+          }
+
+          .bonus-blocks {
+            grid-column-start: 3;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 0;
+          }
+          .bonus-block {
+            margin-right: 0;            
+          }
+          .bonus-block:first-of-type {
+            margin-top: 0.25rem;
+          }
+
+          .bonus-block h3 {
+            text-align: ;
+          }
+
+          .flex-list {
+            flex-direction: column;      
+          }
+          
+          .gallery img, .gallery video {
+            max-width: 55rem;
+          }
+         
+          .flex-list:last-of-type::after {
+            content: '';
+            opacity: 0;
+          }
+        }
+    `}</style>
   </div>
 );
 

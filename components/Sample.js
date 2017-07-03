@@ -4,6 +4,8 @@ import remarkParse from 'remark-parse';
 import * as marky from 'marky';
 
 import Whoa from '../whoa-components';
+import Phone from '../components/Phone';
+import Definition from '../components/Definition';
 
 const whoaParse = unified().use(remarkParse).use(remarkWhoa).parse;
 
@@ -24,7 +26,8 @@ So it shows parsing a few paragraphs of \`.whoa\` took 288.74 ms, but take note 
 ## Anyways, the whole thing gets prebuilt into html ahead of time, so it isn't really a concern.
  `);
   marky.stop('whoa Parse');
-  return <Whoa content={content} />;
+  return <div>      <Definition word="chthonic" ipa={`\/ˈθɒnɪk\/`} PoS="adjective">concerning, belonging to, or inhabiting the underworld: a chthonic deity.</Definition>
+      <Phone /> <Whoa content={content} /></div>;
 };
 
 export default Sample;

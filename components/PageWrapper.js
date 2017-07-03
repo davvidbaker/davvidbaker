@@ -10,7 +10,7 @@ import React from 'react';
 const enhance = withReducer(
   'borderColor',
   'dispatch',
-  (state, action) => 'mediumseagreen'
+  (state, action) => 'white'
 
   // `#${Math.floor(Date.now() / 100000000000 % 1 * 0xffffff).toString(16)}`
 );

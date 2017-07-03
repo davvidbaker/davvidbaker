@@ -48,10 +48,11 @@ const Project = (
     focus,
     unfocus,
     showAdditionalInfo,
+    agency
   }
 ) => (
   <div
-    className = {highlight && 'highlight-project'}
+    className = {`project ${highlight && 'highlight-project'}`}
     onMouseEnter={focus}
     onMouseLeave={unfocus}
   >
@@ -76,12 +77,31 @@ const Project = (
     <style jsx>
       {
         `
-        div {
+        .project {
           display: flex;
           flex-direction: column;
           border: solid #cecece 1px;
           padding: 10px;
           background: white;
+          position: relative;
+        }
+
+        .project::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+          box-shadow: 0 0 20px rgba(0,0,0,0.3);
+          left: 0;
+          top: 0;
+          opacity: 0;
+          transition: opacity 0.3s;
+          pointer-events: none;
+        }
+
+        .project:hover::after {
+          opacity: 1;
         }
 
         h1 {
@@ -96,11 +116,6 @@ const Project = (
 
         .tagline {
           flex: 1;
-        }
-
-        .highlight-project {
-          border-color: mediumseagreen;
-          border-width: 2px;
         }
     `
       }
