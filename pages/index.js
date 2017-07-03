@@ -11,7 +11,7 @@ import Definition from '../components/Definition';
 import PageWrapper from '../components/PageWrapper';
 
 const MeList = ({ title, items }) => (
-  <section className="believe">
+  <li className="believe">
     <h3>{title}</h3>
     <ul>
       {items.map(item => (
@@ -36,7 +36,7 @@ const MeList = ({ title, items }) => (
         padding-left: 3rem;
       }
       `}</style>
-  </section>
+  </li>
 );
 
 const IndexPage = ({ url }) => (
