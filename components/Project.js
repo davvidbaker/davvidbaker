@@ -51,7 +51,7 @@ const Project = (
     agency
   }
 ) => (
-  <div
+  <li
     className = {`project ${highlight && 'highlight-project'}`}
     onMouseEnter={focus}
     onMouseLeave={unfocus}
@@ -120,7 +120,7 @@ const Project = (
     `
       }
     </style>
-  </div>
+  </li>
 );
 
 Project.propTypes = {
