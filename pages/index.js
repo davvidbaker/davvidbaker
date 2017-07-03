@@ -149,6 +149,7 @@ const IndexPage = ({ url }) => (
               'performance ⚡.',
               'accessibility.',
               'the health of the codebase.',
+              'vertical rhythm.'
             ]}
           />
 

@@ -1,6 +1,6 @@
 
     /**
-     * This file was automatically created Mon Jul 03 2017 04:48:15 GMT-0400 (Eastern Daylight Time)
+     * This file was automatically created Mon Jul 03 2017 06:30:00 GMT-0400 (Eastern Daylight Time)
      */
     import dynamic from 'next/dynamic';
 
