@@ -1,4 +1,5 @@
 import shortid from 'shortid';
+import React from 'react';
 
 const Message = ({ children, me = false, style }) => {
   const id = shortid.generate();

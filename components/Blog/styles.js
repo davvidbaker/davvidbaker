@@ -40,6 +40,8 @@ const BlogGlobalStyles = () =>
     h1 {
       font-size: 2rem;
     }
+
+
   `}</style>;
 
 export default BlogGlobalStyles;

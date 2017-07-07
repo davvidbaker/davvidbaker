@@ -1,103 +1,15 @@
+import React from 'react';
+
 import Message from './Message';
 import Messenger from './Messenger';
 import smoothScrollTo from '../utils/smoothScrollTo';
 
-const Phone = () => (
+const Phone = ({ children }) => (
   <div className="phone-container">
     <div className="phone-speaker" />
     <div className="phone-screen">
+      {children}
 
-      <Messenger className="messenger" name="You">
-        <Message me>
-          <h1>You there, reader.</h1>
-        </Message>
-
-        <Message me>
-          <h3>It's me.</h3>
-        </Message>
-
-        <Message>
-          <p>Me?</p><br /><br />
-          <strong>You</strong> can't be <em>me</em>.
-        </Message>
-
-        <Message style={{ background: 'gold', color: 'black' }}>
-          <h1>Who am I in this situation?</h1>
-        </Message>
-
-        <Message me>
-          <p>
-            You tell me.
-          </p>
-        </Message>
-
-        <Message>
-          <p>Does anyone else find this a bit annoying?</p>
-        </Message>
-
-        <Message>
-          <p>I bet <strong>you</strong> do.</p>
-        </Message>
-
-        <Message me>
-          <h2>How about an h2?</h2>
-          <h1>These look the same no.</h1>
-        </Message>
-
-        <Message>
-          <h1>What does this look like</h1>
-        </Message>
-        <Message me>
-          <p>Hello</p>
-        </Message>
-
-        <Message>
-          <p>It's me</p>
-        </Message>
-
-        <Message>
-          <h1>What does this look like</h1>
-        </Message>
-
-        <Message>
-          <p>
-            A bunch ot text as;fljasd;fljkas;df j;ksafj;kja sh sjd hjsasjhd slafhj a;sdjf;alsf jl;asjdf; hkj;hlj
-          </p>
-        </Message>
-
-        <Message me>
-          <h1>What does this look like</h1>
-        </Message>
-
-        <Message>
-          <h1>What does this look like</h1>
-        </Message>
-        <Message me>
-          <p>Hello</p>
-        </Message>
-
-        <Message>
-          <p>It's me</p>
-        </Message>
-
-        <Message>
-          <h1>What does this look like</h1>
-        </Message>
-
-        <Message>
-          <p>
-            A bunch ot text as;fljasd;fljkas;df j;ksafj;kja sh sjd hjsasjhd slafhj a;sdjf;alsf jl;asjdf; hkj;hlj
-          </p>
-        </Message>
-
-        <Message me>
-          <h1>What does this look like</h1>
-        </Message>
-
-        <Message>
-          <h1>What does this look like</h1>
-        </Message>
-      </Messenger>
     </div>
     <button
       className="phone-button"
@@ -120,8 +32,10 @@ const Phone = () => (
       border: 3px solid #999;
       height: var(--phone-height, 90vh);
       width: calc(var(--phone-height, 90vh) / var(--aspect-ratio, 2));
+      max-height: 900px
+      max-width: calc(900px / var(--aspect-ratio, 2));;
       border-radius: 5vmin;
-      padding: 0 2vmin;
+      padding: 0 2%;
       box-shadow: 0 0 30px;
 
       transition: width 0.5s 0.1s, height 0.5s 0.3s;
@@ -179,13 +93,6 @@ const Phone = () => (
         margin: auto 3vmin;
       }
     }
-
-
-     p, h1, h2, h3, h4 {
-      margin: 0.25rem;
-      display: inline-block;
-    }
-
     `}
     </style>
   </div>

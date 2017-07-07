@@ -8,6 +8,7 @@
 
 // import Message from './Message';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const Messenger = ({ children, name }) => (
   <section>
