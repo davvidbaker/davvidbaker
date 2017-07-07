@@ -24,7 +24,7 @@ import Nav from 'components/Nav';
 //   );
 // };
 
-import Post from 'blog/2017-07-02_a-test-test.js';
+import Post from 'blog/2017-07-07_coffee-makes-my-thoughts-loud.js';
 
 const BlogPage = ({ addCount }) => (
   <PageWrapper title="BLOG POST EDITOR">

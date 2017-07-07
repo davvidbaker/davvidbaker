@@ -12,9 +12,6 @@ function Ellipsis({ children }) {
       ...
       <style jsx>
         {`
-          span {
-            background: orange;
-          }
         `}
       </style>
     </span>

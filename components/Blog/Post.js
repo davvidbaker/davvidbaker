@@ -27,10 +27,10 @@ class Post extends React.Component {
             width: this.props.sideBarVisible ? 'calc(100% - 300px)' : '100%'
           }}
         >
-          <Header
+          {this.props.normatives.length > 0 && <Header
             sideBarVisible={this.props.sideBarVisible}
             toggleSideBar={this.props.toggleSideBar}
-          />
+          />}
           <Title title={this.props.attributes.title} date={this.props.attributes.date} />
 
           <div className="post-body">
@@ -81,7 +81,7 @@ export const sideBarReducer = (state = false, action) => {
 // const PostWithToggle = WithToggle('sideBarVisible')(Post);
 
 export default connect(
-  state => ({ sideBarVisible: state.sideBarVisible }),
+  state => ({ sideBarVisible: state.sideBarVisible, normatives: state.whoa.normatives }),
   dispatch => ({
     setCurrentPost: slug => dispatch({ type: 'SET_CURRENT_POST', slug }),
     toggleSideBar: showing => dispatch({ type: showing ? 'HIDE_SIDE_BAR' : 'SHOW_SIDE_BAR' })
