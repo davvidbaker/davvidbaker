@@ -1,4 +1,3 @@
-import shortid from 'shortid';
 import Head from 'next/head';
 import Link from 'next/link';
 import withRedux from 'next-redux-wrapper';
@@ -9,35 +8,8 @@ import Phone from '../components/Phone';
 import Definition from '../components/Definition';
 
 import PageWrapper from '../components/PageWrapper';
+import MeList from '../components/MeList';
 
-const MeList = ({ title, items }) => (
-  <li className="believe">
-    <h3>{title}</h3>
-    <ul>
-      {items.map(item => (
-        <li key={shortid.generate()}>
-          <p>
-            {item}
-          </p>
-        </li>
-      ))}
-    </ul>
-    <style jsx>{`
-      h3 {
-        margin-bottom: 0;
-      }
-
-      li p {
-        margin: 0.25rem 0;
-      }
-
-      ul {
-        list-style: disc;
-        padding-left: 3rem;
-      }
-      `}</style>
-  </li>
-);
 
 const IndexPage = ({ url }) => (
   <PageWrapper title="🙃🐢">
@@ -114,7 +86,7 @@ const IndexPage = ({ url }) => (
               'the proliferation of emoji as a stage in the evolution of written language.',
             ]}
           />
-          <MeList
+          {/* <MeList
             title="I would like to work..."
             items={[
               'alongside smart, talented people who are passionate about what they do.',
@@ -151,7 +123,7 @@ const IndexPage = ({ url }) => (
               'the health of the codebase.',
               'vertical rhythm.'
             ]}
-          />
+          /> */}
 
         </ul>
       </article>
