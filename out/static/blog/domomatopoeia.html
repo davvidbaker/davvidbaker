@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sample</title>
+
+  <style>
+    * {
+      animation: enter 0.3s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
+
+    @keyframes enter {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button id="next">Next</button>
+  <button id="previous">Previous</button>
+  <template id="myTemplate">
+    <h1>A Heading</h1>
+    <p>A paragraph</p>
+
+    <style>
+      body {
+        background: powderblue;
+      }
+    </style>
+
+    <style>
+      section,
+      h1 {
+        transition: 0.5s
+      }
+
+      p {
+        text-decoration: line-through
+      }
+    </style>
+
+
+    <script>
+      console.log('log this lazily')
+      var bg = `#${Math.floor(Math.random() * 0xffffff).toString(16)}`;
+      console.log(bg)
+      document.body.style.background = bg
+      section.style.transform = 'translateX(200px)'
+
+      section.innerText.split(' ').forEach(word => {
+        const span = document.createElement('span');
+        span.innerText = word;
+        section.appendChild(span);
+
+      })
+    </script>
+
+    <style>
+      h1 {
+        font-size: 100px
+      }
+    </style>
+
+    <h3>A smaller heading</h3>
+  </template>
+
+  <section></section>
+
+  <script>
+      const $ = selector => document.querySelector(selector)
+      const section = document.querySelector('section');
+
+      const template = $('#myTemplate')
+      const clone = document.importNode(template.content, true);
+
+      let ind = localStorage.getItem('index') || 0;
+
+      if (ind > 0) {
+        const length = clone.childElementCount
+        for (let i = 0; i < length; i++) {
+          if (i < ind) { section.appendChild(clone.children[0]) }
+        }
+      }
+
+      const previous = $('#previous').addEventListener('click', back)
+      const next = $('#next').addEventListener('click', forward)
+
+      function back() {
+        if (ind > 0) {
+          ind--
+          localStorage.setItem('index', ind)
+          clone.insertBefore(section.removeChild(section.children[ind]), clone.children[0])
+
+          // If we just removed a script, refresh page. I am not sure of a much better way to un-execute a script...🤔
+          if (clone.children[0].tagName === 'SCRIPT') {
+            window.location.reload()
+          }
+
+        }
+      }
+
+      async function forward() {
+        if (clone.children.length === 0) {
+          console.warn('no more children')
+          return
+        }
+
+        if (ind < template.content.childElementCount && clone.childElementCount > 0) {
+          if (clone.children[0].tagName === 'SCRIPT') {
+            const script = document.createElement('script');
+            script.textContent = clone.children[0].textContent
+            clone.removeChild(clone.children[0])
+
+            section.appendChild(script)
+          } else if (clone.children[0].tagName === 'STYLE') {
+            section.appendChild(clone.children[0])
+          }
+          else {
+            console.log(clone.children[0], )
+            // debugger
+            const newEl = document.createElement(clone.children[0].tagName.toLowerCase());
+            section.appendChild(newEl);
+
+            let i = 0;
+            ind++
+            localStorage.setItem('index', ind)
+            while (i < clone.children[0].innerText.length) {
+              await new Promise((resolve, reject) => { window.requestAnimationFrame(() => { newEl.textContent += clone.children[0].textContent.substr(i, 1); resolve() }) })
+              i++
+            }
+            clone.removeChild(clone.children[0])
+            // section.appendChild(clone.children[0])
+          }
+        }
+      }
+  </script>
+</body>
+
+</html>

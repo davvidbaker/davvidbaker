@@ -1,6 +1,6 @@
 
     /**
-     * This file was automatically created Mon Jul 03 2017 06:30:00 GMT-0400 (Eastern Daylight Time)
+     * This file was automatically created Tue Jul 18 2017 01:53:21 GMT-0400 (EDT)
      */
     import dynamic from 'next/dynamic';
 
@@ -137,10 +137,22 @@
     slug: `every-day-im-shuffling`,
     component: dynamic(import('../out_blog/posts/2017-07-03_every-day-im-shuffling.js')),
   },{
-  title: 'TESTTEST',
-  slug: 'a-test-test',
-  date: 'July 1, 2017',
+    filename: `2017-07-18_get-swifty.js`,
+    title: `Get Swifty`,
+    date: `July 18, 2017`,
+    slug: `get-swifty`,
+    component: dynamic(import('../out_blog/posts/2017-07-18_get-swifty.js')),
+  },{
+  title: 'Coffee',
+  slug: 'coffee-makes-my-thoughts-loud',
+  date: 'July 6, 2017',
   js: true,
 
- component: dynamic(import('../blog/2017-07-02_a-test-test.js'))}];
+ component: dynamic(import('../blog/2017-07-07_coffee-makes-my-thoughts-loud.js'))},{
+  title: 'What am I trying to do here?',
+  slug: 'that-was-bad',
+  date: 'July 7, 2017',
+  js: true,
+
+ component: dynamic(import('../blog/2017-07-07_that-was-bad.js'))}];
   

@@ -13,29 +13,29 @@ import Nav from 'components/Nav';
 
 // import post from 'blog/2017-06-30_phone-messenger-component.whoa';
 
+import Post from 'blog/2017-07-18_get-swifty.whoa';
 // console.log(post);
 
-// const BlogPage = ({ addCount }) => {
-//   return (
-//     <PageWrapper title={post.attributes.title}>
-//       <BlogPost attributes={post.attributes} content={post.content} />
-//       <BlogGlobalStyles />
-//     </PageWrapper>
-//   );
-// };
-
-import Post from 'blog/2017-07-07_that-was-bad.js';
-
-const BlogPage = ({ addCount }) => (
-  <PageWrapper title="BLOG POST EDITOR">
-    <Post />
-    <BlogGlobalStyles />
-  </PageWrapper>
+const BlogPage = ({ addCount }) => {
+  return (
+    <PageWrapper title={Post.attributes.title}>
+      <BlogPost attributes={Post.attributes} content={Post.content} />
+      <BlogGlobalStyles />
+    </PageWrapper>
   );
+};
 
-const mapDispatchToProps = dispatch => ({
-  addCount: dispatch => ({ type: 'ADD' }),
-});
+
+// const BlogPage = ({ addCount }) => (
+//   <PageWrapper title="BLOG POST EDITOR">
+//     <Post />
+//     <BlogGlobalStyles />
+//   </PageWrapper>
+//   );
+
+// const mapDispatchToProps = dispatch => ({
+//   addCount: dispatch => ({ type: 'ADD' }),
+// });
 
 const RootComp = () => <Provider store={initStore()}><BlogPage /></Provider>;
 

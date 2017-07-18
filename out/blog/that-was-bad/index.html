@@ -1,0 +1,177 @@
+<!DOCTYPE html><html><head><link rel="preload" href="/_next/49359980-65e3-4360-9772-2fc9c87b935f/page/blog/index.js" as="script"/><link rel="preload" href="/_next/49359980-65e3-4360-9772-2fc9c87b935f/page/_error/index.js" as="script"/><link rel="preload" href="/_next/webpack/chunks/ed529305-6ff4-43a1-b1b6-a076ddffe623.js" as="script"/><link rel="preload" href="/_next/0cb811894853d62b317204031a431184/app.js" as="script"/><title data-jsx="152204828" class="next-head">What am I trying to do here?</title><link href="https://fonts.googleapis.com/css?family=Signika|Josefin+Slab:400,400i,700|Cutive+Mono" rel="stylesheet" data-jsx="152204828" class="next-head"/><link rel="icon" type="image/x-icon" href="/static/favicon.png" data-jsx="152204828" class="next-head"/><meta name="viewport" content="width=device-width" data-jsx="152204828" class="next-head"/><meta name="theme-color" content="white" data-jsx="152204828" class="next-head"/><meta charset="utf-8" data-jsx="152204828" class="next-head"/><style id="__jsx-style-152204828">
+          :root {
+            --color-main: firebrick;
+            --color-accent: midnightblue;
+            --color-link: #0066c0;
+            --color-border: darkslategrey;
+            --color-highlight: #fbfaa4;
+            --color-select: powderblue;
+            --body-background: white;
+
+            --color-contrasting-background: firebrick;
+            --font-monospace: monospace;
+            --display-marginal: block;
+          }
+          @media (max-width: 500px) {
+            :root {
+               {
+                /*--display-marginal: none;*/
+              }
+            }
+            .marginal {
+              transition: 0.4s;
+              z-index: -100;
+              opacity: 0.05;
+            }
+          }
+          html {
+            box-sizing: border-box;
+            font-family: sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+          }
+          *,
+          *::before,
+          *::after {
+            box-sizing: inherit;
+          }
+          *::selection {
+            background: var(--color-select);
+          }
+          body {
+            min-height: 100vh;
+            margin: 0;
+            background: var(--body-background);
+          }
+
+          #body-div {
+            min-height: 100vh;
+          }
+
+          ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          a {
+            color: var(--color-link);
+            text-decoration: none;
+          }
+
+          a:hover {
+            text-decoration: underline;
+          }
+
+          code {
+            font-family: var(--font-monospace, monospace);
+            font-size: large;
+          }
+
+          hr {
+            margin: 2em auto;
+            border-left: 10vw solid transparent;
+            border-right: 10vw solid transparent;
+            width: 30%;
+          }
+
+          .marginal {
+            display: var(--display-marginal, block);
+            max-width: 250px;
+          }
+        </style><style id="__jsx-style-453764588">
+    * {
+      font-family: sans-serif;
+    }
+    blockquote {
+      border-left: 5px solid var(--color-main);
+      padding: 0.5rem;
+      padding-left: 1.5rem;
+      margin: 0 1rem;
+    }
+    blockquote p {
+      margin: 0;
+      margin-top: 0.5rem;
+    }
+    blockquote p::before {
+      content: '';
+      width: 20px;
+      height: 5px;
+      background: var(--color-main);
+      position: absolute;
+      transform: translateX(-1.5rem) translateY(-1rem);
+    }
+    p {
+      line-height: 1.5;
+    }
+    span.redaction span::selection {
+      background: black;
+    }
+    a {
+      color: #0066c0;
+      text-decoration: none;
+    }
+    a:visited {
+      color: rebeccapurple;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+
+  </style><style id="__jsx-style-514407408">.outer-title[data-jsx="514407408"] {display:-webkit-flex; display:flex;justify-content: center;margin: 0 5px;}.inner-title[data-jsx="514407408"] {display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;align-items: center;margin: 0 auto;}h1[data-jsx="514407408"] {color: var(--color-main);margin-bottom: 0;font-size: 2rem;}p[data-jsx="514407408"] {align-self: flex-end;font-family: var(--font-monospace);color: #888;}</style><style id="__jsx-style-912647447">p[data-jsx="912647447"],h1[data-jsx="912647447"],h2[data-jsx="912647447"],h3[data-jsx="912647447"],h4[data-jsx="912647447"] {margin: 0.25rem;display: inline-block;}</style><style id="__jsx-style-1329159230">.message[data-jsx="1329159230"] {--me-color: #ddd;--you-color: dodgerblue;--border-radius: 10px;display: inline-block;color: white;padding: 5px;margin: var(--border-radius, 10px);position: relative;max-width: 75%;}.message[data-jsx="1329159230"]::before {content: '';position: absolute;width: 0;height: 0;left: -5px;bottom: 0;border-top: var(--border-radius, 10px) solid transparent;border-bottom: 0px solid transparent;}.you-column[data-jsx="1329159230"] {text-align: right;}.me[data-jsx="1329159230"] {color: black;border-radius: var(--border-radius, 10px) var(--border-radius, 10px) var(--border-radius, 10px) 0;background: var(--me-color);}.me[data-jsx="1329159230"]::before {border-right: var(--border-radius, 10px) solid var(--me-color);border-left: 0px solid transparent;}.you[data-jsx="1329159230"] {border-radius: var(--border-radius, 10px) var(--border-radius, 10px) 0 var(--border-radius, 10px);background: var(--you-color);text-align: left;}.you[data-jsx="1329159230"]::before {right: -5px;left: unset;border-left: var(--border-radius, 10px) solid var(--you-color);border-right: 0px solid transparent;}</style><style id="__jsx-style-1839750327">main[data-jsx="1839750327"] {position: absolute;left: 300px;-webkit-transition: width 0.5s, left 0.5s;-moz-transition: width 0.5s, left 0.5s;-ms-transition: width 0.5s, left 0.5s;transition: width 0.5s, left 0.5s;overflow-y: scroll;height: 100vh;width: 100%;}article[data-jsx="1839750327"] {max-width: 50rem;margin: 0 auto;padding: 5px;position: relative;}</style><style id="__jsx-style-2262474053">a[data-jsx="2262474053"] {color: unset;text-decoration: none;}li[data-jsx="2262474053"] {overflow-x: hidden;padding: 10px 15px;border-bottom: 1px solid #ededed;}li[data-jsx="2262474053"]:nth-last-of-type(1) {border-bottom-color: #ccc;}li[data-jsx="2262474053"]:hover {background: var(--color-highlight);}</style><style id="__jsx-style-2741194164">.phone-container[data-jsx="2741194164"] {--aspect-ratio: 2;--phone-height: 90vh;--phone-button-height: 5vh;display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;justify-content: space-around;align-items: center;margin: 30px auto;background: #000;border: 3px solid #999;height: var(--phone-height, 90vh);width: calc(var(--phone-height, 90vh) / var(--aspect-ratio, 2));max-height: 900px      max-width: calc(900px / var(--aspect-ratio, 2));;border-radius: 5vmin;padding: 0 2%;box-shadow: 0 0 30px;-webkit-transition: width 0.5s 0.1s, height 0.5s 0.3s;-moz-transition: width 0.5s 0.1s, height 0.5s 0.3s;-ms-transition: width 0.5s 0.1s, height 0.5s 0.3s;transition: width 0.5s 0.1s, height 0.5s 0.3s;}.phone-screen[data-jsx="2741194164"] {background: white;-webkit-flex-grow: 1;-moz-flex-grow: 1;flex-grow: 1;width: 100%;height: 0;}.phone-speaker[data-jsx="2741194164"] {width: 20%;height: 1%;background: #444;border-radius: 10%;margin: 5vmin auto;}.phone-button[data-jsx="2741194164"] {background: #222;border-radius: 50%;width: var(--phone-button-height, 5vh);height: var(--phone-button-height, 5vh);margin: 3vmin auto;display: block;}.phone-button[data-jsx="2741194164"]:focus {outline: none;}@media(orientation:landscape) {.phone-container[data-jsx="2741194164"] {--phone-button-height: 5vw;--phone-height: calc(90vw * var(--aspect-ratio));--aspect-ratio: 0.5;-webkit-flex-direction: row;-moz-flex-direction: row;flex-direction: row;padding: 2vmin 0;}.phone-screen[data-jsx="2741194164"] {width: 0;height: 100%;}.phone-speaker[data-jsx="2741194164"] {height: 20%;width: 1%;margin: auto 5vmin;}.phone-button[data-jsx="2741194164"] {margin: auto 3vmin;}}</style><style id="__jsx-style-2794900292">section[data-jsx="2794900292"] {display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;height: 100%;}header[data-jsx="2794900292"] {background: #f7f7f7;border-bottom: 1px solid #aaa;text-align: center;}header[data-jsx="2794900292"] h1[data-jsx="2794900292"] {font-weight: bold;margin: 0.5rem auto;}.messenger-body[data-jsx="2794900292"] {display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;overflow-y: scroll;-webkit-flex-grow: 1;-moz-flex-grow: 1;flex-grow: 1;}</style><style id="__jsx-style-4039773512">div[data-jsx="4039773512"]:first-child {position: absolute;top: 0;height: 100%;width: 300px;max-width: 300px;background: #fafafa;left: 0;-webkit-transition: left 0.5s;-moz-transition: left 0.5s;-ms-transition: left 0.5s;transition: left 0.5s;border-right: 1px solid #ededed;margin-right: 5px;display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;overflow-y: scroll;justify-content: flex-start;}.arrow-container[data-jsx="4039773512"] {position: sticky;bottom: 0;text-align: center;background: #fafafa;border-top: 1px solid #ccc;{}}.arrow[data-jsx="4039773512"] {border: 0;margin: 50px auto;padding: 0;height: 50px;width: 60%;position: relative;-webkit-transform-origin: center center;-moz-transform-origin: center center;-ms-transform-origin: center center;transform-origin: center center;-webkit-transform: scale(0.5);-moz-transform: scale(0.5);-ms-transform: scale(0.5);transform: scale(0.5);}.arrow[data-jsx="4039773512"]::before {content: '';width: 0;height: 0;position: absolute;top: -25px;left: -20%;border-right: 50px solid buttonface;border-top: 50px solid transparent;border-bottom: 50px solid transparent;}.arrow[data-jsx="4039773512"]:focus {outline: 0;}.arrow[data-jsx="4039773512"]:hover {background: darkgray;}.arrow[data-jsx="4039773512"]:hover::before {border-right-color: darkgray;}</style></head><body><div><div id="__next"><div data-reactroot="" data-reactid="1" data-react-checksum="285235502"><div id="body-div" style="border-color:white;" data-jsx="152204828" data-reactid="2"><!-- react-empty: 3 --><div style="max-width:100vw;height:100vh;" data-jsx="1839750327" data-reactid="4"><div style="left:-300px;" data-jsx="4039773512" data-reactid="5"><ul class="offscreen" data-jsx="2262474053" data-reactid="6"><!-- react-empty: 7 --></ul><div class="arrow-container" data-jsx="4039773512" data-reactid="8"><button class="arrow" data-jsx="4039773512" data-reactid="9"></button></div><!-- react-empty: 10 --></div><main style="left:0;width:100%;" data-jsx="1839750327" data-reactid="11"><div class="outer-title" data-jsx="514407408" data-reactid="12"><div class="inner-title" data-jsx="514407408" data-reactid="13"><h1 data-jsx="514407408" data-reactid="14">What am I trying to do here?</h1><p data-jsx="514407408" data-reactid="15">July 7, 2017</p></div><!-- react-empty: 16 --></div><div class="post-body" data-jsx="1839750327" data-reactid="17"><article data-jsx="1839750327" data-reactid="18"><p data-jsx="912647447" data-reactid="19">That last post (Coffee) is rather painful to read.</p><p data-jsx="912647447" data-reactid="20">I had wanted to write something using that new phone messenger component, but that post didn&#x27;t really lend itself to it. I&#x27;m not happy with how the phone component looks some of the time in landscape, but I don&#x27;t feel like fixing it right now either.</p><div class="full-width" data-jsx="912647447" data-reactid="21"><div class="phone-container" data-jsx="2741194164" data-reactid="22"><div class="phone-speaker" data-jsx="2741194164" data-reactid="23"></div><div class="phone-screen" data-jsx="2741194164" data-reactid="24"><section data-jsx="2794900292" data-reactid="25"><header data-jsx="2794900292" data-reactid="26"><h1 data-jsx="2794900292" data-reactid="27">You</h1></header><div class="messenger-body" data-jsx="2794900292" data-reactid="28"><div class="me-column" data-jsx="1329159230" data-reactid="29"><div class="message me" id="SJWpbDPf7iB-" data-jsx="1329159230" data-reactid="30"><h1 data-jsx="912647447" data-reactid="31">You there, reader.</h1><style data-reactid="32">#SJWpbDPf7iB- {
+          undefined
+        }</style></div><!-- react-empty: 33 --></div><div class="me-column" data-jsx="1329159230" data-reactid="34"><div class="message me" id="HyfpbDwzQirZ" data-jsx="1329159230" data-reactid="35"><h3 data-jsx="912647447" data-reactid="36">It&#x27;s me.</h3><style data-reactid="37">#HyfpbDwzQirZ {
+          undefined
+        }</style></div><!-- react-empty: 38 --></div><div class="you-column" data-jsx="1329159230" data-reactid="39"><div class="message you" id="r17pWDvMmirb" data-jsx="1329159230" data-reactid="40"><p data-jsx="912647447" data-reactid="41">Me?</p><br data-jsx="912647447" data-reactid="42"/><br data-jsx="912647447" data-reactid="43"/><strong data-jsx="912647447" data-reactid="44">You</strong><!-- react-text: 45 --> can&#x27;t be <!-- /react-text --><em data-jsx="912647447" data-reactid="46">me</em><!-- react-text: 47 -->.<!-- /react-text --><style data-reactid="48">#r17pWDvMmirb {
+          undefined
+        }</style></div><!-- react-empty: 49 --></div><div class="you-column" data-jsx="1329159230" data-reactid="50"><div class="message you" id="B1EaWPDM7oHW" style="background:gold;color:black;" data-jsx="1329159230" data-reactid="51"><h1 data-jsx="912647447" data-reactid="52">Who am I in this situation?</h1><style data-reactid="53">#B1EaWPDM7oHW {
+          --you-color: gold;
+        }</style></div><!-- react-empty: 54 --></div><div class="me-column" data-jsx="1329159230" data-reactid="55"><div class="message me" id="HkS6ZDvzQsHb" data-jsx="1329159230" data-reactid="56"><p data-jsx="912647447" data-reactid="57">You tell me.</p><style data-reactid="58">#HkS6ZDvzQsHb {
+          undefined
+        }</style></div><!-- react-empty: 59 --></div><div class="you-column" data-jsx="1329159230" data-reactid="60"><div class="message you" id="ry86WvDMXiH-" data-jsx="1329159230" data-reactid="61"><p data-jsx="912647447" data-reactid="62">Does anyone else find this a bit annoying?</p><style data-reactid="63">#ry86WvDMXiH- {
+          undefined
+        }</style></div><!-- react-empty: 64 --></div><div class="you-column" data-jsx="1329159230" data-reactid="65"><div class="message you" id="H1vTbDPMXirZ" data-jsx="1329159230" data-reactid="66"><p data-jsx="912647447" data-reactid="67"><!-- react-text: 68 -->I bet <!-- /react-text --><strong data-jsx="912647447" data-reactid="69">you</strong><!-- react-text: 70 --> do.<!-- /react-text --></p><style data-reactid="71">#H1vTbDPMXirZ {
+          undefined
+        }</style></div><!-- react-empty: 72 --></div><div class="me-column" data-jsx="1329159230" data-reactid="73"><div class="message me" id="ByO6bvPMQsSb" data-jsx="1329159230" data-reactid="74"><h2 data-jsx="912647447" data-reactid="75">How about an h2?</h2><h1 data-jsx="912647447" data-reactid="76">These look the same no.</h1><style data-reactid="77">#ByO6bvPMQsSb {
+          undefined
+        }</style></div><!-- react-empty: 78 --></div><div class="you-column" data-jsx="1329159230" data-reactid="79"><div class="message you" id="HkY6-PwzmiBW" data-jsx="1329159230" data-reactid="80"><h1 data-jsx="912647447" data-reactid="81">What does this look like</h1><style data-reactid="82">#HkY6-PwzmiBW {
+          undefined
+        }</style></div><!-- react-empty: 83 --></div><div class="me-column" data-jsx="1329159230" data-reactid="84"><div class="message me" id="H1qpZwPzQoHb" data-jsx="1329159230" data-reactid="85"><p data-jsx="912647447" data-reactid="86">Hello</p><style data-reactid="87">#H1qpZwPzQoHb {
+          undefined
+        }</style></div><!-- react-empty: 88 --></div><div class="you-column" data-jsx="1329159230" data-reactid="89"><div class="message you" id="rJopZPvfQoSW" data-jsx="1329159230" data-reactid="90"><p data-jsx="912647447" data-reactid="91">It&#x27;s me</p><style data-reactid="92">#rJopZPvfQoSW {
+          undefined
+        }</style></div><!-- react-empty: 93 --></div><div class="you-column" data-jsx="1329159230" data-reactid="94"><div class="message you" id="HyhaWDvfXsHb" data-jsx="1329159230" data-reactid="95"><h1 data-jsx="912647447" data-reactid="96">What does this look like</h1><style data-reactid="97">#HyhaWDvfXsHb {
+          undefined
+        }</style></div><!-- react-empty: 98 --></div><div class="you-column" data-jsx="1329159230" data-reactid="99"><div class="message you" id="HyppWvwfQjBZ" data-jsx="1329159230" data-reactid="100"><p data-jsx="912647447" data-reactid="101">A bunch ot text as;fljasd;fljkas;df j;ksafj;kja sh sjd hjsasjhd slafhj a;sdjf;alsf jl;asjdf; hkj;hlj</p><style data-reactid="102">#HyppWvwfQjBZ {
+          undefined
+        }</style></div><!-- react-empty: 103 --></div><div class="me-column" data-jsx="1329159230" data-reactid="104"><div class="message me" id="B1AabDwzmiSW" data-jsx="1329159230" data-reactid="105"><h1 data-jsx="912647447" data-reactid="106">What does this look like</h1><style data-reactid="107">#B1AabDwzmiSW {
+          undefined
+        }</style></div><!-- react-empty: 108 --></div><div class="you-column" data-jsx="1329159230" data-reactid="109"><div class="message you" id="H1k0-vvMXiBb" data-jsx="1329159230" data-reactid="110"><h1 data-jsx="912647447" data-reactid="111">What does this look like</h1><style data-reactid="112">#H1k0-vvMXiBb {
+          undefined
+        }</style></div><!-- react-empty: 113 --></div><div class="me-column" data-jsx="1329159230" data-reactid="114"><div class="message me" id="S1lAZDwG7sBW" data-jsx="1329159230" data-reactid="115"><p data-jsx="912647447" data-reactid="116">Hello</p><style data-reactid="117">#S1lAZDwG7sBW {
+          undefined
+        }</style></div><!-- react-empty: 118 --></div><div class="you-column" data-jsx="1329159230" data-reactid="119"><div class="message you" id="rkbAbwPG7sSW" data-jsx="1329159230" data-reactid="120"><p data-jsx="912647447" data-reactid="121">It&#x27;s me</p><style data-reactid="122">#rkbAbwPG7sSW {
+          undefined
+        }</style></div><!-- react-empty: 123 --></div><div class="you-column" data-jsx="1329159230" data-reactid="124"><div class="message you" id="HkfR-DwGQjHb" data-jsx="1329159230" data-reactid="125"><h1 data-jsx="912647447" data-reactid="126">What does this look like</h1><style data-reactid="127">#HkfR-DwGQjHb {
+          undefined
+        }</style></div><!-- react-empty: 128 --></div><div class="you-column" data-jsx="1329159230" data-reactid="129"><div class="message you" id="ByQCWwwG7oH-" data-jsx="1329159230" data-reactid="130"><p data-jsx="912647447" data-reactid="131">A bunch ot text as;fljasd;fljkas;df j;ksafj;kja sh sjd hjsasjhd slafhj a;sdjf;alsf jl;asjdf; hkj;hlj</p><style data-reactid="132">#ByQCWwwG7oH- {
+          undefined
+        }</style></div><!-- react-empty: 133 --></div><div class="me-column" data-jsx="1329159230" data-reactid="134"><div class="message me" id="r1EAbPwM7jSb" data-jsx="1329159230" data-reactid="135"><h1 data-jsx="912647447" data-reactid="136">What does this look f</h1><style data-reactid="137">#r1EAbPwM7jSb {
+          undefined
+        }</style></div><!-- react-empty: 138 --></div></div><!-- react-empty: 139 --></section></div><button class="phone-button" data-jsx="2741194164" data-reactid="140"></button><!-- react-empty: 141 --></div></div><!-- react-empty: 142 --></article></div></main><!-- react-empty: 143 --></div><!-- react-empty: 144 --><!-- react-empty: 145 --></div></div></div><div id="__next-error"></div></div><div><script>
+          __NEXT_DATA__ = {"props":{"isServer":true,"store":{},"initialState":{"whoa":{"normatives":[],"currentPost":null},"sideBarVisible":false},"initialProps":{"isServer":true}},"pathname":"/blog","query":{"slug":"that-was-bad"},"buildId":"49359980-65e3-4360-9772-2fc9c87b935f","buildStats":{"app.js":{"hash":"0cb811894853d62b317204031a431184"}},"assetPrefix":"","nextExport":true,"err":null,"chunks":["ed529305-6ff4-43a1-b1b6-a076ddffe623.js"]}
+          module={}
+          __NEXT_LOADED_PAGES__ = []
+          __NEXT_LOADED_CHUNKS__ = []
+
+          __NEXT_REGISTER_PAGE = function (route, fn) {
+            __NEXT_LOADED_PAGES__.push({ route: route, fn: fn })
+          }
+
+          __NEXT_REGISTER_CHUNK = function (chunkName, fn) {
+            __NEXT_LOADED_CHUNKS__.push({ chunkName: chunkName, fn: fn })
+          }
+        </script><script async="" id="__NEXT_PAGE__/blog" type="text/javascript" src="/_next/49359980-65e3-4360-9772-2fc9c87b935f/page/blog/index.js"></script><script async="" id="__NEXT_PAGE__/_error" type="text/javascript" src="/_next/49359980-65e3-4360-9772-2fc9c87b935f/page/_error/index.js"></script><div><script async="" type="text/javascript" src="/_next/webpack/chunks/ed529305-6ff4-43a1-b1b6-a076ddffe623.js"></script></div><script type="text/javascript" src="/_next/0cb811894853d62b317204031a431184/app.js" async=""></script></div></body></html>
