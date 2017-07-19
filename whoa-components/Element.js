@@ -19,6 +19,7 @@ import Redaction from './Redaction';
 import Revision from './Revision';
 import Code from './Code';
 import Search from './Search';
+import Image from './Image';
 
 function Element({ type, children, ...props }) {
   if (typeof type !== 'string') {
@@ -117,9 +118,10 @@ function Element({ type, children, ...props }) {
 
     case 'image':
       Tag = 'img';
-      elementProps.style = { maxWidth: '100%' };
-      elementProps.src = props.src || props.url;
-      elementProps.alt = props.alt;
+      return <Image src={props.src || props.url} alt={props.alt} />
+      // elementProps.style = { maxWidth: '100%' };
+      // elementProps.src = props.src || props.url;
+      // elementProps.alt = props.alt;
       break;
 
     case 'list':
