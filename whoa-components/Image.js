@@ -7,80 +7,98 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Image = ({ src, alt }) => {
-  // don't do the blur thing with svgs, which are don't have a little blur thumbnail
-  if (src.match(/.*\.svg$/)) {
-    return <img src={src} alt={`missing image ❗ ${alt || src} ❗`} />;
+class Image extends React.Component {
+  static propTypes = {
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string,
+  };
+
+  constructor() {
+    super();
+    this.state = {
+      showBlur: true,
+    };
   }
 
-  // if we have specified a size in the image url, use it
-  const match = src.match(/_s=(\d+)w(\d+)h/);
-  console.log('match', match)
-  if (match) {
-    return (
-      <div>
+  componentWillMount() {}
+
+  loadedImage() {
+    this.setState({ showBlur: false });
+  }
+
+  render() {
+    // don't do the blur thing with svgs, which are don't have a little blur thumbnail
+    if (this.props.src.match(/.*\.svg$/)) {
+      return (
         <img
-          id={`${src}-blur`}
-          src={src.replace(/(\.\w\w\w)$/, '_blur$1')}
-          alt={`missing image ❗ ${alt || src} ❗`}
+          src={this.props.src}
+          alt={`missing image ❗ ${this.props.alt || this.props.src} ❗`}
         />
+      );
+    }
 
-        <img src={src} alt={`❗ ${alt || src} ❗`} />
+    // if we have specified a size in the image url, use it
+    const match = this.props.src.match(/_s=(\d+)w(\d+)h/);
+    const blurId = `${this.props.src.replace(/\/|=|\./g, '')}-blur`;
+    console.log('match', match);
+    console.log(blurId);
+    let visible = true;
+    if (match) {
+      return (
+        <div
+          style={{
+            maxWidth: '100%',
+            overflowY: 'hidden'
+          }}
+        >
 
-        <style jsx>
-          {`
-          div {
-            position: relative;
-            padding: 0;
-            padding-bottom: 100%;
-            height: 0;
-          }
+          <img
+            id={blurId}
+            className="blur"
+            src={this.props.src.replace(/(\.\w\w\w)$/, '_blur$1')}
+            alt={`missing image ❗ ${this.props.alt || this.props.src} ❗`}
+            style={{
+              width: `${match[1]}px`,
+              opacity: this.state.showBlur ? 1 : 0,
+            }}
+          />
+
+          <img
+            src={this.props.src}
+            alt={`❗ ${this.props.alt || this.props.src} ❗`}
+            style={{opacity: this.state.showBlur ? 0 : 1}}
+            onLoad={() => {
+              this.loadedImage();
+            }}
+          />
+
+          <style jsx>
+            {`
 
           img {
+            max-width: 100%;
+            transition: 0.1s 1s;
           }
 
-          img:nth-of-type(1) {
+          .blur {
+            transition: opacity 0.5s 1s;
             position: absolute;
             z-index: 2;
           }
 
         `}
-        </style>
-      </div>
+          </style>
+        </div>
+      );
+    }
+
+    return (
+      <img
+        style={{ maxWidth: '100%' }}
+        src={this.props.src}
+        alt={`❗ ${this.props.alt || this.props.src} ❗`}
+      />
     );
   }
-
-  return (
-    <div>
-      <img
-        id={`${src}-blur`}
-        src={src.replace(/(\.\w\w\w)$/, '_blur$1')}
-        alt={`missing image ❗ ${alt || src} ❗`}
-      />
-
-      <img src={src} alt={`❗ ${alt || src} ❗`} />
-
-      <style jsx>
-        {`
-          div {
-            position: relative;
-            padding: 0;
-            padding-bottom: 100%;
-            height: 0;
-          }
-
-          img {
-          }
-
-          img:nth-of-type(1) {
-            position: absolute;
-            z-index: 2;
-          }
-
-        `}
-      </style>
-    </div>
-  );
-};
-
+}
 export default Image;
