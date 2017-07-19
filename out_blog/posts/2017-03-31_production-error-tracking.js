@@ -1,6 +1,6 @@
 
         /**
-         * This file was automatically created Tue Jul 18 2017 01:53:21 GMT-0400 (EDT)
+         * This file was automatically created Wed Jul 19 2017 02:09:48 GMT-0400 (EDT)
          */
         import BlogPost from '../../components/Blog/Post.js';
          
