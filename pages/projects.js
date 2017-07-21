@@ -2,20 +2,17 @@ import {
   compose,
   withHandlers,
   withReducer,
-  branch,
-  renderComponent,
 } from 'recompose';
-import shortid from 'shortid';
 import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store';
 
 // import { connect } from 'react-redux';
 
 import PageWrapper from '../components/PageWrapper';
+import Nav from '../components/Nav';
 import { PROJECTS } from '../constants';
 import Project from '../components/Project';
 import AdditionalInfo from '../components/AdditionalInfo';
-import Nav from '../components/Nav';
 
 const compareYears = (a, b) => {
   if (Math.max(...a.year) > Math.max(...b.year)) {

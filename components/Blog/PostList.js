@@ -28,7 +28,7 @@ class PostList extends Component {
                 as={`/blog/${post.slug}`}
               >
                 <a>
-                  <h1>{post.title}</h1>
+                  <h1 style={{opacity: `${post.readTime/10 + 0.5}`, fontSize:  `${post.readTime/2 + 0.5}rem`}} >{post.title}</h1>
                 </a>
               </Link>
               {' '}

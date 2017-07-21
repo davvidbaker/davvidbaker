@@ -4,6 +4,19 @@
 module.exports = {
   PROJECTS: [
     {
+      name: 'ELC 360',
+      status: ['shipped', 'green'],
+      tagline: 'A native iOS app for an Estee Lauder 360 campaign.',
+      year: [2017],
+      description: 'Estee Lauder had a **360 video** on Youtube that they needed to work offline for marketing purposes. I created an iOS app using the [Google VR SDK for iOS](https://developers.google.com/vr/ios/) to show the video in 360 or VR (with a Google Cardboard.\n\nThis was my first real foray into the native iOS world, and I went deep into the **Swift and Xcode** world to make this project happen.',
+      images: ['/static/elc360.png-noShadow'],
+      keywords: ['iOS', 'Swift', '360', 'VR'],
+      agency: {
+        name: 'Click 3X',
+        link: 'http://click3x.com/',
+      },
+    },
+    {
       name: 'Whoa',
       status: ['active development', 'darkmagenta'],
       tagline: 'An exploration of writing with custom markup and components.',
@@ -13,7 +26,8 @@ module.exports = {
       linkToSource: 'https://github.com/davvidbaker/whoa',
       linkToTrello: 'https://trello.com/b/kDjPvwZq/dot-whoa',
       description: "This is my solution for drafting blog posts, some of the time.\n\nIt is basically **Markdown with some additional custom markup**. I write blog posts with the file extension `.whoa` and then parse these `.whoa` files with [remark](https://github.com/wooorm/remark) and transform the elements into components of different sorts.\n\nI've written more extensively about what it does for me [here](https://davvidbaker.com/blog/whoa-and-blog-state/).",
-      keywords: ['blog', 'Markdown', 'React', 'Redux', 'Remark', 'Components']
+      keywords: ['blog', 'Markdown', 'React', 'Redux', 'Remark', 'Components'],
+
       // highlight: true,
     },
     {
@@ -69,7 +83,7 @@ module.exports = {
       tagline: "A cross-platform kids' game kinda like Club Penguin?",
       description: "We (*Click 3X*) teamed up with [Donroy](http://www.donroy.uk/) to create the world that is Puppy Club. Currently, it is only exists as a desktop web game, but I am in the process of wrapping it up into Android and iOS apps.\n\n### I've been the *lead developer* on the game for the past 9 months.\n\nThe process has pretty much been: *they* provide me with static assets, ie an Illustrator file, and **I bring it to life**. I've had quite a bit of creative license across the board, at times even writing copy. I also helped with [the website](http://puppyclub.staging.click3x.com/home)",
       callToAction: 'Get a pup!',
-      keywords: ['Phaser', 'HTML5 Game', 'Redux', 'cross-platform'],
+      keywords: ['Phaser', 'HTML5 Game', 'Redux', 'MongoDB', 'Node', 'cross-platform'],
       link: 'http://puppyclub.staging.click3x.com/clubhouse',
       agency: {
         name: 'Click 3X',
@@ -83,8 +97,16 @@ module.exports = {
       year: [2016, 2017],
       status: ['shipped', 'green'],
       tagline: 'An iOS and Oculus Rift app built for 92Y internal use.',
-      description: "We (*Click 3X*) created an immersive 360 Experience for [92Y](https://www.92y.org/) and their capital campaign.\n\nWe produced a bunch of 360 videos, and **I was tasked with wrapping them up into an iOS app and an Oculus Rift app.**\n\nI used Unity for creating both apps. I *also* got to mess around with Cinema 4D to create geometry for the VR user interface.",
-      keywords: ['Unity', 'iOS', '360', 'Oculus Rift', 'VR', 'cross-platform', 'Cinema 4D '],
+      description: 'We (*Click 3X*) created an immersive 360 Experience for [92Y](https://www.92y.org/) and their capital campaign.\n\nWe produced a bunch of 360 videos, and **I was tasked with wrapping them up into an iOS app and an Oculus Rift app.**\n\nI used Unity for creating both apps. I *also* got to mess around with Cinema 4D to create geometry for the VR user interface.',
+      keywords: [
+        'Unity',
+        'iOS',
+        '360',
+        'Oculus Rift',
+        'VR',
+        'cross-platform',
+        'Cinema 4D ',
+      ],
       agency: {
         name: 'Click 3X',
         link: 'http://click3x.com/',
@@ -97,7 +119,7 @@ module.exports = {
       year: [2016, 2017],
       status: ['shipped', 'green'],
       tagline: 'A thermal-camera-equipped kiosk in Vegas.',
-      description: "In conjunction with CES 2017, Saatchi & Saatchi NY approached us (Click 3X) with a request for an outdoor touch screen selfie kiosk for their client Theraflu.\n\nOur team produced the entire operation in just 4 weeks, from research and development, to the kiosk build, to the installation on the Las Vegas strip.\n\n **I was in charge of choosing the hardware and creating the highest quality thermal image possible**. It turned out that the best option was going to be combine the images of a normal visual spectrum camera and a FLIR thermal camera. I wrote WebGL shaders to basically do edge detection on the \"normal\" image and blend that together with the lower-resolution thermal image.\n\nI *also* went to Vegas to oversee the installation.",
+      description: 'In conjunction with CES 2017, Saatchi & Saatchi NY approached us (Click 3X) with a request for an outdoor touch screen selfie kiosk for their client Theraflu.\n\nOur team produced the entire operation in just 4 weeks, from research and development, to the kiosk build, to the installation on the Las Vegas strip.\n\n **I was in charge of choosing the hardware and creating the highest quality thermal image possible**. It turned out that the best option was going to be combine the images of a normal visual spectrum camera and a FLIR thermal camera. I wrote WebGL shaders to basically do edge detection on the "normal" image and blend that together with the lower-resolution thermal image.\n\nI *also* went to Vegas to oversee the installation.',
       keywords: ['WebGL', 'image processing', 'thermal', 'real-time FX'],
       agency: {
         name: 'Click 3X',
@@ -132,8 +154,15 @@ module.exports = {
       year: [2016],
       tagline: 'VR music video featuring Bernie Sanders.',
       status: ['shipped', 'green'],
-      description: `In 1987, **Bernie Sanders** released a folk music album on which he covered the classic "This Land is Your Land". For fun, I decided to create an immersive music video for this track that features Bernie singing and dancing—it's not exactly a video, as you control certain aspects of your environment, but you get the idea.\n\nI contacted the studio that owns the rights to the song to see if I could get permission to publish this on the Oculus Store (for the Oculus Rift) and the Google Play Store (for Google Cardboard), *but they haven't gotten back to me, and I don't think they ever will*. Since I'm not trying to steal anyone's work or infringe on copyrights, for the time being if you want to see this you can send me an email at davvidbaker@gmail.com and I can get you a copy.\n\n**All characters, animations, scripting, and assets designed and created by me.**`,
-      keywords: ['Unity', 'Blender', 'Adobe Fuse', 'iOS', 'Android', 'Oculus Rift'],
+      description: 'In 1987, **Bernie Sanders** released a folk music album on which he covered the classic "This Land is Your Land". For fun, I decided to create an immersive music video for this track that features Bernie singing and dancing—it\'s not exactly a video, as you control certain aspects of your environment, but you get the idea.\n\nI contacted the studio that owns the rights to the song to see if I could get permission to publish this on the Oculus Store (for the Oculus Rift) and the Google Play Store (for Google Cardboard), *but they haven\'t gotten back to me, and I don\'t think they ever will*. Since I\'m not trying to steal anyone\'s work or infringe on copyrights, for the time being if you want to see this you can send me an email at davvidbaker@gmail.com and I can get you a copy.\n\n**All characters, animations, scripting, and assets designed and created by me.**',
+      keywords: [
+        'Unity',
+        'Blender',
+        'Adobe Fuse',
+        'iOS',
+        'Android',
+        'Oculus Rift',
+      ],
       images: ['/static/bernieSnap1.JPG', '/static/bernieSnap4.JPG'],
     },
 
@@ -186,7 +215,7 @@ module.exports = {
         'Illustrator',
         'Space',
         'Cows',
-        'Animal Husbandry'
+        'Animal Husbandry',
       ],
       images: ['/static/udder-space.png'],
       callToAction: 'Watch pilot',
@@ -207,7 +236,13 @@ module.exports = {
       status: ['unknown', 'black'],
       tagline: 'A surround sound system that uses a single centrally placed speaker.',
       description: "sound360 is **a surround sound system that only uses a single centrally placed speaker**. Ultrasonic transducers—with the help of some fancy signal modulation and a nonlinearity in the air—create narrow beams of sound which are then bounced off reflectors to arrive at a listener positioned centrally on the couch. For more details you can check out the [project's final report here](/static/sound360_finalReport.pdf).\n\nMarcus and I created this project for an **embedded systems class in college**, and I continued to develop it for Penn's xLAB over the summer of 2015. *I'm not sure if anyone there has continued working on the project*. We created everything—circuitry, design, code, etc.",
-      keywords: ['Embedded Systems', 'Hardware', 'Audio', 'Signal Processing', 'Directional Sound'],
+      keywords: [
+        'Embedded Systems',
+        'Hardware',
+        'Audio',
+        'Signal Processing',
+        'Directional Sound',
+      ],
       images: ['/static/sound360.png-noShadow'],
       link: '/static/sound360_finalReport.pdf',
       teammates: [

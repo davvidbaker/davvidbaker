@@ -71,6 +71,7 @@ arrWhoa.forEach((post) => {
     title: \`${post.attributes.title}\`,
     date: \`${post.attributes.date}\`,
     slug: \`${post.attributes.slug}\`,
+    readTime: \`${post.attributes.readTime}\`,
     component: dynamic(import('../out_blog/posts/${post.filename.replace(/whoah?$/, 'js')}')),
   }`
   );

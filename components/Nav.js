@@ -56,6 +56,7 @@ export default ({ url }) => (
       <NavLink url={url} str="Home" pathname="" />
       <NavLink url={url} str="Projects" pathname="projects" />
       <NavLink url={url} str="Blog" pathname="blog" />
+      <NavLink url={url} str="Résumé" pathname="resume" />
     </ul>
 
     <style jsx>{`

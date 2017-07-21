@@ -1,21 +1,21 @@
 const constants = require('./constants');
-const {slugs} = require('./out_blog/slugs.js');
+const { slugs } = require('./out_blog/slugs.js');
 // const { posts } = require('./internals/out_blog/output_blog_posts');
 
 // next.config.js
 module.exports = {
   webpack(cfg) {
-    cfg.plugins = cfg.plugins.filter(
-      plugin => plugin.constructor.name !== 'UglifyJsPlugin'
-    );
+    cfg.plugins = cfg.plugins.filter(plugin => plugin.constructor.name !== 'UglifyJsPlugin');
     return cfg;
   },
+
   /* path mapping for static html exports */
   exportPathMap() {
     const pathMap = {
       '/': { page: '/' },
       '/blog': { page: '/blog' },
       '/projects': { page: '/projects' },
+      '/resume': { page: '/resume' },
     };
 
     /* build a path for each project */

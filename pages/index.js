@@ -1,20 +1,16 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import withRedux from 'next-redux-wrapper';
 
 import { initStore } from '../store';
 import Nav from '../components/Nav';
-import Phone from '../components/Phone';
-import Definition from '../components/Definition';
 
 import PageWrapper from '../components/PageWrapper';
 import MeList from '../components/MeList';
 
-
 const IndexPage = ({ url }) => (
   <PageWrapper title="🙃🐢">
     <Nav url={url} />
-    <main style={{ padding: '10px' }}>
+    <main>
       <header>
         <h1>David Baker</h1>
         <h2>web developer making internet things</h2>
@@ -45,38 +41,33 @@ const IndexPage = ({ url }) => (
           Currently,{' '}
           <strong>
             I am a developer at <a href="http://click3x.com/">Click 3X</a>
-          </strong>{' '}
-          in New York, New York. I have been at Click since June of 2016.
+          </strong>
+          , an agency in New York City. I've been at Click since June of 2016, and I've learned and grown a lot in that time, but now <strong>I am looking for a new challenge</strong>.
         </p>
         <p>
           I <span style={{ color: 'red' }}>❤</span> making stuff, and I love how
-          quickly you can turn ideas into reality in our industry. It really is
-          an awesome time to be alive and making things. I used to (
+          quickly you can turn ideas into reality in our industry. I used to (
           <em>back in college</em>
           )
           focus more on the hardware side of things but have found software to
-          be much more accessible now that I don't have 24/7 access to lab full
-          of all the discrete electronic components I might ever need 😢.
+          be much more accessible now that I don't have 24/7 access to a lab.
         </p>
 
         <p>
-          Do I know everything? <strong>Certainly not!</strong> There are{' '}
-          <em>sooooo</em> many niches in our industry, <em>and</em> everything
-          is in constant flux. I do, however, learn quickly, and I'm always
-          working hard to fill gaps in my knowledge.
+          I really am interested in how people―<em>users</em>, if you will―interact with technology and what kinds of experiences we can deliver to them in today's digital world. These days I'm mostly making things for the web platform.
         </p>
 
         <p>
-          <strong>You should check out the projects page</strong> to see some of
+          <strong>You should check out the <Link><a href="/projects">projects page</a></Link></strong> to see some of
           my work. It contains a mix of client work and (unpolished) personal
           projects.
         </p>
 
         <hr />
-        <p>Here are some things you might want to know about me:</p>
+        <h3>Here are some things you might want to know about me. Or not.</h3>
         <ul className="about-list">
           <MeList
-            title="I believe in..."
+            title="I believe in"
             items={[
               'design that serves a purpose.',
               'the potential of the internet to make positive change in the world.',
@@ -86,8 +77,8 @@ const IndexPage = ({ url }) => (
               'the proliferation of emoji as a stage in the evolution of written language.',
             ]}
           />
-          {/* <MeList
-            title="I would like to work..."
+          <MeList
+            title="I would like to work"
             items={[
               'alongside smart, talented people who are passionate about what they do.',
               'mostly on the front end, but I am not afraid to get my hands dirty.',
@@ -96,34 +87,33 @@ const IndexPage = ({ url }) => (
             ]}
           />
           <MeList
-            title="I am interested in..."
+            title="I am interested in"
             items={[
-              'new media 🤦. ',
-              <span>
-                <strike>virtual</strike> <strike>augmented</strike> reality.
-              </span>,
-              <span>
-                <a href="https://www.w3.org/annotation/">
-                  annotations on the web
-                </a>.
-              </span>,
+              'new media 🤦.',
+              'virtual reality.',
+              'augmented reality.',
+              'reality.',
+              'annotations on the web.',
               'the internet of things.',
               'rapid prototyping.',
-              <span><strike>artificial</strike> intelligence.</span>, 'memory, especially working memory.',
-              'sustainability in the tech world.', 'the future of the internet 🌐.', 'education.'
-
+              'artificial intelligence.',
+              'intelligence.',
+              'sustainability in the tech world.',
+              'the future of the internet 🌐.',
+              'memory, specifically working memory.',
+              'education.',
             ]}
           />
           <MeList
-            title="When building websites, I care about..."
+            title="When building websites, I care about"
             items={[
               'the user experience.',
               'performance ⚡.',
               'accessibility.',
               'the health of the codebase.',
-              'vertical rhythm.'
+              'vertical rhythm.',
             ]}
-          /> */}
+          />
 
         </ul>
       </article>
@@ -132,6 +122,7 @@ const IndexPage = ({ url }) => (
       main {
         max-width: 50rem;
         margin: 0 auto;
+        padding: 0 20px;
       }
 
       header h1 {
@@ -188,12 +179,7 @@ const IndexPage = ({ url }) => (
 
 IndexPage.getInitialProps = async ({ store, isServer }) => ({ isServer });
 
-const mapDispatchToProps = dispatch => ({
-  addCount: dispatch => ({ type: 'ADD' }),
-});
-
 export default withRedux(
   initStore,
   state => ({ ...state }),
-  mapDispatchToProps
 )(IndexPage);

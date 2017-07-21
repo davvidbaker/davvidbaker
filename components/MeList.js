@@ -1,93 +1,64 @@
-import shortid from 'shortid';
+/**
+ * This is not that React-y of a component. I am manipulating the DOM by hand, because dealing with state and render and timing was getting complicated.
+ */
+
 import { Component } from 'react';
 
 class MeList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      ind: 0,
-      lastItem: null,
-      currentItem: props.items[0],
-      nextItem: null,
-    };
 
-    this.nextInd = 0;
+    this.characterInd = 0;
+    this.itemInd = 1;
+    // add a space to the end of the items (for text-breaking purposes)
+    this.items = this.props.items.map(item => `${item} `);
   }
 
   componentDidMount() {
-    this.setState(this.state, this.revealNext);
+    this.nextCharacter();
   }
 
-  revealNext() {
-    this.nextInd = (this.state.ind + 1) % this.props.items.length;
-
-    this.setState(
-      {
-        nextItem: this.props.items[this.nextInd],
-        lastItem: this.state.nextItem || this.state.currentItem,
-        ind: this.state.ind + 1,
-      },
-      (cb) => {
-        console.log(this.state);
-        this.nextChar(0);
-      }
-    );
-
-    // if (
-    //   this.props.items[this.nextInd] &&
-    //   typeof this.props.items[this.nextInd] === 'string'
-    // ) {
-    //   this.nextChar(0);
-    // }
-  }
-
-  nextChar(i) {
-    if (i < this.state.lastItem.length && i < this.state.nextItem.length) {
+  nextCharacter() {
+    try {
       window.requestAnimationFrame(() => {
+        let letter;
+        if (this.text.textContent.length - 1 < this.characterInd) {
+          // if the current textContent doesn't have a character at character ind, just add to textContent
+          letter = letterThatMightBeAnEmoji(
+            this.items[this.itemInd].substr([this.characterInd], 2)
+          );
+          this.text.textContent += letter;
+        } else if (this.characterInd < this.items[this.itemInd].length) {
+          letter = letterThatMightBeAnEmoji(
+            this.items[this.itemInd].substr([this.characterInd], 2)
+          );
+          // replace the text at that ind
+          this.text.textContent =
+            this.text.textContent.substr(0, this.characterInd) +
+            letter +
+            this.text.textContent.substr(
+              this.characterInd + letter.length,
+              this.text.textContent.length - this.characterInd - letter.length
+            );
+        } else {
+          this.text.textContent = `${this.text.textContent.substr(0, this.characterInd)}${' '}${this.text.textContent.substr(this.characterInd + 1, this.text.textContent.length - this.characterInd - 1)}`;
+        }
 
-        // check if new letter is an emoji, which has length 2
-        const newLetter = letterThatMightBeAnEmoji(
-          this.state.nextItem.substr(i, 2)
-        );
+        this.characterInd += letter ? letter.length : 1;
 
-        let remainingString = this.state.lastItem.substr(
-          i + 1,
-          this.state.lastItem.length
-        );
-
-        // const newLetter = this.state.nextItem[i];
-        this.setState(
-          {
-            currentItem: `${this.state.nextItem.substr(0, i)}${newLetter}${remainingString}`,
-          },
-          this.nextChar(i + newLetter.length)
-        );
+        if (
+          this.characterInd >= this.items[this.itemInd].length &&
+          this.characterInd >= this.text.textContent.length
+        ) {
+          this.itemInd = (this.itemInd + 1) % this.items.length;
+          this.characterInd = 0;
+          setTimeout(() => this.nextCharacter(), 1000);
+          return;
+        }
+        this.nextCharacter();
       });
-    } else if (i < this.state.lastItem.length) {
-      window.requestAnimationFrame(() => {
-        this.setState(
-          {
-            currentItem: `${this.state.currentItem.substr(0, i)}️${this.state.lastItem
-              .substr(i + 1, this.state.lastItem.length)
-              .replace(/./, ' ')}`,
-          },
-          this.nextChar(i + 1)
-        );
-      });
-    } else if (i < this.state.nextItem.length) {
-      window.requestAnimationFrame(() => {
-        const newLetter = letterThatMightBeAnEmoji(
-          this.state.nextItem.substr(i, 2)
-        );
-        this.setState(
-          { currentItem: `${this.state.currentItem}${newLetter}` },
-          this.nextChar(i + 1)
-        );
-      });
-    } else {
-      setTimeout(() => {
-        this.revealNext();
-      }, 1000);
+    } catch (e) {
+      console.log('hit an error', e);
     }
   }
 
@@ -97,33 +68,19 @@ class MeList extends Component {
         <p>
           <span className="title">{this.props.title}</span>
           {' '}
-          <span>{this.state.currentItem}</span>
+          <span
+            ref={(text) => {
+              this.text = text;
+            }}
+          /><span />
+          {/* <span>{this.state.currentItem}</span> */}
         </p>
-        <ul>
-          {this.props.items.map(item => (
-            <li key={shortid.generate()}>
-              <p>
-                {item}
-              </p>
-            </li>
-          ))}
-        </ul>
         <style jsx>{`
           .title {
             font-weight: bold;
           }
-
           * {
             font-family: monospace;
-          }
-
-          li p {
-            margin: 0.25rem 0;
-          }
-
-          ul {
-            list-style: disc;
-            padding-left: 3rem;
           }
         `}</style>
       </li>
