@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "dev": "next -p 3002",
     "build-blog": "webpack --config internals/build/webpack.config.js && node ./internals/out_blog/intermediate.bundle.js",
     "build": "npm run build-blog && next build && next export",
