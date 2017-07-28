@@ -41,6 +41,11 @@ const BlogGlobalStyles = () =>
       font-size: 2rem;
     }
 
+    article ul {
+      list-style: disc;
+      padding-left: 2rem;
+    }
+
 
   `}</style>;
 

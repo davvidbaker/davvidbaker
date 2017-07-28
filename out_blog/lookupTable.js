@@ -1,6 +1,6 @@
 
     /**
-     * This file was automatically created Thu Jul 20 2017 23:58:53 GMT-0500 (CDT)
+     * This file was automatically created Fri Jul 28 2017 01:15:11 GMT-0500 (CDT)
      */
     import dynamic from 'next/dynamic';
 
@@ -165,6 +165,13 @@
     slug: `get-swifty`,
     readTime: `0.9454545454545454`,
     component: dynamic(import('../out_blog/posts/2017-07-18_get-swifty.js')),
+  },{
+    filename: `2017-07-28_empty-space.js`,
+    title: `Empty Document Memory`,
+    date: `July 27, 2017`,
+    slug: `empty-space`,
+    readTime: `1.3418181818181818`,
+    component: dynamic(import('../out_blog/posts/2017-07-28_empty-space.js')),
   },{
   title: 'Coffee',
   slug: 'coffee-makes-my-thoughts-loud',

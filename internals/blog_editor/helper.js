@@ -13,7 +13,7 @@ import Nav from 'components/Nav';
 
 // import post from 'blog/2017-06-30_phone-messenger-component.whoa';
 
-import Post from 'blog/2017-07-18_get-swifty.whoa';
+import Post from 'blog/2017-07-28_empty-space.whoa';
 // console.log(post);
 
 const BlogPage = ({ addCount }) => {
