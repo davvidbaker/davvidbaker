@@ -12,7 +12,7 @@ const ResumePage = ({ url }) => (
       <header>
         <h1 className="name">David Baker</h1>
         <p className="subtitle print-show">davvidbaker.com<br />davvidbaker@gmail.com</p>
-        <div className="print-hide" id="printer-icon" onClick={() => window.print()}></div>
+        <button className="print-hide" id="printer-icon" onClick={() => window.print()}></button>
       </header>
       <main>
         <div className="left">
@@ -497,11 +497,30 @@ const ResumePage = ({ url }) => (
           }
 
           .print-hide, .print-hide::before, .print-hide::after {
-            display: none;
+            display: none !important;
           }
 
           .print-show {
             display: block !important;
+          }
+
+          #skills {
+            display: flex !important;
+            justify-content: space-around !important;
+          }
+
+          #skills p {
+            font-size: 10px !important;
+          }
+
+          #skills ul {
+            list-style: none;
+            padding-left: 0;
+          }
+
+          #skills div {
+            min-width: 20% !important;
+            max-width: 30% !important;
           }
        
           nav {
