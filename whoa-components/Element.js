@@ -90,9 +90,10 @@ function Element({ type, children, ...props }) {
 
     case 'code':
       return <Code value={props.value} />;
-    //  TODO what is delete
-
+      
     case 'delete':
+      Tag = 'del';
+      break;
 
     case 'strong':
       Tag = 'strong';
@@ -114,11 +115,12 @@ function Element({ type, children, ...props }) {
       break;
     // TODO when you do images, make sure I am doing images right here.
 
+
     case 'imageReference':
 
     case 'image':
       Tag = 'img';
-      return <Image src={props.src || props.url} alt={props.alt} />
+      return <Image src={props.src || props.url} alt={props.alt} />;
       // elementProps.style = { maxWidth: '100%' };
       // elementProps.src = props.src || props.url;
       // elementProps.alt = props.alt;
