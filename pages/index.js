@@ -58,7 +58,7 @@ const IndexPage = ({ url }) => (
         </p>
 
         <p>
-          <strong>You should check out the <Link><a href="/projects">projects page</a></Link></strong> to see some of
+          <strong>You should check out the <Link href="/projects"><a>projects page</a></Link></strong> to see some of
           my work. It contains a mix of client work and (unpolished) personal
           projects.
         </p>
