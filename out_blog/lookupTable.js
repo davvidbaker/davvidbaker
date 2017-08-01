@@ -1,6 +1,6 @@
 
     /**
-     * This file was automatically created Fri Jul 28 2017 01:15:11 GMT-0500 (CDT)
+     * This file was automatically created Tue Aug 01 2017 02:05:19 GMT-0400 (EDT)
      */
     import dynamic from 'next/dynamic';
 
@@ -184,5 +184,11 @@
   date: 'July 7, 2017',
   js: true,
 
- component: dynamic(import('../blog/2017-07-07_that-was-bad.js'))}];
+ component: dynamic(import('../blog/2017-07-07_that-was-bad.js'))},{
+  title: 'I want...',
+  slug: 'me-list-needs-a-better-name',
+  date: 'August 1, 2017',
+  js: true,
+
+ component: dynamic(import('../blog/2017-08-01_me-list-needs-a-better-name.js'))}];
   
