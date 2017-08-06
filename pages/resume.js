@@ -52,7 +52,7 @@ const ResumePage = ({ url }) => (
                   <em>
                     {' '}See
                     {' '}
-                    <Link><a href="/projects">projects</a></Link>
+                    <Link href="/projects"><a>projects</a></Link>
                     {' '}
                     page for specifics.
                   </em>
