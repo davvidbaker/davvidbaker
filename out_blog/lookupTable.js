@@ -1,6 +1,6 @@
 
     /**
-     * This file was automatically created Sun Aug 06 2017 15:55:47 GMT-0400 (EDT)
+     * This file was automatically created Wed Aug 09 2017 02:48:31 GMT-0400 (EDT)
      */
     import dynamic from 'next/dynamic';
 
@@ -190,5 +190,11 @@
   date: 'August 1, 2017',
   js: true,
 
- component: dynamic(import('../blog/2017-08-01_me-list-needs-a-better-name.js'))}];
+ component: dynamic(import('../blog/2017-08-01_me-list-needs-a-better-name.js'))},{
+  title: 'Great Slug',
+  slug: 'you-me-and-mqtt',
+  date: 'August 9, 2017',
+  js: true,
+
+ component: dynamic(import('../blog/2017-08-09_you-me-and-mqtt.js'))}];
   

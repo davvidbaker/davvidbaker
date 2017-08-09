@@ -13,26 +13,25 @@ import Nav from 'components/Nav';
 
 // import post from 'blog/2017-06-30_phone-messenger-component.whoa';
 
-import Post from 'blog/2017-08-01_me-list-needs-a-better-name.js'
-/Users/David/Development/davvidbaker/blog/
-console.log(post);
+import Post from 'blog/2017-08-09_you-me-and-mqtt.js'
+// console.log(post);
 
-const BlogPage = ({ addCount }) => {
-  return (
-    <PageWrapper title={Post.attributes.title}>
-      <BlogPost attributes={Post.attributes} content={Post.content} />
-      <BlogGlobalStyles />
-    </PageWrapper>
-  );
-};
-
-
-// const BlogPage = ({ addCount }) => (
-//   <PageWrapper title="BLOG POST EDITOR">
-//     <Post />
-//     <BlogGlobalStyles />
-//   </PageWrapper>
+// const BlogPage = ({ addCount }) => {
+//   return (
+//     <PageWrapper title={Post.attributes.title}>
+//       <BlogPost attributes={Post.attributes} content={Post.content} />
+//       <BlogGlobalStyles />
+//     </PageWrapper>
 //   );
+// };
+
+
+const BlogPage = ({ addCount }) => (
+  <PageWrapper title="BLOG POST EDITOR">
+    <Post />
+    <BlogGlobalStyles />
+  </PageWrapper>
+  );
 
 // const mapDispatchToProps = dispatch => ({
 //   addCount: dispatch => ({ type: 'ADD' }),

@@ -2,7 +2,7 @@
  * This is not that React-y of a component. I am manipulating the DOM by hand, because dealing with state and render and timing was getting complicated.
  */
 
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 class MeList extends Component {
   constructor(props) {
