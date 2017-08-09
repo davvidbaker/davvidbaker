@@ -1,6 +1,6 @@
 
     /**
-     * This file was automatically created Wed Aug 09 2017 02:48:31 GMT-0400 (EDT)
+     * This file was automatically created Wed Aug 09 2017 02:57:25 GMT-0400 (EDT)
      */
     import dynamic from 'next/dynamic';
 

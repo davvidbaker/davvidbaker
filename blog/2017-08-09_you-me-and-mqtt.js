@@ -27,7 +27,7 @@ export default () => (
       ]}
     />
     <p>
-      There's certain things about composabililitlity that differ from framework to framework.
+      There's certain things about composabililitlity that differ from framework to framework. Especially when it comes to the style cascade. I guess I should try to use the standard? Shadow DOM encapsulation?
     </p>
     <Whoa>
       {whoaParse(
