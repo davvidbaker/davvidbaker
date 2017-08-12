@@ -27,7 +27,7 @@ app.prepare().then(() => {
     } else {
       handle(req, res, parsedUrl);
     }
-  }).listen(3002, (err) => {
+  }).listen(3002, '0.0.0.0', (err) => {
     if (err) throw err;
     console.log('>Ready on http://localhost:3002');
   });

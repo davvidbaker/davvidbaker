@@ -38,7 +38,8 @@ export default enhance(({
       <meta name="theme-color" content={borderColor} />
       <meta name="theme-color" content={borderColor || 'blue'} />
       <meta charSet="utf-8" />
-
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+  
       {background && <style>{`body {--body-background: ${background}}`}</style>}
     </Head>
     {children}
