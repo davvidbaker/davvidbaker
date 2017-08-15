@@ -1,4 +1,7 @@
-/** NEEDS A LOOK. PUT IN HASTILY. NEEDS TO TAKE PROPS, and shaders maybe. */
+/** ⚠️ NEEDS A LOOK. PUT IN HASTILY. NEEDS TO TAKE PROPS, and shaders maybe. 
+ * 
+ * Might not even want to use three.js. But also might...
+*/
 
 import React from 'react';
 
