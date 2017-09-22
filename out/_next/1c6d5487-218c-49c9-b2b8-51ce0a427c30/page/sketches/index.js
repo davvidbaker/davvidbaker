@@ -1,6 +1,7 @@
 
-          window.__NEXT_REGISTER_CHUNK('f97f8059-5064-4610-9f99-01bea8976cba.js', function() {
-            webpackJsonp([2],[
+          window.__NEXT_REGISTER_PAGE('/sketches', function() {
+            var comp = module.exports =
+webpackJsonp([5],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
@@ -1328,70 +1329,7 @@ exports.tag = new RegExp('^(?:' +
 /* 106 */,
 /* 107 */,
 /* 108 */,
-/* 109 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _style = __webpack_require__(1);
-
-var _style2 = _interopRequireDefault(_style);
-
-var _unified = __webpack_require__(232);
-
-var _unified2 = _interopRequireDefault(_unified);
-
-var _remarkParse = __webpack_require__(179);
-
-var _remarkParse2 = _interopRequireDefault(_remarkParse);
-
-var _remarkWhoa = __webpack_require__(220);
-
-var _remarkWhoa2 = _interopRequireDefault(_remarkWhoa);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _whoaComponents = __webpack_require__(70);
-
-var _whoaComponents2 = _interopRequireDefault(_whoaComponents);
-
-var _Post = __webpack_require__(106);
-
-var _Post2 = _interopRequireDefault(_Post);
-
-var _MeList = __webpack_require__(240);
-
-var _MeList2 = _interopRequireDefault(_MeList);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var whoaParse = (0, _unified2.default)().use(_remarkParse2.default).use(_remarkWhoa2.default).parse;
-
-var attributes = {
-  title: 'I want...',
-  slug: 'me-list-needs-a-better-name',
-  date: 'August 1, 2017',
-  js: true
-};
-
-exports.default = function () {
-  return _react2.default.createElement(_Post2.default, { attributes: attributes, hideTitle: true }, _react2.default.createElement(_MeList2.default, {
-    title: 'I want',
-    items: ['text boxes.', 'layers.', 'hand-markup.', 'time-control sometimes.']
-  }), _react2.default.createElement(_style2.default, {
-    styleId: 3531176000,
-    css: '\n      p { font-size: calc(4rem + 2vw); }\n      li {\n        list-style: none;\n      }\n      article {\n        width: 90%;\n        max-width: unset !important;\n      }\n      '
-  }));
-};
-
-/***/ }),
+/* 109 */,
 /* 110 */,
 /* 111 */,
 /* 112 */,
@@ -1446,7 +1384,111 @@ exports.default = function () {
 /* 161 */,
 /* 162 */,
 /* 163 */,
-/* 164 */,
+/* 164 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = __webpack_require__(10);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _regenerator = __webpack_require__(20);
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _asyncToGenerator2 = __webpack_require__(19);
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _head = __webpack_require__(57);
+
+var _head2 = _interopRequireDefault(_head);
+
+var _link = __webpack_require__(31);
+
+var _link2 = _interopRequireDefault(_link);
+
+var _nextReduxWrapper = __webpack_require__(30);
+
+var _nextReduxWrapper2 = _interopRequireDefault(_nextReduxWrapper);
+
+var _store = __webpack_require__(45);
+
+var _Nav = __webpack_require__(43);
+
+var _Nav2 = _interopRequireDefault(_Nav);
+
+var _Sample = __webpack_require__(351);
+
+var _Sample2 = _interopRequireDefault(_Sample);
+
+var _Markup = __webpack_require__(349);
+
+var _Markup2 = _interopRequireDefault(_Markup);
+
+var _Cinemagraph = __webpack_require__(347);
+
+var _Cinemagraph2 = _interopRequireDefault(_Cinemagraph);
+
+var _PageWrapper = __webpack_require__(44);
+
+var _PageWrapper2 = _interopRequireDefault(_PageWrapper);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _this = undefined;
+
+var IndexPage = function IndexPage(_ref) {
+  var url = _ref.url;
+  return _react2.default.createElement(_PageWrapper2.default, { title: '\uD83D\uDE43\uD83D\uDC22' }, _react2.default.createElement(_Nav2.default, { url: url }), _react2.default.createElement(_Sample2.default, null), _react2.default.createElement(_Cinemagraph2.default, null));
+};
+
+IndexPage.getInitialProps = function () {
+  var _ref3 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(_ref2) {
+    var store = _ref2.store,
+        isServer = _ref2.isServer;
+    return _regenerator2.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            return _context.abrupt('return', { isServer: isServer });
+
+          case 1:
+          case 'end':
+            return _context.stop();
+        }
+      }
+    }, _callee, _this);
+  }));
+
+  return function (_x) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    addCount: function addCount(dispatch) {
+      return { type: 'ADD' };
+    }
+  };
+};
+
+exports.default = (0, _nextReduxWrapper2.default)(_store.initStore, function (state) {
+  return (0, _extends3.default)({}, state);
+}, mapDispatchToProps)(IndexPage);
+
+/***/ }),
 /* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11446,7 +11488,564 @@ function isString(obj) {
 
 
 /***/ }),
-/* 240 */
+/* 240 */,
+/* 241 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _style = __webpack_require__(1);
+
+var _style2 = _interopRequireDefault(_style);
+
+var _shortid = __webpack_require__(15);
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Message = function Message(_ref) {
+  var children = _ref.children,
+      _ref$me = _ref.me,
+      me = _ref$me === undefined ? false : _ref$me,
+      style = _ref.style;
+
+  var id = _shortid2.default.generate();
+
+  return _react2.default.createElement('div', { className: (me ? 'me' : 'you') + '-column', 'data-jsx': 1329159230
+  }, _react2.default.createElement('div', { className: 'message ' + (me ? 'me' : 'you'), id: id, style: style && style, 'data-jsx': 1329159230
+  }, children, _react2.default.createElement('style', null, '#' + id + ' {\n          ' + (style && '--you-color: ' + style.background + ';') + '\n        }')), _react2.default.createElement(_style2.default, {
+    styleId: 1329159230,
+    css: '.message[data-jsx="1329159230"] {--me-color: #ddd;--you-color: dodgerblue;--border-radius: 10px;display: inline-block;color: white;padding: 5px;margin: var(--border-radius, 10px);position: relative;max-width: 75%;}.message[data-jsx="1329159230"]::before {content: \'\';position: absolute;width: 0;height: 0;left: -5px;bottom: 0;border-top: var(--border-radius, 10px) solid transparent;border-bottom: 0px solid transparent;}.you-column[data-jsx="1329159230"] {text-align: right;}.me[data-jsx="1329159230"] {color: black;border-radius: var(--border-radius, 10px) var(--border-radius, 10px) var(--border-radius, 10px) 0;background: var(--me-color);}.me[data-jsx="1329159230"]::before {border-right: var(--border-radius, 10px) solid var(--me-color);border-left: 0px solid transparent;}.you[data-jsx="1329159230"] {border-radius: var(--border-radius, 10px) var(--border-radius, 10px) 0 var(--border-radius, 10px);background: var(--you-color);text-align: left;}.you[data-jsx="1329159230"]::before {right: -5px;left: unset;border-left: var(--border-radius, 10px) solid var(--you-color);border-right: 0px solid transparent;}'
+  }));
+};
+
+exports.default = Message;
+
+/***/ }),
+/* 242 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _style = __webpack_require__(1);
+
+var _style2 = _interopRequireDefault(_style);
+
+var _propTypes = __webpack_require__(8);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Two ways to use this.
+ *
+ * 1. In parent component, import <Messenger> and wrap a bunch of <Messages />
+ *
+ * ⚠ maybe not 2. In parent component, import messengerize and apply that to a template literal with keys indicating me and you.
+ */
+
+// import Message from './Message';
+var Messenger = function Messenger(_ref) {
+  var children = _ref.children,
+      name = _ref.name;
+  return _react2.default.createElement('section', {
+    'data-jsx': 2794900292
+  }, name && _react2.default.createElement('header', {
+    'data-jsx': 2794900292
+  }, _react2.default.createElement('h1', {
+    'data-jsx': 2794900292
+  }, name)), _react2.default.createElement('div', { className: 'messenger-body', 'data-jsx': 2794900292
+  }, children), _react2.default.createElement(_style2.default, {
+    styleId: 2794900292,
+    css: 'section[data-jsx="2794900292"] {display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;height: 100%;}header[data-jsx="2794900292"] {background: #f7f7f7;border-bottom: 1px solid #aaa;text-align: center;}header[data-jsx="2794900292"] h1[data-jsx="2794900292"] {font-weight: bold;margin: 0.5rem auto;}.messenger-body[data-jsx="2794900292"] {display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;overflow-y: scroll;-webkit-flex-grow: 1;-moz-flex-grow: 1;flex-grow: 1;}'
+  }));
+};
+
+exports.default = Messenger;
+
+/***/ }),
+/* 243 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _style = __webpack_require__(1);
+
+var _style2 = _interopRequireDefault(_style);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Message = __webpack_require__(241);
+
+var _Message2 = _interopRequireDefault(_Message);
+
+var _Messenger = __webpack_require__(242);
+
+var _Messenger2 = _interopRequireDefault(_Messenger);
+
+var _smoothScrollTo = __webpack_require__(111);
+
+var _smoothScrollTo2 = _interopRequireDefault(_smoothScrollTo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Phone = function Phone(_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement('div', { className: 'phone-container', 'data-jsx': 2741194164
+  }, _react2.default.createElement('div', { className: 'phone-speaker', 'data-jsx': 2741194164
+  }), _react2.default.createElement('div', { className: 'phone-screen', 'data-jsx': 2741194164
+  }, children), _react2.default.createElement('button', {
+    className: 'phone-button',
+    onClick: function onClick() {
+      return (0, _smoothScrollTo2.default)(document.querySelector('.messenger-body'), 0);
+    },
+    'data-jsx': 2741194164
+  }), _react2.default.createElement(_style2.default, {
+    styleId: 2741194164,
+    css: '.phone-container[data-jsx="2741194164"] {--aspect-ratio: 2;--phone-height: 90vh;--phone-button-height: 5vh;display:-webkit-flex; display:flex;-webkit-flex-direction: column;-moz-flex-direction: column;flex-direction: column;justify-content: space-around;align-items: center;margin: 30px auto;background: #000;border: 3px solid #999;height: var(--phone-height, 90vh);width: calc(var(--phone-height, 90vh) / var(--aspect-ratio, 2));max-height: 900px      max-width: calc(900px / var(--aspect-ratio, 2));;border-radius: 5vmin;padding: 0 2%;box-shadow: 0 0 30px;-webkit-transition: width 0.5s 0.1s, height 0.5s 0.3s;-moz-transition: width 0.5s 0.1s, height 0.5s 0.3s;-ms-transition: width 0.5s 0.1s, height 0.5s 0.3s;transition: width 0.5s 0.1s, height 0.5s 0.3s;}.phone-screen[data-jsx="2741194164"] {background: white;-webkit-flex-grow: 1;-moz-flex-grow: 1;flex-grow: 1;width: 100%;height: 0;}.phone-speaker[data-jsx="2741194164"] {width: 20%;height: 1%;background: #444;border-radius: 10%;margin: 5vmin auto;}.phone-button[data-jsx="2741194164"] {background: #222;border-radius: 50%;width: var(--phone-button-height, 5vh);height: var(--phone-button-height, 5vh);margin: 3vmin auto;display: block;}.phone-button[data-jsx="2741194164"]:focus {outline: none;}@media(orientation:landscape) {.phone-container[data-jsx="2741194164"] {--phone-button-height: 5vw;--phone-height: calc(90vw * var(--aspect-ratio));--aspect-ratio: 0.5;-webkit-flex-direction: row;-moz-flex-direction: row;flex-direction: row;padding: 2vmin 0;}.phone-screen[data-jsx="2741194164"] {width: 0;height: 100%;}.phone-speaker[data-jsx="2741194164"] {height: 20%;width: 1%;margin: auto 5vmin;}.phone-button[data-jsx="2741194164"] {margin: auto 3vmin;}}'
+  }));
+};
+
+exports.default = Phone;
+
+/***/ }),
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mark", function() { return mark; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stop", function() { return stop; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEntries", function() { return getEntries; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clear", function() { return clear; });
+/* global performance */
+var perf = typeof performance !== 'undefined' && performance;
+
+var now = perf && perf.now ? function () { return perf.now(); } : function () { return Date.now(); };
+
+function throwIfEmpty (name) {
+  if (!name) {
+    throw new Error('name must be non-empty')
+  }
+}
+
+// simple binary sort insertion
+function insertSorted (arr, item) {
+  var low = 0;
+  var high = arr.length;
+  var mid;
+  while (low < high) {
+    mid = (low + high) >>> 1; // like (num / 2) but faster
+    if (arr[mid].startTime < item.startTime) {
+      low = mid + 1;
+    } else {
+      high = mid;
+    }
+  }
+  arr.splice(low, 0, item);
+}
+
+var mark;
+var stop;
+var getEntries;
+var clear;
+
+if (perf && perf.mark) {
+  mark = function (name) {
+    throwIfEmpty(name);
+    perf.mark(("start " + name));
+  };
+  stop = function (name) {
+    throwIfEmpty(name);
+    perf.mark(("end " + name));
+    perf.measure(name, ("start " + name), ("end " + name));
+    var entries = perf.getEntriesByName(name);
+    return entries[entries.length - 1]
+  };
+  getEntries = function () { return perf.getEntriesByType('measure'); };
+  clear = function () {
+    perf.clearMarks();
+    perf.clearMeasures();
+  };
+} else {
+  var marks = {};
+  var entries = [];
+  mark = function (name) {
+    throwIfEmpty(name);
+    var startTime = now();
+    marks['$' + name] = startTime;
+  };
+  stop = function (name) {
+    throwIfEmpty(name);
+    var endTime = now();
+    var startTime = marks['$' + name];
+    if (!startTime) {
+      throw new Error(("no known mark: " + name))
+    }
+    var entry = {
+      startTime: startTime,
+      name: name,
+      duration: endTime - startTime,
+      entryType: 'measure'
+    };
+    // per the spec this should be at least 150:
+    // https://www.w3.org/TR/resource-timing-1/#extensions-performance-interface
+    // we just have no limit, per Chrome and Edge's de-facto behavior
+    insertSorted(entries, entry);
+    return entry
+  };
+  getEntries = function () { return entries; };
+  clear = function () { entries = []; };
+}
+
+
+
+
+/***/ }),
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _getPrototypeOf = __webpack_require__(5);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(2);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(3);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(7);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(6);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var vertShader = '\nuniform sampler2D uImageMask;\nuniform float uTime;\n\nvarying vec2 vUV;\n\nvoid main() {\n  vUV = uv;\n\t// vUV.x  = fract(uv.x + 0.001 * sin(0.00005 * uTime));\n\t// vUV.y  = fract(uv.y + 0.001 * cos(0.0005 * uTime*3.141));\n\n  vec4 uTexMask = texture2D(uImageMask, vUV);\n\n   vUV.x -= 0.005 * cos(vUV.x * 10.0 + uTime/800.0) * (length(uTexMask.rgb));\n   vUV.y += .0006 * sin(vUV.y * 10.0 + uTime/1000.0) * (length(uTexMask.rgb));\n  \n\tvec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );\n\tgl_Position = projectionMatrix * mvPosition;\n}\n';
+/** ⚠️ NEEDS A LOOK. PUT IN HASTILY. NEEDS TO TAKE PROPS, and shaders maybe. 
+ * 
+ * Might not even want to use three.js. But also might...
+*/
+
+var fragShader = '\nuniform sampler2D uImage;\nuniform sampler2D uImageMask;\nuniform float uTime;\n\nvarying vec2 vUV;\n\nvoid main() {\n  vec4 tex = texture2D(uImage, vUV);\n  vec4 mask = texture2D(uImageMask, vUV);\n  gl_FragColor = tex;\n\n  // if (uTime < 5000.0) {\n  //   gl_FragColor = tex * uTime * 0.0002; \n  // } else {\n  //   gl_FragColor = tex;\n  // }\n\n\tif (length(mask.rgb) > 1.73) {\n\tgl_FragColor *= 2.0 + 0.5* sin(uTime * 0.0003) * length(mask.rgb) ;\n}\n}\n';
+
+var customShader = {
+  uniforms: {
+    uTime: { value: null },
+    uImage: { value: null },
+    uImageMask: { value: null }
+  },
+  vertexShader: vertShader,
+  fragmentShader: fragShader
+};
+
+var Cinemagraph = function (_React$Component) {
+  (0, _inherits3.default)(Cinemagraph, _React$Component);
+
+  function Cinemagraph() {
+    (0, _classCallCheck3.default)(this, Cinemagraph);
+
+    return (0, _possibleConstructorReturn3.default)(this, (Cinemagraph.__proto__ || (0, _getPrototypeOf2.default)(Cinemagraph)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(Cinemagraph, [{
+    key: 'componentDidMount',
+
+    // set the scene size
+    value: function componentDidMount() {
+      var width = window.innerWidth,
+          height = width * 0.563;
+
+      // set some camera attributes
+      var VIEW_ANGLE = 45,
+          NEAR = 0.1,
+          FAR = 10000;
+      var aspect = width / height;
+
+      // get the DOM element
+
+      // create WebGL renderer, camera, and a scene
+      var renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
+      var camera = new THREE.OrthographicCamera(-0.5, 0.5, -0.5, 0.5, 1, 1000);
+      var scene = new THREE.Scene();
+      window.scene = scene;
+
+      var materials = [];
+      // create gui
+
+      // add camera to scene
+      scene.add(camera);
+
+      // camera starts at 0,0,0, so pull it back
+      camera.position.z = 1;
+
+      // start the renderer
+      renderer.setSize(width, height);
+      // set up plane dimensions
+      var w = 1.28,
+          l = 0.72;
+
+      var planeMaterial = new THREE.ShaderMaterial(customShader);
+      materials.push(planeMaterial);
+
+      var boatGreenTextures = [];
+      var boatGreenMasks = [];
+
+      // [1, 2, 3].forEach(num => {
+      boatGreenTextures.push(
+      // new THREE.TextureLoader().load(`img/bridge.jpg`)
+      new THREE.TextureLoader().load('static/mirror.png')
+      // new THREE.TextureLoader().load(`https://s3-us-west-2.amazonaws.com/s.cdpn.io/339525/firebreath.png`)
+      );
+      boatGreenMasks.push(
+      // new THREE.TextureLoader().load(`img/bridge-mask.jpg`)
+      new THREE.TextureLoader().load('static/mirror_mask.png'));
+      // });
+      planeMaterial.uniforms.uImage.value = boatGreenTextures[0];
+      planeMaterial.uniforms.uImageMask.value = boatGreenMasks[0];
+
+      // create mesh with plane geometry
+      var plane = new THREE.Mesh(new THREE.PlaneBufferGeometry(1, 1, 200, 200), planeMaterial);
+      plane.name = 'plane';
+      plane.rotation.x = Math.PI;
+
+      scene.add(plane);
+      update();
+
+      // this.canvas.addEventListener('mousemove', evt => {});
+      var index = 1;
+      this.canvas.addEventListener('click', function (evt) {
+        index++;
+        planeMaterial.uniforms.uImage.value = boatGreenTextures[index % 3];
+        planeMaterial.uniforms.uImageMask.value = boatGreenMasks[index % 3];
+      });
+
+      function update(t, dt) {
+        window.requestAnimationFrame(update, t, dt);
+        // console.log(dt);
+
+        materials.forEach(function (material) {
+          if (material.uniforms.uTime) {
+            material.uniforms.uTime.value = t;
+          }
+        });
+        render();
+      }
+
+      function render() {
+        renderer.render(scene, camera);
+      }
+
+      var DELTA_T = 8;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement('div', null, _react2.default.createElement('script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js' }), _react2.default.createElement('canvas', { ref: function ref(_ref) {
+          return _this2.canvas = _ref;
+        } }));
+    }
+  }]);
+
+  return Cinemagraph;
+}(_react2.default.Component);
+
+exports.default = Cinemagraph;
+
+/***/ }),
+/* 348 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _style = __webpack_require__(1);
+
+var _style2 = _interopRequireDefault(_style);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Definition = function Definition(_ref) {
+  var word = _ref.word,
+      ipa = _ref.ipa,
+      PoS = _ref.PoS,
+      children = _ref.children;
+  return _react2.default.createElement("section", {
+    "data-jsx": 1169277175
+  }, _react2.default.createElement("heading", {
+    "data-jsx": 1169277175
+  }, _react2.default.createElement("h1", {
+    "data-jsx": 1169277175
+  }, word), ipa && _react2.default.createElement("p", { className: "ipa", "data-jsx": 1169277175
+  }, ipa)), _react2.default.createElement("div", { className: "definition-body", "data-jsx": 1169277175
+  }, PoS && _react2.default.createElement("p", { className: "part-of-speech", "data-jsx": 1169277175
+  }, PoS), _react2.default.createElement("p", { className: "definition", "data-jsx": 1169277175
+  }, children)), _react2.default.createElement(_style2.default, {
+    styleId: 1169277175,
+    css: "h1[data-jsx=\"1169277175\"],.ipa[data-jsx=\"1169277175\"] {display: inline;}.ipa[data-jsx=\"1169277175\"] {margin-left: 1rem;font-weight: light;}p[data-jsx=\"1169277175\"] {margin-top: 0.25rem;margin-bottom: 0.25rem;}.part-of-speech[data-jsx=\"1169277175\"] {padding-left: 1rem;}.definition[data-jsx=\"1169277175\"] {font-weight: lighter;font-size: smaller;padding-left: 2rem;}"
+  }));
+};
+
+exports.default = Definition;
+
+/***/ }),
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11486,101 +12085,200 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var MeList = function (_Component) {
-  (0, _inherits3.default)(MeList, _Component);
+var Markup = function (_Component) {
+  (0, _inherits3.default)(Markup, _Component);
 
-  function MeList(props) {
-    (0, _classCallCheck3.default)(this, MeList);
+  function Markup() {
+    (0, _classCallCheck3.default)(this, Markup);
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (MeList.__proto__ || (0, _getPrototypeOf2.default)(MeList)).call(this, props));
-
-    _this.characterInd = 0;
-    _this.itemInd = 1;
-    // add a space to the end of the items (for text-breaking purposes)
-    _this.items = _this.props.items.map(function (item) {
-      return item + ' ';
-    });
-    return _this;
+    return (0, _possibleConstructorReturn3.default)(this, (Markup.__proto__ || (0, _getPrototypeOf2.default)(Markup)).call(this));
   }
 
-  (0, _createClass3.default)(MeList, [{
+  (0, _createClass3.default)(Markup, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.nextCharacter();
-    }
-  }, {
-    key: 'nextCharacter',
-    value: function nextCharacter() {
       var _this2 = this;
 
-      try {
-        window.requestAnimationFrame(function () {
-          var letter = void 0;
-          if (_this2.text.textContent.length - 1 < _this2.characterInd) {
-            // if the current textContent doesn't have a character at character ind, just add to textContent
-            letter = letterThatMightBeAnEmoji(_this2.items[_this2.itemInd].substr([_this2.characterInd], 2));
-            _this2.text.textContent += letter;
-          } else if (_this2.characterInd < _this2.items[_this2.itemInd].length) {
-            letter = letterThatMightBeAnEmoji(_this2.items[_this2.itemInd].substr([_this2.characterInd], 2));
-            // replace the text at that ind
-            _this2.text.textContent = _this2.text.textContent.substr(0, _this2.characterInd) + letter + _this2.text.textContent.substr(_this2.characterInd + letter.length, _this2.text.textContent.length - _this2.characterInd - letter.length);
-          } else {
-            _this2.text.textContent = _this2.text.textContent.substr(0, _this2.characterInd) + ' ' + _this2.text.textContent.substr(_this2.characterInd + 1, _this2.text.textContent.length - _this2.characterInd - 1);
-          }
+      console.log(this.canvas);
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
 
-          _this2.characterInd += letter ? letter.length : 1;
+      this.ctx = this.canvas.getContext('2d');
+      this.ctx.fillStyle = 'palevioletred';
 
-          if (_this2.characterInd >= _this2.items[_this2.itemInd].length && _this2.characterInd >= _this2.text.textContent.length) {
-            _this2.itemInd = (_this2.itemInd + 1) % _this2.items.length;
-            _this2.characterInd = 0;
-            setTimeout(function () {
-              return _this2.nextCharacter();
-            }, 1000);
-            return;
-          }
-          _this2.nextCharacter();
-        });
-      } catch (e) {
-        console.log('hit an error', e);
-      }
+      this.canvas.addEventListener('touchstart', function (e) {
+        return console.log('touchstart', e);
+      });
+      this.canvas.addEventListener('touchmove', function (e) {
+        e.preventDefault();
+        console.log(e.touches[0].clientX);
+        _this2.ctx.fillRect(e.touches[0].clientX, e.touches[0].clientY, 2, 2);
+      });
+      this.canvas.addEventListener('touchend', function (e) {
+        return console.log('touchend', e);
+      });
+      this.canvas.addEventListener('webkitmouseforcechanged', function (e) {
+        return console.log('webkitmouseforcechanged', e);
+      });
+      this.canvas.addEventListener('touchforcechange', function (e) {
+        return console.log('touchforcechange', e);
+      });
     }
   }, {
     key: 'render',
     value: function render() {
       var _this3 = this;
 
-      return _react2.default.createElement('li', { className: 'believe', 'data-jsx': 1188192895
-      }, _react2.default.createElement('p', {
-        'data-jsx': 1188192895
-      }, _react2.default.createElement('span', { className: 'title', 'data-jsx': 1188192895
-      }, this.props.title), ' ', _react2.default.createElement('span', {
-        ref: function ref(text) {
-          _this3.text = text;
-        },
-        'data-jsx': 1188192895
-      }), _react2.default.createElement('span', {
-        'data-jsx': 1188192895
-      })), _react2.default.createElement(_style2.default, {
-        styleId: 1188192895,
-        css: '.title[data-jsx="1188192895"] {font-weight: bold;}*[data-jsx="1188192895"] {font-family: monospace;}'
+      return _react2.default.createElement('div', {
+        'data-jsx': 2891955026
+      }, _react2.default.createElement('canvas', { ref: function ref(canvas) {
+          return _this3.canvas = canvas;
+        }, 'data-jsx': 2891955026
+      }), _react2.default.createElement(_style2.default, {
+        styleId: 2891955026,
+        css: 'canvas[data-jsx="2891955026"] {position: absolute;top: 0;left: 0;width: 100vw;height: 100vh;}'
       }));
     }
   }]);
 
-  return MeList;
+  return Markup;
 }(_react.Component);
-/**
- * This is not that React-y of a component. I am manipulating the DOM by hand, because dealing with state and render and timing was getting complicated.
- */
 
-exports.default = MeList;
+exports.default = Markup;
+
+/***/ }),
+/* 350 */,
+/* 351 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
-function letterThatMightBeAnEmoji(str) {
-  return str.match(/([\uD800-\uDBFF][\uDC00-\uDFFF])/) ? str.substr(0, 2) : str.substr(0, 1);
-}
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _remarkWhoa = __webpack_require__(220);
+
+var _remarkWhoa2 = _interopRequireDefault(_remarkWhoa);
+
+var _unified = __webpack_require__(232);
+
+var _unified2 = _interopRequireDefault(_unified);
+
+var _remarkParse = __webpack_require__(179);
+
+var _remarkParse2 = _interopRequireDefault(_remarkParse);
+
+var _marky = __webpack_require__(330);
+
+var marky = _interopRequireWildcard(_marky);
+
+var _whoaComponents = __webpack_require__(70);
+
+var _whoaComponents2 = _interopRequireDefault(_whoaComponents);
+
+var _Phone = __webpack_require__(243);
+
+var _Phone2 = _interopRequireDefault(_Phone);
+
+var _Definition = __webpack_require__(348);
+
+var _Definition2 = _interopRequireDefault(_Definition);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var whoaParse = (0, _unified2.default)().use(_remarkParse2.default).use(_remarkWhoa2.default).parse;
+
+var Sample = function Sample() {
+  marky.mark('whoa Parse');
+  var content = whoaParse('\n# Writing with `.whoa` inside of javascript files\nMy expectation that it would be expensive to use [remark](https://github.com/wooorm/remark) to parse files during runtime was completely wrong. **Remark is very fast.**\n\nI profiled the toll that parsing a chunk of `.whoa`, which is not much more than just using [Woorm](https://github.com/wooorm)\'s [unified module](https://unifiedjs.github.io/) and [remark-parse module](https://github.com/wooorm/remark/tree/master/packages/remark-parse)\u2014\n`unified().use(remarkParse).use(remarkWhoa).parse`. I used [marky](https://github.com/nolanlawson/marky) to take care of the intricacies of some of the performance measurements. You can profile this page yourself in the Chrome DevTools Performance pane\u2014I\'ve left the User Timing measurement in there, but if you don\'t want to do that, here\'s a snapshot.\n\n![whoa-parse-profile](/static/blog/whoa-parse-profile.png) \n\nSo it shows parsing a few paragraphs of `.whoa` took 288.74 ms, but take note that this is with *10x CPU slowdown* on. \n\n## Anyways, the whole thing gets prebuilt into html ahead of time, so it isn\'t really a concern.\n ');
+  marky.stop('whoa Parse');
+  return _react2.default.createElement('div', null, '      ', _react2.default.createElement(_Definition2.default, { word: 'chthonic', ipa: '/\u02C8\u03B8\u0252n\u026Ak/', PoS: 'adjective' }, 'concerning, belonging to, or inhabiting the underworld: a chthonic deity.'), _react2.default.createElement(_Phone2.default, null), ' ', _react2.default.createElement(_whoaComponents2.default, { content: content }));
+};
+
+exports.default = Sample;
+
+/***/ }),
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(164);
+
 
 /***/ })
-]);
+],[417]);
+            return { page: comp.default }
           })
         

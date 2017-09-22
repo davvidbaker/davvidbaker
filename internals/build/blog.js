@@ -65,19 +65,17 @@ async function doStuffWithJSFiles() {
 
 // array of strings like 'dynamic(import([filename]))'
 arrWhoa.forEach((post) => {
-  lookupTable.push(
-    `{
+  if (post.attributes) {
+    lookupTable.push(
+      `{
     filename: \`${post.filename.replace(/whoah?$/, 'js')}\`,
-    ${post.attributes ? `
     title: \`${post.attributes.title}\`,
     date: \`${post.attributes.date}\`,
     slug: \`${post.attributes.slug}\`,
     readTime: \`${post.attributes.readTime}\`,
-    ` : ''}
     component: dynamic(import('../out_blog/posts/${post.filename.replace(/whoah?$/, 'js')}')),
   }`
-  );
-  if (post.attributes) {
+    );
     slugs.push(`'${post.attributes.slug}'`);
   }
 });
