@@ -9,7 +9,8 @@ import Message from '../components/Message.js';
 import Whoa from '../whoa-components';
 import BlogPost from '../components/Blog/Post.js';
 
-import str from '../constants/2017-09-22.whoa';
+// ⚠️ this should really be somewhere else entirely, if anywhere outside of this file at all
+import str from '../constants/2017-09-22.js';
 
 const whoaParse = unified().use(remarkParse).use(remarkWhoa).parse;
 
