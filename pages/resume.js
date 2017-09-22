@@ -42,7 +42,7 @@ const ResumePage = ({ url }) => (
             <h3>
               <a href="http://click3x.com/">Click 3X</a>
               {' '}
-              ― Senior* Developer
+              ― Senior Developer
               <span>[June 2016 - present]</span>
             </h3>
             <ul>
@@ -288,12 +288,7 @@ const ResumePage = ({ url }) => (
         <ul>
           <li>
             <p>
-              * I was promoted to Senior Dev in January, 2017, but I have an idea of what a real senior developer is, and amongst friends, I know I am not there yet―but you know, appearances and whatnot for the clients.
-            </p>
-          </li>
-          <li>
-            <p>
-              ** I think the name has since changed to Engineering Summer Academy at Penn.
+              * I think the name has since changed to Engineering Summer Academy at Penn.
             </p>
           </li>
         </ul>
