@@ -36,14 +36,6 @@ const slugs = [];
 doStuffWithJSFiles();
 
 async function doStuffWithJSFiles() {
-  /* kinda roundabout way to copy files from blog folder to out_blog/posts folder*/
-  // jsFiles.forEach((file) => {
-  //   fs.writeFile(`out_blog/posts/${file}`, '', e => console.log(e));
-  //   fs
-  //     .createReadStream(`blog/${file}`)
-  //     .pipe(fs.createWriteStream(`out_blog/posts/${file}`));
-  // });
-
   const jsFilePromises = jsFiles.map(file => readFile(`blog/${file}`, 'utf8'));
   const jsFileContents = await Promise.all(jsFilePromises).catch(e =>
     console.error(e, e.stack)
@@ -65,9 +57,8 @@ async function doStuffWithJSFiles() {
 
 // array of strings like 'dynamic(import([filename]))'
 arrWhoa.forEach((post) => {
-  if (post.attributes) {
-    lookupTable.push(
-      `{
+  lookupTable.push(
+    `{
     filename: \`${post.filename.replace(/whoah?$/, 'js')}\`,
     title: \`${post.attributes.title}\`,
     date: \`${post.attributes.date}\`,
@@ -75,9 +66,8 @@ arrWhoa.forEach((post) => {
     readTime: \`${post.attributes.readTime}\`,
     component: dynamic(import('../out_blog/posts/${post.filename.replace(/whoah?$/, 'js')}')),
   }`
-    );
-    slugs.push(`'${post.attributes.slug}'`);
-  }
+  );
+  slugs.push(`'${post.attributes.slug}'`);
 });
 
 function writeSlugs() {

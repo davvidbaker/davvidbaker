@@ -139,7 +139,7 @@ const ResumePage = ({ url }) => (
 
             <h3>
               <a href="https://esap.seas.upenn.edu/">M&TSI</a>
-              ** ― Teaching Assistant<span>[Summer 2015]</span>
+              * ― Teaching Assistant<span>[Summer 2015]</span>
             </h3>
             <ul>
               <li>
