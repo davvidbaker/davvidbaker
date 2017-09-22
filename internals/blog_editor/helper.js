@@ -13,7 +13,7 @@ import Nav from 'components/Nav';
 
 // import post from 'blog/2017-06-30_phone-messenger-component.whoa';
 
-import Post from 'blog/2017-08-09_you-me-and-mqtt.js'
+import Post from 'blog/2017-09-22_slerp.js'
 // console.log(post);
 
 // const BlogPage = ({ addCount }) => {

@@ -11,7 +11,7 @@
     "build-only": "next build",
     "export-only": "next export",
     "generate": "plop --plopfile internals/generators/index.js",
-    "edit-post": "webpack-dev-server --config ./internals/blog_editor/webpack.config.js"
+    "edit-post": "webpack-dev-server --config ./internals/blog_editor/webpack.config.js --host 192.168.0.3"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +33,7 @@
     "remark-parse": "^3.0.1",
     "remark-whoa": "^0.0.0",
     "shortid": "^2.2.8",
+    "styled-components": "^2.1.2",
     "styled-jsx": "^1.0.3",
     "uglify-es": "^3.0.22",
     "unified": "^6.1.5",

@@ -4,7 +4,7 @@ import Message from './Message';
 import Messenger from './Messenger';
 import smoothScrollTo from '../utils/smoothScrollTo';
 
-const Phone = ({ children }) => (
+const Phone = ({ children, vertical }) => (
   <div className="phone-container">
     <div className="phone-speaker" />
     <div className="phone-screen">
@@ -16,6 +16,35 @@ const Phone = ({ children }) => (
       onClick={() =>
         smoothScrollTo(document.querySelector('.messenger-body'), 0)}
     />
+
+{/* ⚠️ THIS IS A HACK. Just use freaking styled-components. */}
+    <style>
+    {vertical && `@media(orientation:landscape) {
+      .phone-container {
+        --phone-button-height: 5vw;
+        --phone-height: calc(90vw * var(--aspect-ratio));
+        --aspect-ratio: 0.5;        
+
+        flex-direction: row;
+        padding: 2vmin 0;
+      }
+
+      .phone-screen {
+        width: 0;
+        height: 100%;
+      }
+
+      .phone-speaker {
+        height: 20%;
+        width: 1%;
+        margin: auto 5vmin;
+      }
+
+      .phone-button {
+        margin: auto 3vmin;
+      }
+    }` }
+    </style>
     <style jsx>
       {`
     .phone-container {
@@ -66,32 +95,6 @@ const Phone = ({ children }) => (
     }
     .phone-button:focus {
       outline: none;
-    }
-
-    @media(orientation:landscape) {
-      .phone-container {
-        --phone-button-height: 5vw;
-        --phone-height: calc(90vw * var(--aspect-ratio));
-        --aspect-ratio: 0.5;        
-
-        flex-direction: row;
-        padding: 2vmin 0;
-      }
-
-      .phone-screen {
-        width: 0;
-        height: 100%;
-      }
-
-      .phone-speaker {
-        height: 20%;
-        width: 1%;
-        margin: auto 5vmin;
-      }
-
-      .phone-button {
-        margin: auto 3vmin;
-      }
     }
     `}
     </style>

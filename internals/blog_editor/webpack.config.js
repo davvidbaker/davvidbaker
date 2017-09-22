@@ -19,12 +19,12 @@ module.exports = {
 
   module: {
     rules: [
+            // {
+      //   test: /\.whoah?$/,
+      //   loader: 'whoa-loader',
+      // },
       {
-        test: /\.whoah?$/,
-        loader: 'whoa-loader',
-      },
-      {
-        test: /\.jsx?$/,
+        test: [/\.jsx?$/, /\.whoa/],
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {

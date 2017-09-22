@@ -8,7 +8,7 @@ module.exports = {
       status: ['shipped', 'green'],
       tagline: 'A native iOS app for an Estee Lauder 360 campaign.',
       year: [2017],
-      description: 'Estee Lauder had a **360 video** on Youtube that they needed to work offline for marketing purposes. I created an iOS app using the [Google VR SDK for iOS](https://developers.google.com/vr/ios/) to show the video in 360 or VR (with a Google Cardboard.\n\nThis was my first real foray into the native iOS world, and I went deep into the **Swift and Xcode** world to make this project happen.',
+      description: 'Estee Lauder had a **360 video** on Youtube that they needed to work offline for marketing purposes. I created an iOS app using the [Google VR SDK for iOS](https://developers.google.com/vr/ios/) to show the video in 360 or VR (with a Google Cardboard).\n\nThis was my first real foray into the native iOS world, and I went deep into the **Swift and Xcode** world to make this project happen.',
       images: ['/static/elc360.png-noShadow'],
       keywords: ['iOS', 'Swift', '360', 'VR'],
       agency: {

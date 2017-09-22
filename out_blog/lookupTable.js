@@ -1,6 +1,6 @@
 
     /**
-     * This file was automatically created Fri Sep 22 2017 00:43:47 GMT-0400 (EDT)
+     * This file was automatically created Fri Sep 22 2017 02:51:30 GMT-0400 (EDT)
      */
     import dynamic from 'next/dynamic';
 
@@ -197,5 +197,11 @@
   published: 'false',
   js: true,
 
- component: dynamic(import('../blog/2017-08-09_you-me-and-mqtt.js'))}];
+ component: dynamic(import('../blog/2017-08-09_you-me-and-mqtt.js'))},{
+  title: 'A Hwhile',
+  slug: 'slerp',
+  date: 'September 22, 2017',
+  js: true,
+
+ component: dynamic(import('../blog/2017-09-22_slerp.js'))}];
   
