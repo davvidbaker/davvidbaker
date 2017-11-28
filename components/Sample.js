@@ -26,7 +26,7 @@ So it shows parsing a few paragraphs of \`.whoa\` took 288.74 ms, but take note 
 ## Anyways, the whole thing gets prebuilt into html ahead of time, so it isn't really a concern.
  `);
   marky.stop('whoa Parse');
-  return <div>      <Definition word="chthonic" ipa={`\/ˈθɒnɪk\/`} PoS="adjective">concerning, belonging to, or inhabiting the underworld: a chthonic deity.</Definition>
+  return <div>      <Definition word="chthonic" ipa="θɒnɪk" PoS="adjective">concerning, belonging to, or inhabiting the underworld: a chthonic deity.</Definition>
       <Phone /> <Whoa content={content} /></div>;
 };
 

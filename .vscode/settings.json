@@ -1,12 +1,4 @@
 {
-  "eslint.enable": true,
-  "workbench.colorCustomizations": {
-    "workbench.colorCustomizations": {
-    "editor.lineHighlightBackground": "#000",
-    "editorBracketMatch.border": "#D61991",
-    "editor.selectionBackground": "#1F1B38",
-    "editor.inactiveSelectionBackground": "#3A3368",
-    "panel.background": "#000"
-  },
-  }
+  "eslint.enable": true, 
+   "workbench.colorCustomizations": null
 }

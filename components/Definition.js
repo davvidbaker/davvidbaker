@@ -1,6 +1,8 @@
+import React from 'react';
+
 const Definition = ({ word, ipa, PoS, children }) => (
-  <section>
-    <heading><h1>{word}</h1>{ipa && <p className="ipa">{ipa}</p>}</heading>
+  <div>
+    <heading><h1>{word}</h1>{ipa && <p className="ipa">/{ipa}/</p>}</heading>
 
     <div className="definition-body">
       {PoS && <p className="part-of-speech">{PoS}</p>}
@@ -35,7 +37,7 @@ const Definition = ({ word, ipa, PoS, children }) => (
       }
       `}
     </style>
-  </section>
+  </div>
 );
 
 export default Definition;

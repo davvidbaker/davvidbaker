@@ -1,6 +1,6 @@
 
     /**
-     * This file was automatically created Fri Sep 22 2017 02:56:02 GMT-0400 (EDT)
+     * This file was automatically created Thu Oct 05 2017 02:21:51 GMT-0400 (EDT)
      */
     import dynamic from 'next/dynamic';
 
@@ -203,5 +203,11 @@
   date: 'September 22, 2017',
   js: true,
 
- component: dynamic(import('../blog/2017-09-22_slerp.js'))}];
+ component: dynamic(import('../blog/2017-09-22_slerp.js'))},{
+  title: 'Meaning',
+  slug: 'meaning-draft',
+  date: 'October 5, 2017',
+  js: true,
+
+ component: dynamic(import('../blog/2017-10-05_meaning-draft.js'))}];
   
